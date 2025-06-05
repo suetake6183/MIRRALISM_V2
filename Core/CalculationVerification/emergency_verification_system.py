@@ -55,9 +55,7 @@ class EmergencyCalculationVerification:
             ]
 
             tech_count = sum(1 for keyword in tech_keywords if keyword in entry_text)
-            integrity_count = sum(
-                1 for keyword in integrity_keywords if keyword in entry_text
-            )
+            integrity_count = sum(1 for keyword in integrity_keywords if keyword in entry_text)
 
             # スコア計算（緊急復旧版）
             tech_score = tech_count * 5
@@ -165,18 +163,18 @@ if __name__ == "__main__":
 
     # データベース状態確認
     db_status = verifier.database_integrity_check()
-    print(f"📊 データベース状況: {db_status['status']}")
+    print("📊 データベース状況: {db_status['status']}")
 
     if db_status["status"] == "DATABASE_ACCESSIBLE":
         print("✅ データベース接続成功")
         for table, count in db_status["record_counts"].items():
-            print(f"   📋 {table}: {count}件")
+            print("   📋 {table}: {count}件")
 
     # テスト検証実行
     test_text = "技術的な品質向上のためのシステム開発とテスト実装"
     result = verifier.verify_personality_calculation(test_text)
-    print(f"\n🧪 テスト検証結果: {result['final_score']}%")
+    print("\n🧪 テスト検証結果: {result['final_score']}%")
 
     # 緊急レポート生成
     report = verifier.generate_emergency_report()
-    print(f"\n📋 システム状況: {report['emergency_recovery']['system_status']}")
+    print("\n📋 システム状況: {report['emergency_recovery']['system_status']}")

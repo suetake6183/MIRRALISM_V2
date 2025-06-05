@@ -52,9 +52,7 @@ class AccuracyValidator:
                 tech_bonus = (tech_count or 0) * 5
                 integrity_bonus = (integrity_count or 0) * 3
 
-                total_score = min(
-                    base_score + tech_bonus + integrity_bonus, self.max_accuracy
-                )
+                total_score = min(base_score + tech_bonus + integrity_bonus, self.max_accuracy)
                 accuracies.append(total_score)
 
             avg_accuracy = sum(accuracies) / len(accuracies)
@@ -93,7 +91,7 @@ if __name__ == "__main__":
     validator = AccuracyValidator()
     report = validator.generate_accuracy_report()
 
-    print(f"\n📊 精度検証結果:")
+    print("\n📊 精度検証結果:")
     print(json.dumps(report, indent=2, ensure_ascii=False))
 
     # 結果評価

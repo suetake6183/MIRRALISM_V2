@@ -26,10 +26,10 @@ def check_environment_variables():
     for var, description in required_vars.items():
         value = os.getenv(var)
         if value and value != "sk-your-openai-api-key-here":
-            print(f"✅ {description}: 設定済み")
+            print("✅ {description}: 設定済み")
             status[var] = True
         else:
-            print(f"❌ {description}: 未設定")
+            print("❌ {description}: 未設定")
             status[var] = False
 
     return status
@@ -67,7 +67,7 @@ def check_cursor_mcp_config():
         return False
 
     except Exception as e:
-        print(f"❌ MCP設定読み込みエラー: {e}")
+        print("❌ MCP設定読み込みエラー: {e}")
         return False
 
 
@@ -87,9 +87,7 @@ def test_openai_connection():
         }
 
         # OpenAI Models APIでテスト
-        response = requests.get(
-            "https://api.openai.com/v1/models", headers=headers, timeout=10
-        )
+        response = requests.get("https://api.openai.com/v1/models", headers=headers, timeout=10)
 
         if response.status_code == 200:
             models = response.json()
@@ -97,17 +95,17 @@ def test_openai_connection():
 
             if codex_models:
                 print("✅ OpenAI API接続成功")
-                print(f"✅ Codex利用可能: {len(codex_models)}モデル")
+                print("✅ Codex利用可能: {len(codex_models)}モデル")
                 return True
             else:
                 print("⚠️ Codexモデルが見つかりません")
                 return False
         else:
-            print(f"❌ OpenAI API接続失敗: {response.status_code}")
+            print("❌ OpenAI API接続失敗: {response.status_code}")
             return False
 
     except Exception as e:
-        print(f"❌ OpenAI接続テストエラー: {e}")
+        print("❌ OpenAI接続テストエラー: {e}")
         return False
 
 
@@ -125,16 +123,13 @@ def check_cursor_extensions():
     ai_extensions = [
         ext
         for ext in extensions
-        if any(
-            keyword in ext.name.lower()
-            for keyword in ["openai", "chatgpt", "copilot", "ai"]
-        )
+        if any(keyword in ext.name.lower() for keyword in ["openai", "chatgpt", "copilot", "ai"])
     ]
 
     if ai_extensions:
-        print(f"✅ AI拡張機能: {len(ai_extensions)}個発見")
+        print("✅ AI拡張機能: {len(ai_extensions)}個発見")
         for ext in ai_extensions:
-            print(f"  - {ext.name}")
+            print("  - {ext.name}")
         return True
     else:
         print("⚠️ AI関連拡張機能が見つかりません")
@@ -190,21 +185,19 @@ def main():
     print("=" * 50)
 
     total_checks = 4
-    passed_checks = sum(
-        [any(env_status.values()), mcp_status, openai_status, ext_status]
-    )
+    passed_checks = sum([any(env_status.values()), mcp_status, openai_status, ext_status])
 
     success_rate = (passed_checks / total_checks) * 100
 
     if success_rate >= 75:
-        print(f"✅ 設定完了度: {success_rate:.0f}%")
+        print("✅ 設定完了度: {success_rate:.0f}%")
         print("🚀 Cursor×Codex統合準備完了！")
         print("PersonalityLearning 95%精度達成へ突進しましょう！")
     elif success_rate >= 50:
-        print(f"⚠️ 設定進行度: {success_rate:.0f}%")
+        print("⚠️ 設定進行度: {success_rate:.0f}%")
         print("追加設定が必要です")
     else:
-        print(f"❌ 設定完了度: {success_rate:.0f}%")
+        print("❌ 設定完了度: {success_rate:.0f}%")
         print("基本設定から始めてください")
 
     # 設定手順表示

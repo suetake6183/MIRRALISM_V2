@@ -61,9 +61,7 @@ class TaskMasterSuperWhisperIntegration:
         )
         self.logger = logging.getLogger(__name__)
 
-    def process_voice_for_tasks(
-        self, workflow_result: Dict[str, Any]
-    ) -> Dict[str, Any]:
+    def process_voice_for_tasks(self, workflow_result: Dict[str, Any]) -> Dict[str, Any]:
         """
         音声処理結果からTaskMaster操作実行
 
@@ -89,9 +87,7 @@ class TaskMasterSuperWhisperIntegration:
             enhanced_analysis = workflow_result["enhanced_analysis"]
 
             # TaskMaster操作判定
-            taskmaster_action = self._determine_taskmaster_action(
-                final_result, task_correlation, enhanced_analysis
-            )
+            taskmaster_action = self._determine_taskmaster_action(final_result, task_correlation, enhanced_analysis)
 
             if taskmaster_action["action"] == "none":
                 return {
@@ -102,9 +98,7 @@ class TaskMasterSuperWhisperIntegration:
                 }
 
             # TaskMaster操作実行
-            execution_result = self._execute_taskmaster_action(
-                taskmaster_action, final_result
-            )
+            execution_result = self._execute_taskmaster_action(taskmaster_action, final_result)
 
             # 結果統合
             return {
@@ -195,9 +189,7 @@ class TaskMasterSuperWhisperIntegration:
             "confidence": confidence,
         }
 
-    def _execute_taskmaster_action(
-        self, action_config: Dict[str, Any], final_result: Dict[str, Any]
-    ) -> Dict[str, Any]:
+    def _execute_taskmaster_action(self, action_config: Dict[str, Any], final_result: Dict[str, Any]) -> Dict[str, Any]:
         """
         TaskMaster操作実行
 
@@ -219,9 +211,7 @@ class TaskMasterSuperWhisperIntegration:
         else:
             return {"success": False, "error": f"未知の操作: {action}"}
 
-    def _create_task_from_voice(
-        self, action_config: Dict[str, Any], final_result: Dict[str, Any]
-    ) -> Dict[str, Any]:
+    def _create_task_from_voice(self, action_config: Dict[str, Any], final_result: Dict[str, Any]) -> Dict[str, Any]:
         """
         音声からタスク作成
 
@@ -241,9 +231,7 @@ class TaskMasterSuperWhisperIntegration:
             task_title = self._generate_task_title(text_content)
 
             # タスク詳細作成
-            task_details = self._generate_task_details(
-                text_content, confidence, final_result
-            )
+            task_details = self._generate_task_details(text_content, confidence, final_result)
 
             # TaskMaster MCP操作をシミュレート（実際の実装では実際のMCP呼び出し）
             task_data = {
@@ -276,9 +264,7 @@ class TaskMasterSuperWhisperIntegration:
             self.logger.error(f"❌ タスク作成エラー: {e}")
             return {"success": False, "error": str(e)}
 
-    def _create_idea_task(
-        self, action_config: Dict[str, Any], final_result: Dict[str, Any]
-    ) -> Dict[str, Any]:
+    def _create_idea_task(self, action_config: Dict[str, Any], final_result: Dict[str, Any]) -> Dict[str, Any]:
         """
         アイデア・振り返りタスク作成
 
@@ -343,9 +329,7 @@ class TaskMasterSuperWhisperIntegration:
             self.logger.error(f"❌ アイデアタスク作成エラー: {e}")
             return {"success": False, "error": str(e)}
 
-    def _update_related_tasks(
-        self, action_config: Dict[str, Any], final_result: Dict[str, Any]
-    ) -> Dict[str, Any]:
+    def _update_related_tasks(self, action_config: Dict[str, Any], final_result: Dict[str, Any]) -> Dict[str, Any]:
         """
         関連タスクの更新
 
@@ -472,8 +456,7 @@ class TaskMasterSuperWhisperIntegration:
             統合統計とサマリー
         """
         session_duration = (
-            datetime.now()
-            - datetime.fromisoformat(self.operation_stats["session_start"])
+            datetime.now() - datetime.fromisoformat(self.operation_stats["session_start"])
         ).total_seconds()
 
         return {
@@ -535,16 +518,16 @@ if __name__ == "__main__":
 
     print("🔧 TaskMaster統合テスト")
     print("=" * 50)
-    print(f"成功: {result['success']}")
+    print("成功: {result['success']}")
     if result["success"]:
         if result.get("execution_result", {}).get("success", False):
             exec_result = result["execution_result"]
-            print(f"操作: {exec_result['action']}")
-            print(f"メッセージ: {exec_result['message']}")
+            print("操作: {exec_result['action']}")
+            print("メッセージ: {exec_result['message']}")
             if "task_data" in exec_result:
-                print(f"タスクタイトル: {exec_result['task_data']['title']}")
+                print("タスクタイトル: {exec_result['task_data']['title']}")
         else:
-            print(f"アクション: {result.get('action', 'none')}")
-            print(f"理由: {result.get('reason', 'N/A')}")
+            print("アクション: {result.get('action', 'none')}")
+            print("理由: {result.get('reason', 'N/A')}")
     else:
-        print(f"エラー: {result['error']}")
+        print("エラー: {result['error']}")

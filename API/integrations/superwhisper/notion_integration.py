@@ -71,9 +71,7 @@ class SuperWhisperNotionIntegration:
         self.notion_database_id = self.config.get("notion_database_id")
 
         # 処理済みエントリ管理用DB
-        self.processed_db = (
-            self.base_dir / ".system_internal" / "superwhisper_processed.db"
-        )
+        self.processed_db = self.base_dir / ".system_internal" / "superwhisper_processed.db"
         self.processed_db.parent.mkdir(parents=True, exist_ok=True)
         self._init_processed_db()
 
@@ -92,17 +90,13 @@ class SuperWhisperNotionIntegration:
             # ファイルハンドラー
             log_file = log_dir / "superwhisper_integration.log"
             file_handler = logging.FileHandler(log_file, encoding="utf-8")
-            file_formatter = logging.Formatter(
-                "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-            )
+            file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
             file_handler.setFormatter(file_formatter)
             logger.addHandler(file_handler)
 
             # コンソールハンドラー
             console_handler = logging.StreamHandler()
-            console_formatter = logging.Formatter(
-                "%(asctime)s - %(levelname)s - %(message)s"
-            )
+            console_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
             console_handler.setFormatter(console_formatter)
             logger.addHandler(console_handler)
 
@@ -111,12 +105,7 @@ class SuperWhisperNotionIntegration:
     def _load_config(self, config_path: str) -> Dict[str, Any]:
         """設定ファイル読み込み"""
         if config_path is None:
-            config_path = (
-                self.base_dir
-                / "30_Resources"
-                / "Configuration"
-                / "superwhisper_config.json"
-            )
+            config_path = self.base_dir / "30_Resources" / "Configuration" / "superwhisper_config.json"
 
         try:
             if Path(config_path).exists():
@@ -217,7 +206,7 @@ class SuperWhisperNotionIntegration:
                 # 可能な限りパースを試行
                 dt = datetime.fromisoformat(raw_datetime.replace("Z", "+00:00"))
                 return dt.isoformat()
-            except:
+            except Exception:
                 # 完全に失敗した場合は現在時刻で代替
                 now = datetime.now(timezone.utc)
                 fixed_time = now.isoformat()
@@ -304,18 +293,14 @@ class SuperWhisperNotionIntegration:
                 return new_entries
 
             else:
-                self.logger.error(
-                    f"Notion API エラー: {response.status_code} - {response.text}"
-                )
+                self.logger.error(f"Notion API エラー: {response.status_code} - {response.text}")
                 return []
 
         except Exception as e:
             self.logger.error(f"Notion取得エラー: {e}")
             return []
 
-    def _filter_unprocessed_entries(
-        self, entries: List[Dict[str, Any]]
-    ) -> List[Dict[str, Any]]:
+    def _filter_unprocessed_entries(self, entries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """未処理エントリのフィルタリング"""
         try:
             conn = sqlite3.connect(str(self.processed_db))
@@ -324,9 +309,7 @@ class SuperWhisperNotionIntegration:
             new_entries = []
             for entry in entries:
                 notion_id = entry["id"]
-                cursor.execute(
-                    "SELECT 1 FROM processed_entries WHERE notion_id = ?", (notion_id,)
-                )
+                cursor.execute("SELECT 1 FROM processed_entries WHERE notion_id = ?", (notion_id,))
 
                 if not cursor.fetchone():
                     new_entries.append(entry)
@@ -418,20 +401,14 @@ class SuperWhisperNotionIntegration:
             for prop_name in diary_properties:
                 if prop_name in properties:
                     prop_data = properties[prop_name]
-                    if prop_data.get("type") == "rich_text" and prop_data.get(
-                        "rich_text"
-                    ):
+                    if prop_data.get("type") == "rich_text" and prop_data.get("rich_text"):
                         for text_obj in prop_data["rich_text"]:
                             content = text_obj.get("text", {}).get("content", "")
                             if content.strip():
-                                diary_content_parts.append(
-                                    f"**{prop_name}**\n{content}"
-                                )
+                                diary_content_parts.append(f"**{prop_name}**\n{content}")
 
             # プロパティベースの日記本文
-            diary_content = (
-                "\n\n".join(diary_content_parts) if diary_content_parts else ""
-            )
+            diary_content = "\n\n".join(diary_content_parts) if diary_content_parts else ""
 
             # 最終的な本文決定の優先順位
             # 1. SuperWhisper用コンテンツ（明示的な音声転写）
@@ -465,18 +442,14 @@ class SuperWhisperNotionIntegration:
                 "quality_score": quality_score,
                 "noise_level": noise_level,
                 "text_length": len(final_content),
-                "content_source": self._get_content_source(
-                    content_from_property, text_content, diary_content, title
-                ),
+                "content_source": self._get_content_source(content_from_property, text_content, diary_content, title),
             }
 
         except Exception as e:
             self.logger.error(f"エントリデータ抽出エラー: {e}")
             return None
 
-    def _get_content_source(
-        self, content_property: str, page_content: str, diary_content: str, title: str
-    ) -> str:
+    def _get_content_source(self, content_property: str, page_content: str, diary_content: str, title: str) -> str:
         """本文の取得元を特定"""
         if content_property:
             return "SuperWhisper音声転写"
@@ -505,9 +478,7 @@ class SuperWhisperNotionIntegration:
     def _fetch_blocks_recursive(self, block_id: str, headers: dict) -> str:
         """ブロックを再帰的に取得してテキストを抽出"""
         try:
-            response = requests.get(
-                f"https://api.notion.com/v1/blocks/{block_id}/children", headers=headers
-            )
+            response = requests.get(f"https://api.notion.com/v1/blocks/{block_id}/children", headers=headers)
 
             if response.status_code != 200:
                 error_response = response.json() if response.content else {}
@@ -515,14 +486,10 @@ class SuperWhisperNotionIntegration:
 
                 # transcriptionブロックエラーの場合は空文字を返す（タイトルから取得される）
                 if "transcription is not supported" in error_message:
-                    self.logger.debug(
-                        f"transcriptionブロック検出 - タイトルから本文取得: {error_message}"
-                    )
+                    self.logger.debug(f"transcriptionブロック検出 - タイトルから本文取得: {error_message}")
                     return ""
 
-                self.logger.warning(
-                    f"ブロック取得エラー: {response.status_code} - {response.text}"
-                )
+                self.logger.warning(f"ブロック取得エラー: {response.status_code} - {response.text}")
                 return ""
 
             blocks = response.json().get("results", [])
@@ -558,9 +525,7 @@ class SuperWhisperNotionIntegration:
             if block_type == "paragraph":
                 paragraph = block.get("paragraph", {})
                 rich_text = paragraph.get("rich_text", [])
-                return "\n".join(
-                    [text_obj.get("plain_text", "") for text_obj in rich_text]
-                )
+                return "\n".join([text_obj.get("plain_text", "") for text_obj in rich_text])
 
             # 見出しブロック
             elif block_type in ["heading_1", "heading_2", "heading_3"]:
@@ -665,9 +630,7 @@ class SuperWhisperNotionIntegration:
                 quality_indicators += 1
 
             # 4. 連続する同じ文字チェック
-            has_repetition = any(
-                text[i] == text[i + 1] == text[i + 2] for i in range(len(text) - 2)
-            )
+            has_repetition = any(text[i] == text[i + 1] == text[i + 2] for i in range(len(text) - 2))
             if not has_repetition:
                 quality_indicators += 1
 
@@ -710,19 +673,13 @@ class SuperWhisperNotionIntegration:
         noise_level = entry_data.get("noise_level", 1.0)
 
         # 💭 Personal_Thoughts/ 配置条件
-        if (
-            quality_score >= quality_threshold
-            and text_length >= min_text_length
-            and noise_level <= max_noise_level
-        ):
+        if quality_score >= quality_threshold and text_length >= min_text_length and noise_level <= max_noise_level:
             return "personal_thoughts"
 
         # 📥 Inbox_Raw/ 配置条件
         return "inbox_raw"
 
-    def _save_entry_to_inbox(
-        self, entry_data: Dict[str, Any], classification: str
-    ) -> Optional[str]:
+    def _save_entry_to_inbox(self, entry_data: Dict[str, Any], classification: str) -> Optional[str]:
         """インボックスへのファイル保存"""
         try:
             # 保存先ディレクトリ決定
@@ -757,9 +714,7 @@ class SuperWhisperNotionIntegration:
             self.logger.error(f"ファイル保存エラー: {e}")
             return None
 
-    def _create_file_content(
-        self, entry_data: Dict[str, Any], classification: str
-    ) -> str:
+    def _create_file_content(self, entry_data: Dict[str, Any], classification: str) -> str:
         """保存ファイルの内容作成（🔧時刻バグ修正統合版）"""
         raw_created_time = entry_data.get("created_time", "")
         text_content = entry_data.get("text_content", "")
@@ -770,23 +725,17 @@ class SuperWhisperNotionIntegration:
 
         # 🔧 重要: 時刻フォーマット修正適用
         fixed_created_time = self._fix_datetime_format(raw_created_time)
-        datetime_validation = self._validate_datetime_quality(
-            raw_created_time, fixed_created_time
-        )
+        datetime_validation = self._validate_datetime_quality(raw_created_time, fixed_created_time)
 
         # 日時フォーマット（表示用）
         try:
             dt = datetime.fromisoformat(fixed_created_time.replace("Z", "+00:00"))
             formatted_time = dt.strftime("%Y年%m月%d日 %H:%M:%S")
-        except:
+        except Exception:
             formatted_time = "時刻パースエラー"
 
         # 分類ラベル
-        classification_label = (
-            "💭 Personal Thoughts"
-            if classification == "personal_thoughts"
-            else "📥 Inbox Raw"
-        )
+        classification_label = "💭 Personal Thoughts" if classification == "personal_thoughts" else "📥 Inbox Raw"
 
         # 修正情報の追加（デバッグ用・修正適用時のみ）
         fix_info = ""
@@ -841,9 +790,7 @@ processing_version: v2.1_datetime_fixed''' if datetime_validation["is_fixed"] el
 
         return content
 
-    def _mark_as_processed(
-        self, notion_id: str, file_path: str, classification: str, quality_score: float
-    ):
+    def _mark_as_processed(self, notion_id: str, file_path: str, classification: str, quality_score: float):
         """処理済みマーク"""
         try:
             conn = sqlite3.connect(str(self.processed_db))
@@ -931,10 +878,10 @@ def main():
         integration = SuperWhisperNotionIntegration(args.config)
         processed_count = integration.monitor_and_process(single_run=args.single_run)
 
-        print(f"✅ 処理完了: {processed_count}件のエントリを処理しました")
+        print("✅ 処理完了: {processed_count}件のエントリを処理しました")
 
     except Exception as e:
-        print(f"❌ システムエラー: {e}")
+        print("❌ システムエラー: {e}")
         sys.exit(1)
 
 

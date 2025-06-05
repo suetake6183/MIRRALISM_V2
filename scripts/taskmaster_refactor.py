@@ -5,20 +5,19 @@ MIRRALISM TaskMaster Architecture Refactoring Script
 """
 
 import json
-from datetime import datetime
 
 
 def refactor_taskmaster_structure():
     """TaskMaster構造をアーキテクチャ原則に基づいて最適化"""
 
     print("🏗️ MIRRALISM TaskMaster Architecture Refactoring...")
-    print(f"⏰ 実行時刻: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("⏰ 実行時刻: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
     # 現在のTaskMaster読み込み
     with open(".taskmaster/tasks/tasks.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    print(f"📊 現在のタスク数: {len(data['tasks'])}")
+    print("📊 現在のタスク数: {len(data['tasks'])}")
 
     # Task 2からTask 2.5を分離してTask 3.1に移行
     task2_subtask5 = None
@@ -63,19 +62,13 @@ def refactor_taskmaster_structure():
     )
 
     subtask1_desc = f"Enhanced version of: {task2_subtask5['description']}"
-    subtask1_details = (
-        f"Migrated and expanded from Task 2.5: {task2_subtask5['details']}"
-    )
+    subtask1_details = f"Migrated and expanded from Task 2.5: {task2_subtask5['details']}"
 
     subtask2_details = (
-        "Apply MIRRALISM quality standards through automated gates. "
-        "Build upon existing pre-commit foundation."
+        "Apply MIRRALISM quality standards through automated gates. " "Build upon existing pre-commit foundation."
     )
 
-    subtask3_details = (
-        "Unit testing, integration testing, regression prevention. "
-        "Docker environment integration."
-    )
+    subtask3_details = "Unit testing, integration testing, regression prevention. " "Docker environment integration."
 
     new_task3 = {
         "id": 3,
@@ -98,10 +91,7 @@ def refactor_taskmaster_structure():
             {
                 "id": 2,
                 "title": "Quality Gates Integration",
-                "description": (
-                    "Extend pre-commit hooks with automated quality "
-                    "thresholds and review triggers"
-                ),
+                "description": ("Extend pre-commit hooks with automated quality " "thresholds and review triggers"),
                 "dependencies": [1],
                 "details": subtask2_details,
                 "status": "pending",
@@ -109,10 +99,7 @@ def refactor_taskmaster_structure():
             {
                 "id": 3,
                 "title": "Automated Testing Pipeline",
-                "description": (
-                    "Implement comprehensive testing automation with "
-                    "performance benchmarking"
-                ),
+                "description": ("Implement comprehensive testing automation with " "performance benchmarking"),
                 "dependencies": [1],
                 "details": subtask3_details,
                 "status": "pending",
@@ -120,15 +107,9 @@ def refactor_taskmaster_structure():
             {
                 "id": 4,
                 "title": "Deployment & Monitoring",
-                "description": (
-                    "Automated deployment with rollback strategies and "
-                    "health monitoring"
-                ),
+                "description": ("Automated deployment with rollback strategies and " "health monitoring"),
                 "dependencies": [2, 3],
-                "details": (
-                    "Complete deployment automation with monitoring and "
-                    "alert systems"
-                ),
+                "details": ("Complete deployment automation with monitoring and " "alert systems"),
                 "status": "pending",
             },
         ],
@@ -144,7 +125,7 @@ def refactor_taskmaster_structure():
     for task in tasks_to_shift:
         old_id = task["id"]
         task["id"] = old_id + 1
-        print(f"🔄 Task {old_id} → Task {task['id']}: {task['title']}")
+        print("🔄 Task {old_id} → Task {task['id']}: {task['title']}")
 
     # 新Task 3を適切な位置に挿入
     data["tasks"].insert(2, new_task3)
@@ -177,7 +158,7 @@ def refactor_taskmaster_structure():
         json.dump(data, f, indent=2, ensure_ascii=False)
 
     print("✅ 新Task 3: CI/CD Pipeline Architecture 追加完了")
-    print(f"📊 更新後のタスク数: {len(data['tasks'])}")
+    print("📊 更新後のタスク数: {len(data['tasks'])}")
     print("🎯 TaskMaster アーキテクチャ最適化完了")
 
     return True

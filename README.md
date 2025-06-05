@@ -174,5 +174,5 @@ docker run mirralism-dev pytest
 
 ---
 
-**MIRRALISM V2** - AI-Powered Personal Optimization Platform  
+**MIRRALISM V2** - AI-Powered Personal Optimization Platform
 © 2024 suetake6183. Licensed under MIT.

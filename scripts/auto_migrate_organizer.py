@@ -6,15 +6,14 @@ MIRRALISM V2 マイグレーション自動整理フック
 TaskMaster連携でマイグレーション時にファイル整理を自動実行
 """
 
+import datetime
+import json
 import os
 import sys
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
-import datetime
-import json
-
 from file_organizer import FlexibleFileOrganizer
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 
 class MigrationOrganizer:
@@ -22,9 +21,7 @@ class MigrationOrganizer:
 
     def __init__(self):
         self.organizer = FlexibleFileOrganizer()
-        self.log_file = (
-            self.organizer.root_dir / "Data" / "analytics" / "migration_log.json"
-        )
+        self.log_file = self.organizer.root_dir / "Data" / "analytics" / "migration_log.json"
 
     def pre_migration_cleanup(self):
         """マイグレーション前クリーンアップ"""
@@ -47,7 +44,7 @@ class MigrationOrganizer:
 
         self._save_log(log_entry)
 
-        print(f"✅ マイグレーション前整理完了: {results['moved']}ファイル移動")
+        print("✅ マイグレーション前整理完了: {results['moved']}ファイル移動")
         return results
 
     def post_migration_validation(self):
@@ -72,7 +69,7 @@ class MigrationOrganizer:
         self._save_log(log_entry)
 
         if remaining_files:
-            print(f"⚠️ {len(remaining_files)}個のファイルがまだ散らかっています: {remaining_files}")
+            print("⚠️ {len(remaining_files)}個のファイルがまだ散らかっています: {remaining_files}")
             return False
         else:
             print("✅ ディレクトリ完全クリーン！")
@@ -113,9 +110,9 @@ def main():
         print("🔄 完全マイグレーション整理実行...")
         pre_results = migrator.pre_migration_cleanup()
         post_clean = migrator.post_migration_validation()
-        print(f"🎉 完了: {pre_results['moved']}ファイル整理, クリーン状態: {post_clean}")
+        print("🎉 完了: {pre_results['moved']}ファイル整理, クリーン状態: {post_clean}")
     else:
-        print(f"❌ 無効なコマンド: {command}")
+        print("❌ 無効なコマンド: {command}")
 
 
 if __name__ == "__main__":

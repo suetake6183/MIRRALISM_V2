@@ -92,18 +92,18 @@ if __name__ == "__main__":
     print("📁 ディレクトリ構造:")
     for d, exists in dir_results.items():
         status = "✅" if exists else "❌"
-        print(f"   {status} {d}")
+        print("   {status} {d}")
 
     # 重要ファイルテスト
     file_results = recovery.test_critical_files()
     print("\n📄 重要ファイル:")
     for f, exists in file_results.items():
         status = "✅" if exists else "🚨"
-        print(f"   {status} {f}")
+        print("   {status} {f}")
 
     # 復旧レポート
     report = recovery.generate_recovery_report()
-    print(f"\n📊 復旧状況: {report['recovery_status']}")
+    print("\n📊 復旧状況: {report['recovery_status']}")
     print("📋 復旧済みディレクトリ:")
     for d in report["recovered_directories"]:
-        print(f"   ✅ {d}")
+        print("   ✅ {d}")

@@ -26,9 +26,7 @@ from typing import Dict
 from typing import Tuple
 
 # ログ設定
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -142,9 +140,7 @@ class FlexibleFileOrganizer:
         if mode in self.config["daily_limits"]:
             self.config["current_mode"] = mode
             self.save_config()
-            logger.info(
-                f"Project mode set to '{mode}': {self.get_current_limit()} files/day"
-            )
+            logger.info(f"Project mode set to '{mode}': {self.get_current_limit()} files/day")
             return True
         return False
 
@@ -188,7 +184,7 @@ class FlexibleFileOrganizer:
                 if category != "unknown":
                     target_files.append(item)
 
-        print(f"📁 {len(target_files)}個のファイルを整理します")
+        print("📁 {len(target_files)}個のファイルを整理します")
 
         # 一時的にmigrationモードに切り替え
         original_mode = self.config["current_mode"]
@@ -198,10 +194,10 @@ class FlexibleFileOrganizer:
             success, message = self.organize_file(str(file_path))
             if success:
                 results["moved"] += 1
-                print(f"  ✅ {file_path.name}")
+                print("  ✅ {file_path.name}")
             else:
                 results["errors"] += 1
-                print(f"  ❌ {file_path.name}: {message}")
+                print("  ❌ {file_path.name}: {message}")
 
         # 元のモードに戻す
         self.config["current_mode"] = original_mode
@@ -229,9 +225,7 @@ class FlexibleFileOrganizer:
 
         try:
             shutil.move(str(source), str(final_destination))
-            logger.info(
-                f"✅ {source.name} → {final_destination.relative_to(self.root_dir)}"
-            )
+            logger.info(f"✅ {source.name} → {final_destination.relative_to(self.root_dir)}")
             return (
                 True,
                 f"✅ 移動完了: {final_destination.relative_to(self.root_dir)}",
@@ -294,8 +288,8 @@ def main():
 
     # 現在の統計表示
     stats = organizer.get_stats()
-    print(f"📊 今日の作成数: {stats['today']['files_created']}")
-    print(f"🎯 現在モード: {stats['current_mode']} (制限: {stats['current_limit']})")
+    print("📊 今日の作成数: {stats['today']['files_created']}")
+    print("🎯 現在モード: {stats['current_mode']} (制限: {stats['current_limit']})")
     print(
         f"📁 分散状況: Analytics({stats['directories']['analytics']}) Reports({stats['directories']['reports']}) Strategy({stats['directories']['strategy']}) Temp({stats['directories']['temp']})"
     )
@@ -310,13 +304,13 @@ def main():
 
     if choice == "1":
         results = organizer.clean_current_mess()
-        print(f"\n🎉 整理完了: {results['moved']}移動, {results['errors']}エラー")
+        print("\n🎉 整理完了: {results['moved']}移動, {results['errors']}エラー")
 
     elif choice == "2":
         print("利用可能モード: normal, analysis, migration")
         mode = input("モードを選択: ").strip()
         if organizer.set_project_mode(mode):
-            print(f"✅ {mode}モードに設定しました")
+            print("✅ {mode}モードに設定しました")
         else:
             print("❌ 無効なモード")
 

@@ -91,9 +91,7 @@ class QualityAssuranceFramework:
                 accuracies.append(total_score)
 
             avg_accuracy = sum(accuracies) / len(accuracies)
-            variance = sum((a - avg_accuracy) ** 2 for a in accuracies) / len(
-                accuracies
-            )
+            variance = sum((a - avg_accuracy) ** 2 for a in accuracies) / len(accuracies)
 
             # 品質基準評価
             if variance <= 5.0 and avg_accuracy >= 91.5:
@@ -336,8 +334,8 @@ class QualityAssuranceFramework:
             color = self.quality_standards.get(status, {}).get("color", "⚪")
             details = result.get("details", "詳細なし")
 
-            print(f"\n{color} {test_name.upper()}: {status}")
-            print(f"   詳細: {details}")
+            print("\n{color} {test_name.upper()}: {status}")
+            print("   詳細: {details}")
 
         # 総合評価
         overall = test_results.get("overall_assessment", {})
@@ -346,7 +344,7 @@ class QualityAssuranceFramework:
         overall_score = overall.get("overall_score", 0)
 
         print("\n" + "=" * 50)
-        print(f"🎯 総合評価: {overall_color} {overall_status} ({overall_score}点)")
+        print("🎯 総合評価: {overall_color} {overall_status} ({overall_score}点)")
         print("=" * 50)
 
 
@@ -364,4 +362,4 @@ if __name__ == "__main__":
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
-    print(f"\n📄 詳細結果: {output_file}")
+    print("\n📄 詳細結果: {output_file}")

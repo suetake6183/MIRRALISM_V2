@@ -80,8 +80,7 @@ class DesignComplianceChecker:
                 f"  1. 事前に設計チームに相談\n"
                 f"  2. 設計書を更新\n"
                 f"  3. 承認後に実装\n"
-                f"📋 承認済みディレクトリ一覧:\n"
-                + "\n".join(f"  - {d}" for d in sorted(self.design_directories))
+                f"📋 承認済みディレクトリ一覧:\n" + "\n".join(f"  - {d}" for d in sorted(self.design_directories))
             )
 
     def test_compliance_check(self):
@@ -138,13 +137,13 @@ def main():
 
     print("✅ 承認済みディレクトリテスト:")
     for dir_name in results["valid_directories"]:
-        print(f"  ✓ {dir_name} → OK")
+        print("  ✓ {dir_name} → OK")
 
     print("\n🚨 未承認ディレクトリテスト:")
     for dir_name in results["invalid_directories"]:
-        print(f"  ✓ {dir_name} → 正しく拒否")
+        print("  ✓ {dir_name} → 正しく拒否")
 
-    print(f"\n📊 テスト結果: {'✅ 合格' if results['test_passed'] else '❌ 失敗'}")
+    print("\n📊 テスト結果: {'✅ 合格' if results['test_passed'] else '❌ 失敗'}")
 
     # 実際の違反例デモ
     print("\n" + "=" * 40)
@@ -152,7 +151,7 @@ def main():
     try:
         checker.check_directory_compliance("unauthorized_test_dir/")
     except DesignViolationError as e:
-        print(f"✅ 期待通りエラーが発生:\n{e}")
+        print("✅ 期待通りエラーが発生:\n{e}")
 
 
 if __name__ == "__main__":

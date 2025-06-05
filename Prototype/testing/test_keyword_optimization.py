@@ -106,7 +106,7 @@ class KeywordOptimizationTester:
         results = self.test_weight_combinations()
 
         if "error" in results:
-            print(f"❌ エラー: {results['error']}")
+            print("❌ エラー: {results['error']}")
             return results
 
         print("\n📊 テスト結果:")
@@ -117,7 +117,7 @@ class KeywordOptimizationTester:
                 f"平均{result['average_score']}%, 分散{result['variance']}{status}"
             )
 
-        print(f"\n💡 推奨事項: {results['recommendation']}")
+        print("\n💡 推奨事項: {results['recommendation']}")
 
         return results
 
@@ -133,4 +133,4 @@ if __name__ == "__main__":
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
-    print(f"\n📄 詳細結果: {output_file}")
+    print("\n📄 詳細結果: {output_file}")

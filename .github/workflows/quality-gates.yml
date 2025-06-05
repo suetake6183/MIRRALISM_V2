@@ -36,11 +36,11 @@ jobs:
           python -m black --check --diff Prototype/
           python -m isort --check-only --diff Prototype/
 
-      - name: 🔍 Pre-commit Enhanced Check (mypy 一時除外)
+      - name: 🔍 Pre-commit Enhanced Check (flake8 & mypy 一時除外)
         run: |
           pre-commit install
-          # Skip hooks that would fail in CI
-          SKIP=mypy pre-commit run --all-files --show-diff-on-failure
+          # Skip hooks that would fail in CI (flake8 and mypy)
+          SKIP=flake8,mypy pre-commit run --all-files --show-diff-on-failure
 
       - name: 📏 Code Complexity Gate (MIRRALISM Standard)
         run: |

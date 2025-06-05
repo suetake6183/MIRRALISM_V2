@@ -52,26 +52,22 @@ class WeeklyQualityAuditor:
         audit_result["total_directories"] = len(existing_dirs)
 
         print("🔍 ディレクトリ準拠監査実行中...")
-        print(f"📁 検査対象: {len(existing_dirs)}個のディレクトリ")
+        print("📁 検査対象: {len(existing_dirs)}個のディレクトリ")
 
         for directory in existing_dirs:
             try:
                 self.compliance_checker.check_directory_compliance(directory)
                 audit_result["compliant_directories"].append(directory)
-                print(f"  ✅ {directory}")
+                print("  ✅ {directory}")
             except Exception as e:
-                audit_result["violation_directories"].append(
-                    {"directory": directory, "error": str(e)}
-                )
+                audit_result["violation_directories"].append({"directory": directory, "error": str(e)})
                 audit_result["audit_passed"] = False
-                print(f"  ❌ {directory} - 設計書違反")
+                print("  ❌ {directory} - 設計書違反")
 
         # 準拠率計算
         if audit_result["total_directories"] > 0:
             audit_result["compliance_rate"] = (
-                len(audit_result["compliant_directories"])
-                / audit_result["total_directories"]
-                * 100
+                len(audit_result["compliant_directories"]) / audit_result["total_directories"] * 100
             )
 
         return audit_result
@@ -154,10 +150,8 @@ class WeeklyQualityAuditor:
                 previous = logs[-2]
 
                 rate_change = latest["compliance_rate"] - previous["compliance_rate"]
-                print(
-                    f"📈 準拠率推移: {previous['compliance_rate']:.1f}% → {latest['compliance_rate']:.1f}%"
-                )
-                print(f"📊 改善度: {rate_change:+.1f}%")
+                print(f"📈 準拠率推移: {previous['compliance_rate']:.1f}% → {latest['compliance_rate']:.1f}%")
+                print("📊 改善度: {rate_change:+.1f}%")
 
                 if rate_change >= 0:
                     print("✅ 品質が維持・改善されています")
@@ -187,10 +181,10 @@ def main():
     # 成功証明
     print("\n✨ Quality Fix成功の証明")
     print("=" * 30)
-    print(f"✅ 自動監査機能: 動作確認済み")
-    print(f"✅ ログ記録機能: 動作確認済み")
-    print(f"✅ レポート生成: 動作確認済み")
-    print(f"✅ 継続改善監視: 動作確認済み")
+    print("✅ 自動監査機能: 動作確認済み")
+    print("✅ ログ記録機能: 動作確認済み")
+    print("✅ レポート生成: 動作確認済み")
+    print("✅ 継続改善監視: 動作確認済み")
 
     return audit_result
 
