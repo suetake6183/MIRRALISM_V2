@@ -1,0 +1,23 @@
+{
+  "models": {
+    "main": "claude-3-5-sonnet-20241022",
+    "fallback": "gpt-4",
+    "research": "claude-3-5-sonnet-20241022"
+  },
+  "project": {
+    "name": "MIRRALISM_V2",
+    "description": "MIRRALISM V2 - MCP Ecosystem Integrated Release",
+    "version": "2.0.0"
+  },
+  "features": {
+    "mcp_integration": true,
+    "ai_task_generation": true,
+    "complexity_analysis": true,
+    "dependency_management": true
+  },
+  "paths": {
+    "tasks": "tasks/tasks.json",
+    "reports": "reports/",
+    "docs": "docs/"
+  }
+} 
