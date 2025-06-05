@@ -33,8 +33,8 @@ jobs:
       - name: 🔍 Format Check (Black & isort)
         run: |
           echo "🎨 Code Formatting Check"
-          python -m black --check --diff Prototype/
-          python -m isort --check-only --diff Prototype/
+          python -m black --check --diff .
+          python -m isort --check-only --diff .
 
       - name: 🔍 Pre-commit Enhanced Check (flake8 & mypy 一時除外)
         run: |
