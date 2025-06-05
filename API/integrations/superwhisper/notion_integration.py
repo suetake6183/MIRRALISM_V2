@@ -202,9 +202,7 @@ class SuperWhisperNotionIntegration:
                 # 日付のみの場合、00:00:00 UTCとして補完
                 dt = datetime.fromisoformat(f"{raw_datetime}T00:00:00+00:00")
                 fixed_time = dt.isoformat()
-                self.logger.warning(
-                    f"不完全な時刻データを修正: {raw_datetime} → {fixed_time}"
-                )
+                self.logger.warning(f"不完全な時刻データを修正: {raw_datetime} → {fixed_time}")
                 return fixed_time
 
             # パターン3: 時刻はあるがタイムゾーンなし
@@ -223,18 +221,14 @@ class SuperWhisperNotionIntegration:
                 # 完全に失敗した場合は現在時刻で代替
                 now = datetime.now(timezone.utc)
                 fixed_time = now.isoformat()
-                self.logger.error(
-                    f"時刻パース失敗、現在時刻で代替: {raw_datetime} → {fixed_time}"
-                )
+                self.logger.error(f"時刻パース失敗、現在時刻で代替: {raw_datetime} → {fixed_time}")
                 return fixed_time
 
         except Exception as e:
             # 例外発生時は現在時刻で代替
             now = datetime.now(timezone.utc)
             fixed_time = now.isoformat()
-            self.logger.error(
-                f"時刻修正処理エラー ({raw_datetime}): {e} → {fixed_time}"
-            )
+            self.logger.error(f"時刻修正処理エラー ({raw_datetime}): {e} → {fixed_time}")
             return fixed_time
 
     def _validate_datetime_quality(self, original: str, fixed: str) -> Dict[str, Any]:
@@ -306,9 +300,7 @@ class SuperWhisperNotionIntegration:
                 # 未処理エントリのフィルタリング
                 new_entries = self._filter_unprocessed_entries(entries)
 
-                self.logger.info(
-                    f"Notionから {len(new_entries)} 件の新規エントリを取得"
-                )
+                self.logger.info(f"Notionから {len(new_entries)} 件の新規エントリを取得")
                 return new_entries
 
             else:

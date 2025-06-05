@@ -60,7 +60,9 @@ class SuperWhisperMirralismIntegration:
         )
         self.logger = logging.getLogger(__name__)
 
-    def process_voice_input(self, audio_data: Dict[str, Any], classification: str = "thought") -> Dict[str, Any]:
+    def process_voice_input(
+        self, audio_data: Dict[str, Any], classification: str = "thought"
+    ) -> Dict[str, Any]:
         """
         音声入力の統合処理
 
@@ -102,7 +104,9 @@ class SuperWhisperMirralismIntegration:
                 "success": True,
                 "integrated_data": integrated_data,
                 "save_result": save_result,
-                "analysis_summary": (analysis_result.get("summary") if analysis_result else None),
+                "analysis_summary": (
+                    analysis_result.get("summary") if analysis_result else None
+                ),
             }
 
         except Exception as e:
@@ -132,7 +136,9 @@ class SuperWhisperMirralismIntegration:
                 if len(raw_time) == 10 and raw_time.count("-") == 2:
                     audio_data["created_time"] = f"{raw_time}T00:00:00+00:00"
                     audio_data["datetime_fix_applied"] = True
-                    self.logger.info(f"🔧 時刻修正適用: {raw_time} → {audio_data['created_time']}")
+                    self.logger.info(
+                        f"🔧 時刻修正適用: {raw_time} → {audio_data['created_time']}"
+                    )
 
         return audio_data
 
@@ -175,12 +181,16 @@ class SuperWhisperMirralismIntegration:
 
             if result.get("success", False):
                 # 学習進捗記録
-                analysis_accuracy = result.get("analysis", {}).get("suetake_likeness_index", 0.0)
+                analysis_accuracy = result.get("analysis", {}).get(
+                    "suetake_likeness_index", 0.0
+                )
 
                 # 進化ステータス更新
                 evolution_status = result.get("evolution_status", {})
                 if evolution_status.get("stage_updated", False):
-                    self.logger.info(f"🎯 精度進化: {evolution_status.get('new_stage', 'unknown')}")
+                    self.logger.info(
+                        f"🎯 精度進化: {evolution_status.get('new_stage', 'unknown')}"
+                    )
 
                 return {
                     "success": True,
@@ -190,7 +200,9 @@ class SuperWhisperMirralismIntegration:
                     "summary": f"精度: {analysis_accuracy}% | 重み: {quality_score}",
                 }
             else:
-                self.logger.warning(f"⚠️ PersonalityLearning分析失敗: {result.get('error', 'unknown')}")
+                self.logger.warning(
+                    f"⚠️ PersonalityLearning分析失敗: {result.get('error', 'unknown')}"
+                )
                 return None
 
         except Exception as e:

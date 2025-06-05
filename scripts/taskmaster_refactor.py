@@ -62,13 +62,19 @@ def refactor_taskmaster_structure():
     )
 
     subtask1_desc = f"Enhanced version of: {task2_subtask5['description']}"
-    subtask1_details = f"Migrated and expanded from Task 2.5: {task2_subtask5['details']}"
-
-    subtask2_details = (
-        "Apply MIRRALISM quality standards through automated gates. " "Build upon existing pre-commit foundation."
+    subtask1_details = (
+        f"Migrated and expanded from Task 2.5: {task2_subtask5['details']}"
     )
 
-    subtask3_details = "Unit testing, integration testing, regression prevention. " "Docker environment integration."
+    subtask2_details = (
+        "Apply MIRRALISM quality standards through automated gates. "
+        "Build upon existing pre-commit foundation."
+    )
+
+    subtask3_details = (
+        "Unit testing, integration testing, regression prevention. "
+        "Docker environment integration."
+    )
 
     new_task3 = {
         "id": 3,
@@ -91,7 +97,10 @@ def refactor_taskmaster_structure():
             {
                 "id": 2,
                 "title": "Quality Gates Integration",
-                "description": ("Extend pre-commit hooks with automated quality " "thresholds and review triggers"),
+                "description": (
+                    "Extend pre-commit hooks with automated quality "
+                    "thresholds and review triggers"
+                ),
                 "dependencies": [1],
                 "details": subtask2_details,
                 "status": "pending",
@@ -99,7 +108,10 @@ def refactor_taskmaster_structure():
             {
                 "id": 3,
                 "title": "Automated Testing Pipeline",
-                "description": ("Implement comprehensive testing automation with " "performance benchmarking"),
+                "description": (
+                    "Implement comprehensive testing automation with "
+                    "performance benchmarking"
+                ),
                 "dependencies": [1],
                 "details": subtask3_details,
                 "status": "pending",
@@ -107,9 +119,15 @@ def refactor_taskmaster_structure():
             {
                 "id": 4,
                 "title": "Deployment & Monitoring",
-                "description": ("Automated deployment with rollback strategies and " "health monitoring"),
+                "description": (
+                    "Automated deployment with rollback strategies and "
+                    "health monitoring"
+                ),
                 "dependencies": [2, 3],
-                "details": ("Complete deployment automation with monitoring and " "alert systems"),
+                "details": (
+                    "Complete deployment automation with monitoring and "
+                    "alert systems"
+                ),
                 "status": "pending",
             },
         ],

@@ -95,13 +95,17 @@ class SuperWhisperAutoWorkflow:
                 raise Exception(f"統合処理失敗: {integration_result.get('error', 'unknown')}")
 
             # Phase 2: PersonalityLearning分析拡張
-            enhanced_analysis = self._enhance_personality_analysis(integration_result["integrated_data"])
+            enhanced_analysis = self._enhance_personality_analysis(
+                integration_result["integrated_data"]
+            )
 
             # Phase 3: TaskMaster相関分析（Phase 3で実装）
             task_correlation = self._analyze_task_correlation(enhanced_analysis)
 
             # Phase 4: 自動分類・保存
-            final_result = self._finalize_processing(enhanced_analysis, task_correlation, process_id)
+            final_result = self._finalize_processing(
+                enhanced_analysis, task_correlation, process_id
+            )
 
             # 統計更新
             self.session_stats["success_count"] += 1
@@ -168,7 +172,9 @@ class SuperWhisperAutoWorkflow:
         else:
             return "thought"  # デフォルト
 
-    def _enhance_personality_analysis(self, integrated_data: Dict[str, Any]) -> Dict[str, Any]:
+    def _enhance_personality_analysis(
+        self, integrated_data: Dict[str, Any]
+    ) -> Dict[str, Any]:
         """
         PersonalityLearning分析の拡張処理
 
@@ -188,7 +194,9 @@ class SuperWhisperAutoWorkflow:
             evolution_status = analysis_result.get("evolution_status", {})
 
             # 学習効果指標計算
-            learning_impact = self._calculate_learning_impact(confidence, evolution_status)
+            learning_impact = self._calculate_learning_impact(
+                confidence, evolution_status
+            )
 
             enhanced["personality_learning_enhanced"] = {
                 "learning_impact": learning_impact,
@@ -206,7 +214,9 @@ class SuperWhisperAutoWorkflow:
 
         return enhanced
 
-    def _calculate_learning_impact(self, confidence: float, evolution_status: Dict) -> float:
+    def _calculate_learning_impact(
+        self, confidence: float, evolution_status: Dict
+    ) -> float:
         """
         学習効果影響度計算
 
@@ -229,7 +239,9 @@ class SuperWhisperAutoWorkflow:
 
         return min(1.0, base_impact + stage_bonus + voice_bonus)
 
-    def _analyze_task_correlation(self, enhanced_data: Dict[str, Any]) -> Dict[str, Any]:
+    def _analyze_task_correlation(
+        self, enhanced_data: Dict[str, Any]
+    ) -> Dict[str, Any]:
         """
         TaskMaster相関分析（Phase 3で詳細実装）
 
@@ -327,9 +339,13 @@ class SuperWhisperAutoWorkflow:
         # 処理結果サマリー
         summary = {
             "classification": enhanced_data.get("classification", "unknown"),
-            "personality_learning_confidence": enhanced_data.get("analysis_result", {}).get("confidence", 0.0),
+            "personality_learning_confidence": enhanced_data.get(
+                "analysis_result", {}
+            ).get("confidence", 0.0),
             "task_correlation_found": task_correlation.get("correlation_found", False),
-            "learning_impact": enhanced_data.get("personality_learning_enhanced", {}).get("learning_impact", 0.0),
+            "learning_impact": enhanced_data.get(
+                "personality_learning_enhanced", {}
+            ).get("learning_impact", 0.0),
             "process_id": process_id,
         }
 
@@ -351,7 +367,9 @@ class SuperWhisperAutoWorkflow:
             log_dir = self.project_root / "Data" / "processing_logs"
             log_dir.mkdir(parents=True, exist_ok=True)
 
-            log_file = log_dir / f"superwhisper_workflow_{final_data['process_id']}.json"
+            log_file = (
+                log_dir / f"superwhisper_workflow_{final_data['process_id']}.json"
+            )
 
             with open(log_file, "w", encoding="utf-8") as f:
                 json.dump(final_data, f, ensure_ascii=False, indent=2, default=str)
@@ -375,7 +393,11 @@ class SuperWhisperAutoWorkflow:
         return {
             **self.session_stats,
             "session_duration_seconds": session_duration,
-            "success_rate": (self.session_stats["success_count"] / max(1, self.session_stats["processed_count"])) * 100,
+            "success_rate": (
+                self.session_stats["success_count"]
+                / max(1, self.session_stats["processed_count"])
+            )
+            * 100,
             "integration_status": self.integration.get_integration_status(),
         }
 

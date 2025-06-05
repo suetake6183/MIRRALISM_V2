@@ -202,7 +202,9 @@ ls -la | grep -E "(flake8|isort|pyproject)"
                     "execution_time": end_time - start_time,
                     "return_code": result.returncode,
                     "stdout_lines": len(result.stdout.split("\n")),
-                    "stderr_lines": (len(result.stderr.split("\n")) if result.stderr else 0),
+                    "stderr_lines": (
+                        len(result.stderr.split("\n")) if result.stderr else 0
+                    ),
                     "success": result.returncode == 0,
                 }
 
@@ -228,11 +230,15 @@ ls -la | grep -E "(flake8|isort|pyproject)"
                 self.logger.error(f"実行 {run_id + 1} でエラー: {str(e)}")
 
         # サマリー計算
-        successful_runs = [r for r in benchmark_results["test_runs"] if r.get("success", False)]
+        successful_runs = [
+            r for r in benchmark_results["test_runs"] if r.get("success", False)
+        ]
         if successful_runs:
             benchmark_results["summary"] = {
-                "success_rate": len(successful_runs) / len(benchmark_results["test_runs"]),
-                "avg_execution_time": sum(r["execution_time"] for r in successful_runs) / len(successful_runs),
+                "success_rate": len(successful_runs)
+                / len(benchmark_results["test_runs"]),
+                "avg_execution_time": sum(r["execution_time"] for r in successful_runs)
+                / len(successful_runs),
                 "max_execution_time": max(r["execution_time"] for r in successful_runs),
                 "min_execution_time": min(r["execution_time"] for r in successful_runs),
                 "total_runs": len(benchmark_results["test_runs"]),
@@ -247,7 +253,9 @@ ls -la | grep -E "(flake8|isort|pyproject)"
             }
 
         # 結果保存
-        with open(self.evidence_dir / "performance_benchmark.json", "w", encoding="utf-8") as f:
+        with open(
+            self.evidence_dir / "performance_benchmark.json", "w", encoding="utf-8"
+        ) as f:
             json.dump(benchmark_results, f, ensure_ascii=False, indent=2)
 
         return benchmark_results
@@ -264,7 +272,9 @@ ls -la | grep -E "(flake8|isort|pyproject)"
         }
 
         # 結果保存
-        with open(self.evidence_dir / "static_analysis_report.json", "w", encoding="utf-8") as f:
+        with open(
+            self.evidence_dir / "static_analysis_report.json", "w", encoding="utf-8"
+        ) as f:
             json.dump(analysis_results, f, ensure_ascii=False, indent=2)
 
         return analysis_results
@@ -284,7 +294,9 @@ ls -la | grep -E "(flake8|isort|pyproject)"
                 "return_code": result.returncode,
                 "stdout": result.stdout,
                 "stderr": result.stderr,
-                "files_checked": len([line for line in result.stdout.split("\n") if line.strip()]),
+                "files_checked": len(
+                    [line for line in result.stdout.split("\n") if line.strip()]
+                ),
             }
         except Exception as e:
             return {"status": "ERROR", "error": str(e)}
@@ -327,12 +339,26 @@ ls -la | grep -E "(flake8|isort|pyproject)"
 
                 metrics["prototype_analysis"] = {
                     "total_lines": len(lines),
-                    "code_lines": len([line for line in lines if line.strip() and not line.strip().startswith("#")]),
-                    "comment_lines": len([line for line in lines if line.strip().startswith("#")]),
+                    "code_lines": len(
+                        [
+                            line
+                            for line in lines
+                            if line.strip() and not line.strip().startswith("#")
+                        ]
+                    ),
+                    "comment_lines": len(
+                        [line for line in lines if line.strip().startswith("#")]
+                    ),
                     "docstring_lines": content.count('"""') * 3,  # 概算
                     "class_count": content.count("class "),
                     "function_count": content.count("def "),
-                    "import_statements": len([line for line in lines if line.strip().startswith(("import ", "from "))]),
+                    "import_statements": len(
+                        [
+                            line
+                            for line in lines
+                            if line.strip().startswith(("import ", "from "))
+                        ]
+                    ),
                 }
 
         # 全体ファイル統計
@@ -474,18 +500,30 @@ MIRRALISM V2におけるV1資産の戦略的活用により、**53%→60%の精�
         try:
             # 1. 環境情報収集
             self.logger.info("1/3: 環境情報収集中...")
-            evidence_package["evidence_components"]["environment"] = self.collect_environment_info()
-            evidence_package["cto_requirements_compliance"]["environment_setup_guide"] = True
+            evidence_package["evidence_components"][
+                "environment"
+            ] = self.collect_environment_info()
+            evidence_package["cto_requirements_compliance"][
+                "environment_setup_guide"
+            ] = True
 
             # 2. 性能ベンチマーク
             self.logger.info("2/3: 性能ベンチマーク実行中...")
-            evidence_package["evidence_components"]["performance"] = self.run_performance_benchmark()
-            evidence_package["cto_requirements_compliance"]["performance_benchmark"] = True
+            evidence_package["evidence_components"][
+                "performance"
+            ] = self.run_performance_benchmark()
+            evidence_package["cto_requirements_compliance"][
+                "performance_benchmark"
+            ] = True
 
             # 3. V1データ活用分析
             self.logger.info("3/3: V1データ活用分析中...")
-            evidence_package["evidence_components"]["v1_utilization"] = self.analyze_v1_data_utilization()
-            evidence_package["cto_requirements_compliance"]["v1_utilization_analysis"] = True
+            evidence_package["evidence_components"][
+                "v1_utilization"
+            ] = self.analyze_v1_data_utilization()
+            evidence_package["cto_requirements_compliance"][
+                "v1_utilization_analysis"
+            ] = True
 
             # 4. メタデータ生成
             evidence_files = list(self.evidence_dir.glob("*"))
@@ -494,7 +532,9 @@ MIRRALISM V2におけるV1資産の戦略的活用により、**53%→60%の精�
                 "evidence_file_list": [f.name for f in evidence_files if f.is_file()],
                 "completion_status": "SUCCESS",
                 "quality_score": self._calculate_quality_score(evidence_package),
-                "cto_compliance_rate": sum(evidence_package["cto_requirements_compliance"].values())
+                "cto_compliance_rate": sum(
+                    evidence_package["cto_requirements_compliance"].values()
+                )
                 / len(evidence_package["cto_requirements_compliance"])
                 * 100,
             }
