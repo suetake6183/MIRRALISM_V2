@@ -1,0 +1,45 @@
+{
+  "cleanup_completed": "2025-06-05T18:51:27.747749",
+  "enforcement_results": {
+    "personality_learning_removed": 34,
+    "redirect_removed": 9057,
+    "duplicate_dbs_removed": 21,
+    "total_violations_found": 9112,
+    "total_violations_resolved": 9112
+  },
+  "consistency_check": {
+    "status": "OK",
+    "accuracy_values": [
+      [
+        0.95,
+        4
+      ],
+      [
+        0.8,
+        4
+      ]
+    ],
+    "latest_accuracy": 0.95,
+    "latest_date": "2025-06-04",
+    "consistency_check": "PASS"
+  },
+  "final_status": {
+    "timestamp": "2025-06-05T18:51:27.747584",
+    "constraints_status": "VIOLATIONS_DETECTED",
+    "violations_summary": {
+      "personality_learning_files": 25,
+      "redirect_files": 6276,
+      "duplicate_dbs": 15,
+      "total_violations": 6316
+    },
+    "system_health": {
+      "unified_db_exists": true,
+      "unified_db_size": 77824,
+      "monitoring_active": true
+    },
+    "recommended_actions": [
+      "Run enforce_constraints() to resolve violations"
+    ]
+  },
+  "next_phase_ready": false
+}

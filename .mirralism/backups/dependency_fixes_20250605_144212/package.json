@@ -1,0 +1,15 @@
+{
+  "name": "mirralism-v2",
+  "version": "1.0.0",
+  "description": "MIRRALISM V2 統合品質保証エコシステム",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "npm run build && changeset publish",
+    "date:check": "node scripts/date_accuracy_tool.js",
+    "date:verify": "npm run date:check",
+    "quality:date": "npm run date:check && echo '✅ 日付正確性保証完了'"
+  }
+}

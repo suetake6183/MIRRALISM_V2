@@ -1,0 +1,18 @@
+{
+  "analysis_timestamp": "2025-06-05T14:42:10.851636",
+  "analysis_duration": 1.731618,
+  "scanned_files_summary": {
+    "python": 628,
+    "javascript": 18,
+    "config": 1419
+  },
+  "issues_detected": 0,
+  "automated_fixes": {
+    "fixed_issues": [],
+    "failed_fixes": [],
+    "backup_created": true,
+    "backup_path": "/Users/suetakeshuuhei/MIRRALISM_V2/.mirralism/backups/dependency_fixes_20250605_144212",
+    "fix_timestamp": "2025-06-05T14:42:12.580788"
+  },
+  "all_issues": []
+}

@@ -1,0 +1,227 @@
+{
+  "unification_completed": "2025-06-05T18:45:16.434133",
+  "databases_integrated": 34,
+  "total_records": {
+    "daily_analysis": 68,
+    "learning_accuracy": 8,
+    "voice_weights": 0
+  },
+  "latest_measurements": {
+    "daily_likeness": {
+      "value": 0.0,
+      "date": "2025-06-02",
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/.system_core/PersonalityLearning/Data/Processed/personality_learning.db"
+    },
+    "overall_accuracy": {
+      "value": 0.95,
+      "date": "2025-06-04",
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/MIRRALISM/Core/PersonalityLearning/personality_learning_v2.db"
+    }
+  },
+  "audit_log": [
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/.system_core/.system_internal/_EMERGENCY_BACKUP/auto_backup_20250531_225533/personality_learning.db",
+      "records": 1,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.308690"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/.system_core/.system_internal/_EMERGENCY_BACKUP/auto_backup_20250531_225533/Core/personality_learning.db",
+      "records": 0,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.310960"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/.system_core/.system_internal/_EMERGENCY_BACKUP/auto_backup_20250531_225533/PersonalityLearning/personality_learning.db",
+      "records": 1,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.311989"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/.system_core/.system_internal/_EMERGENCY_BACKUP/auto_backup_20250531_225533/PersonalityLearning/Core/personality_learning.db",
+      "records": 0,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.313066"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/.system_core/.system_internal/_EMERGENCY_BACKUP/auto_backup_20250531_225533/PersonalityLearning/Data/Processed/personality_learning.db",
+      "records": 3,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.314104"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/.system_core/.system_internal/_EMERGENCY_BACKUP/auto_backup_20250531_225533/Data/Processed/personality_learning.db",
+      "records": 3,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.315105"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/.system_core/Automation_Scripts/Phase08_Migration/personality_learning.db",
+      "records": 0,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.316143"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/.system_core/Automation_Scripts/Data/Processed/personality_learning.db",
+      "records": 1,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.317416"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/.system_core/PersonalityLearning/personality_learning.db",
+      "records": 1,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.318459"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/.system_core/PersonalityLearning/Core/personality_learning.db",
+      "records": 3,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.321726"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/.system_core/PersonalityLearning/Data/Processed/personality_learning.db",
+      "records": 5,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.327616"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/30_Resources/AI_Systems/Data/Processed/personality_learning.db",
+      "records": 2,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.330203"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/SecondBrain/test_environment/PersonalityLearning/Data/Processed/personality_learning.db",
+      "records": 2,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.332025"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/CLEANUP_BACKUP/VERSION1_BACKUP/personality_learning_main.db",
+      "records": 1,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.333192"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/CLEANUP_BACKUP/VERSION1_BACKUP/personality_learning_processed.db",
+      "records": 5,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.334855"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/MIRRALISM/Core/PersonalityLearning/personality_learning_v2.db",
+      "records": 14,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.335980"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/MIRRALISM/Core/PersonalityLearning/personality_learning_main.db",
+      "records": 1,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.338313"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/MIRRALISM/Core/PersonalityLearning/personality_learning_processed.db",
+      "records": 5,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.341343"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/MIRRALISM/Data/personality_learning_v2.db",
+      "records": 0,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.349212"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/MIRRALISM/Data/raw/20250602_personality_learning_processed_v1.db",
+      "records": 5,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.355423"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/MyBrain/MIRRALISM/Data/raw/20250602_personality_learning_main_v1.db",
+      "records": 1,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.356966"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/Core/PersonalityLearning/personality_learning_v2.db",
+      "records": 14,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.358252"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/Core/PersonalityLearning/personality_learning_main.db",
+      "records": 1,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.366753"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/Core/PersonalityLearning/personality_learning_processed.db",
+      "records": 5,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.377222"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/.mirralism/personality_learning_protection.db",
+      "records": 0,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.381949"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/.mirralism/backups/personality_learning/complete_backup_20250605_143249/MyBrain/MIRRALISM/Core/PersonalityLearning/personality_learning_v2.db",
+      "records": 14,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.397385"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/.mirralism/backups/personality_learning/complete_backup_20250605_143249/MyBrain/MIRRALISM/Core/PersonalityLearning/personality_learning_main.db",
+      "records": 1,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.404176"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/.mirralism/backups/personality_learning/complete_backup_20250605_143249/MyBrain/MIRRALISM/Core/PersonalityLearning/personality_learning_processed.db",
+      "records": 5,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.408272"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/.mirralism/backups/personality_learning/complete_backup_20250605_143249/Core/PersonalityLearning/personality_learning_v2.db",
+      "records": 14,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.414167"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/.mirralism/backups/personality_learning/complete_backup_20250605_143249/Core/PersonalityLearning/personality_learning_main.db",
+      "records": 1,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.416980"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/.mirralism/backups/personality_learning/complete_backup_20250605_143249/Core/PersonalityLearning/personality_learning_processed.db",
+      "records": 5,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.418942"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/Data/personality_learning_v2.db",
+      "records": 0,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.422180"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/Data/raw/20250602_personality_learning_processed_v1.db",
+      "records": 5,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.429951"
+    },
+    {
+      "source": "/Users/suetakeshuuhei/MIRRALISM_V2/Data/raw/20250602_personality_learning_main_v1.db",
+      "records": 1,
+      "conflicts": 0,
+      "timestamp": "2025-06-05T18:45:16.432664"
+    }
+  ]
+}

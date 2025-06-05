@@ -1,96 +1,159 @@
-# MIRRALISM V2 🚀
+# MIRRALISM V2 - Second Brain Evolution
 
-**音声ファイル知的管理システム**の第 2 世代プロトタイプ
+## 🧠 概要
 
----
+MIRRALISM（Mirrored Intelligence for Reasoning, Reflection, Analysis, Learning, Intelligence, and Strategic Management）は、末武修平の思考・感情・価値観を学習し、共に成長する知的パートナーシステムです。
 
-## 🎯 プロジェクト概要
+### 最終使命
 
-MIRRALISM V2 は、音声ファイルの自動分類・管理・検索システムです。
+**PersonalityLearning による最高精度の分析で、末武修平の身の回りの人々を幸せにする**
 
-### ✨ 主要機能
+## 🏗️ システム構造
 
-- **🔍 高精度分類**: V1 の 53%→95%精度向上
-- **📁 厳選管理**: 500 ファイル厳選・99%削減
-- **⚡ 瞬時検索**: 5 秒以内検索目標
-- **🤖 AI 統合**: 複数 AI Provider 対応
+### Clients/ - クライアント・プロジェクト管理システム
 
-### 🏗️ システム構成
+MIRRALISM の根幹機能として、クライアント情報を統合的に管理し、PersonalityLearning 精度向上に寄与するシステム。
 
 ```
-MIRRALISM_V2/
-├── 🎯 Core/                     # コアエンジン
-├── 🔌 API/                      # 外部連携
-├── 🧪 Prototype/                # プロトタイプ実装
-├── 📊 Data/                     # データ管理
-├── 🔧 scripts/                  # ユーティリティ
-└── 📝 .taskmaster/              # タスク管理
+Clients/
+├── Database/                    # 📊 統合データベース
+│   ├── client_profiles.json    # 👤 基本情報・連絡先
+│   ├── business_contexts.json  # 💼 事業背景・課題
+│   ├── project_history.json    # 📈 プロジェクト履歴
+│   └── communication_insights.json # 🧠 PersonalityLearning用データ
+│
+├── Outputs/                     # 📁 クライアント別成果物
+│   ├── [クライアント名]/
+│   │   ├── active/             # 🔥 進行中プロジェクト
+│   │   │   ├── contracts/      # 📜 契約関連
+│   │   │   ├── meetings/       # 🤝 会議録・コミュニケーション
+│   │   │   ├── proposals/      # 📋 提案書
+│   │   │   └── deliverables/   # 📦 成果物
+│   │   └── archives/           # 📚 完了プロジェクト（同構造）
+│
+├── Templates/                   # 📝 共通テンプレート
+├── History/                     # 📊 関係性・成功パターン分析
+└── ProjectCycle/               # 🔄 プロジェクトライフサイクル管理
 ```
 
-### 📈 技術スタック
+### 🧠 PersonalityLearning 統合システム
 
-- **言語**: Python 3.9+
-- **AI**: OpenAI, Anthropic, Perplexity
-- **データベース**: SQLite, JSON
-- **品質管理**: black, isort, pytest
-- **CI/CD**: GitHub Actions
-- **タスク管理**: Task Master AI
-
-### 🚀 開発ステータス
+#### 学習対象データ分類
 
 ```yaml
-開発段階: Phase 1 プロトタイプ
-進捗状況: 基本機能実装完了
-品質ゲート: GitHub Actions準拠
-AI統合: ChatGPT Codex 準備完了
-リポジトリ: V2完全分離
-最終更新: 2025-06-05 # GitHub Actions品質ゲート最適化
+✅ 高優先度学習データ:
+  - 会議録・コミュニケーション記録
+  - 意思決定プロセス詳細
+  - 問題解決アプローチパターン
+  - フィードバック・改善提案記録
+
+⚠️ 注意深い学習データ:
+  - 契約書・成果物（事実情報のみ）
+  - 機密性の高い情報
+
+❌ 学習除外データ:
+  - 単純事実情報（住所・電話番号）
+  - 一時的・例外的判断
 ```
 
-### 🎮 クイックスタート
+#### PersonalityLearning 品質管理
 
-1. **環境セットアップ**
+- **現状精度**: 53% → **目標精度**: 95%
+- **品質保護**: 低品質データ混入防止
+- **継続監視**: 学習精度定期測定・調整
 
-   ```bash
-   pip install -r requirements.txt
-   cp .env.example .env  # API キー設定
-   ```
+## 🔄 MIRRALISM 情報処理原則
 
-2. **プロトタイプ実行**
+### SSOT 原則（Single Source of Truth）
 
-   ```bash
-   python Prototype/mirralism_prototype.py
-   ```
+- すべての情報は唯一の場所に存在
+- 重複ファイル禁止、参照リンク活用
+- 小規模ファイルの構造化 JSON 統合
 
-3. **タスク管理**
-   ```bash
-   # Task Master初期化
-   task-master init
-   # タスク確認
-   task-master list
-   ```
+### V1 教訓の反映
 
-### 📋 開発ワークフロー
+- **REDIRECT 問題防止**: 28,066 個の重複ファイル問題完全回避
+- **複雑性制御**: 階層深度 4 層制限、シンプル構造維持
+- **ファイル数制限**: クライアント毎 500 ファイル上限
 
-- **MCP Server**: Cursor/AI 統合
-- **GitHub Actions**: 品質ゲート
-- **Task Master**: 開発管理
-- **ChatGPT Codex**: AI 支援開発
+### 自動分類システム対応
 
-### 🏆 V1 からの改善点
+```yaml
+フロントマター必須項目:
+mirralism_category: "clients" # カテゴリ明示
+personality_learning: true|false # 学習対象指定
+processing_instructions: [指示リスト] # 処理方法明示
+```
 
-| 項目         | V1       | V2           | 向上率   |
-| ------------ | -------- | ------------ | -------- |
-| 分類精度     | 53%      | 95%          | 79%↑     |
-| ファイル管理 | 手動     | 自動 99%削減 | 大幅改善 |
-| 検索速度     | 制限なし | 5 秒以内     | 大幅改善 |
-| AI 統合      | 限定的   | 完全統合     | 大幅改善 |
+## 🚀 開発ワークフロー
 
-### 🔗 関連プロジェクト
+### Task Master 統合
 
-- [MIRRALISM V1](https://github.com/suetake6183/MIRRALISM) - 初代システム
-- [Task Master AI](https://www.npmjs.com/package/task-master-ai) - AI 開発管理
+本プロジェクトは Task Master AI による段階的品質保証を採用：
+
+1. **Task 1**: V1 品質問題根本原因分析 ✅
+2. **Task 2**: PersonalityLearning 統合アーキテクチャ設計
+3. **Task 3**: MCP Quality Gate Tool 開発 🔄
+4. **Task 4**: クライアント情報統合システム実装
+5. **Task 5**: 自動分類・検索システム構築
+
+### 品質保証レベル
+
+- **Level 1**: 基本動作確認（90%）
+- **Level 2**: 統合テスト（95%）
+- **Level 3**: 予測分類（80% → 90%）
+- **Level 4**: 自律進化（90% → 95%）
+
+## 📋 使用開始方法
+
+### 前提条件
+
+- Node.js 18+
+- Task Master AI（MCP 統合）
+
+### セットアップ
+
+```bash
+# Task Master初期化
+npm run taskmaster:init
+
+# 依存関係インストール
+npm install
+
+# 開発開始
+npm run dev
+```
+
+## 🔧 設定・カスタマイズ
+
+詳細な設定方法は以下を参照：
+
+- `.cursor/rules/mirralism_philosophy.mdc` - MIRRALISM 根本思想
+- `.cursor/rules/mirralism_information_processing.mdc` - 情報処理ルール
+- `.taskmaster/` - Task Master 設定
+
+## 📊 進捗確認
+
+```bash
+# 現在のタスク状況確認
+npm run taskmaster:list
+
+# 次のタスク確認
+npm run taskmaster:next
+
+# 品質レポート生成
+npm run taskmaster:complexity-report
+```
+
+## 🤝 貢献・開発参加
+
+MIRRALISM 開発は以下の原則に従います：
+
+1. **根本思想との整合性**: すべての変更は MIRRALISM 最終使命に寄与
+2. **PersonalityLearning 精度向上**: 53%→95%精度向上への貢献
+3. **V1 教訓の活用**: 成功要素継承、問題要素回避
+4. **品質ファースト**: 段階的品質保証による確実な進歩
 
 ---
 
-_MIRRALISM V2 - 知的音声ファイル管理の未来_
+**MIRRALISM V2 は、単なる情報管理システムではありません。それは末武修平と共に成長し、周りの人々の幸せに貢献する知的パートナーです。**

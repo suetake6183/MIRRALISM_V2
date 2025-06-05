@@ -1,0 +1,102 @@
+# MIRRALISM統合品質設定（PersonalityLearning統合）
+# 作成日: 2025年06月05日
+# 目的: 末武らしさを反映した品質基準の技術実装
+
+mirralism_standards:
+  mission: "身の回りの人々を幸せにする"
+  development_efficiency_target: "80%"
+  quality_precision_target: "95%"
+  system_definition: "知的パートナーシステム"
+
+# 末武らしさ品質基準（PersonalityLearning 53%→95%精度統合）
+personality_quality_standards:
+  code_aesthetics:
+    line_length: 88 # black標準、可読性重視
+    indent_style: "spaces"
+    indent_size: 4
+    quote_style: "double" # 一貫性重視
+    naming_convention: "snake_case" # Python標準準拠
+    docstring_style: "google" # 詳細説明重視
+
+  priority_order:
+    1: "security" # セキュリティ最優先（bandit完全クリア）
+    2: "readability" # 可読性重視（保守性確保）
+    3: "maintainability" # 長期保守性
+    4: "performance" # パフォーマンス
+    5: "efficiency" # 開発効率
+
+  error_handling_style:
+    approach: "preventive" # 予防重視（V1教訓）
+    logging_level: "detailed" # 詳細ログ（問題追跡重視）
+    exception_handling: "explicit" # 明示的エラーハンドリング
+    validation: "strict" # 厳密な入力検証
+
+# 複雑性制御（V1教訓：複雑性爆発防止）
+complexity_control:
+  maximum_complexity: 2.0 # Radon複雑性基準
+  file_count_limit: 500 # V1無制限問題解決
+  monitoring_levels:
+    warning: 1.5 # 黄色警告
+    confirmation: 1.8 # オレンジ確認要求
+    stop: 2.0 # 赤色処理停止
+    system_stop: 2.5 # 緊急システム停止
+
+  quality_gates:
+    level_1: "警告ログ（軽微違反・処理継続）"
+    level_2: "確認要求（中程度違反・ユーザー確認）"
+    level_3: "処理停止（重要違反・修正要求）"
+    level_4: "システム停止（重大違反・Core破壊防止）"
+
+# SSOT原則実装
+ssot_principles:
+  information_uniqueness: true # 情報の重複禁止
+  technical_guarantee: true # 唯一性の技術的保証
+  reference_system: true # 参照システムによる一貫性
+  redirect_elimination: true # REDIRECTファイル完全排除
+
+# 第一の脳・第二の脳協働設計
+brain_collaboration:
+  first_brain:
+    role: "直感、感情、創造性の源泉"
+    implementation: "末武修平の感覚的品質判断"
+    precision: "人間らしい価値観・美意識"
+
+  second_brain:
+    role: "記憶、分析、パターン認識、客観視"
+    implementation: "PersonalityLearning AI分析"
+    precision: "95%目標精度による客観的最適化"
+
+  integration_mechanism:
+    goal: "AI分析による「末武修平らしさ」の定量化実現"
+    method: "直感的判断 + データ分析の統合"
+    output: "個性最適化された品質基準・ワークフロー"
+
+# 企業レベル品質基準
+enterprise_quality:
+  security: "ゼロ許容" # セキュリティ脆弱性なし
+  test_coverage: "≥95%" # テストカバレッジ95%以上
+  complexity: "<2.0" # 複雑性2.0未満維持
+  performance: "サブ秒応答" # 1秒未満応答保証
+  availability: "99.9%" # 99.9%可用性
+
+# V1成功要素継承戦略
+v1_success_inheritance:
+  personality_learning:
+    achieved: "53%精度末武らしさ定量化"
+    target: "95%精度品質予測システム"
+    value: "個性最適化品質基準（他社に真似不可能）"
+
+  superwhisper_integration:
+    value: "音声品質レポート（他社にない差別化）"
+    implementation: "音声による品質チェック結果報告"
+    future: "音声指示による品質修正システム"
+
+  taskmaster_integration:
+    value: "MCP開発環境（業界標準200%超）"
+    implementation: "統合品質タスク管理"
+    advantage: "開発ワークフロー自動最適化"
+
+  para_method:
+    value: "構造化品質管理（情報一元化）"
+    implementation: "PARA準拠品質情報分類"
+    benefit: "品質情報の効率的管理"

@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "created": "2025-06-05T18:51:23.410303",
+  "constraints": {
+    "max_personality_files": 1,
+    "max_redirect_files": 0,
+    "max_duplicate_dbs": 1,
+    "forbidden_patterns": [
+      "*REDIRECT*",
+      "*personality_learning*.db",
+      "*duplicate*",
+      "*copy*",
+      "*backup*"
+    ],
+    "allowed_files": [
+      "/Users/suetakeshuuhei/MIRRALISM_V2/ESSENTIAL_EXTRACTED",
+      "/Users/suetakeshuuhei/MIRRALISM_V2/.mirralism",
+      "/Users/suetakeshuuhei/MIRRALISM_V2/Core/PersonalityLearning/MIRRALISM_UNIFIED.db"
+    ]
+  },
+  "enforcement_rules": {
+    "auto_delete_violations": true,
+    "backup_before_delete": true,
+    "send_notifications": true,
+    "log_all_actions": true
+  }
+}

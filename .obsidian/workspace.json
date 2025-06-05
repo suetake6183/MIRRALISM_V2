@@ -1,0 +1,210 @@
+{
+  "main": {
+    "id": "ba1fff4b00b4df68",
+    "type": "split",
+    "children": [
+      {
+        "id": "ec58293c2b0c9733",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "35cf80e511199955",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Clients/Proposals/黒澤工務店_革新的人材マネジメントソリューション提案書.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "黒澤工務店_革新的人材マネジメントソリューション提案書"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c3da710a224e9890",
+    "type": "split",
+    "children": [
+      {
+        "id": "92d011ce810e1dc8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0dd05e3391cfe1e6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "ファイルエクスプローラ"
+            }
+          },
+          {
+            "id": "58a99c5a21a6d5cf",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "検索"
+            }
+          },
+          {
+            "id": "99c370d3ba716f1b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "ブックマーク"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "770b04feadb9a53e",
+    "type": "split",
+    "children": [
+      {
+        "id": "795b312bb5bc5b83",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4e9e8e5e94931dc6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Clients/Proposals/黒澤工務店_革新的人材マネジメントソリューション提案書.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "黒澤工務店_革新的人材マネジメントソリューション提案書へのバックリンク"
+            }
+          },
+          {
+            "id": "0b1518fe6b88899f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Clients/Proposals/黒澤工務店_革新的人材マネジメントソリューション提案書.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "黒澤工務店_革新的人材マネジメントソリューション提案書からのアウトゴーイングリンク"
+            }
+          },
+          {
+            "id": "3bb9a9929cc7f528",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "タグ"
+            }
+          },
+          {
+            "id": "c56aa70f02b46e19",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Clients/Proposals/黒澤工務店_革新的人材マネジメントソリューション提案書.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "黒澤工務店_革新的人材マネジメントソリューション提案書のアウトライン"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:クイックスイッチャーを開く": false,
+      "graph:グラフビューを開く": false,
+      "canvas:新規キャンバスを作成": false,
+      "daily-notes:今日のデイリーノートを開く": false,
+      "templates:テンプレートを挿入": false,
+      "command-palette:コマンドパレットを開く": false
+    }
+  },
+  "active": "35cf80e511199955",
+  "lastOpenFiles": [
+    "Cursor_ClaudeCode統合テスト.md",
+    "CursorでClaudeCodeをチャット形式で使う方法.md",
+    "中学生向けClaudeCode使い方.md",
+    "CURSOR_CLAUDE_QUICKSTART.md",
+    "scripts/cursor-claude-integration.md",
+    "~",
+    "scripts/claude-code-usage.md",
+    "CLAUDE.md",
+    "scripts/calculations/README.md",
+    "scripts/calculations/file_calc.js",
+    "scripts/calculations/roi_calc.js",
+    "scripts/calculations/date_calc.js",
+    "scripts/calculations/basic_math.js",
+    "scripts/calculations",
+    "scripts/getDate.js",
+    "80_scripts/getDate.js",
+    "80_scripts",
+    "Clients/Execution/黒澤工務店_戦略的価値創造実証プロジェクト.md",
+    "MIRRALISM_Value_Creation_Strategic_Plan.md",
+    "mirralism_corrected_verification.py",
+    "ESSENTIAL_EXTRACTED/Documentation/technical/TaskMaster_Architecture_Refactoring.md",
+    "ESSENTIAL_EXTRACTED/Documentation/strategy/STRATEGIC_MANAGER_REQUIRED_FILES.md",
+    "ESSENTIAL_EXTRACTED/Documentation/strategy/STRATEGIC_MANAGER_OPTIMIZED_FILES.md",
+    "ESSENTIAL_EXTRACTED/Documentation/strategy/STRATEGIC_MANAGER_BRIEFING.md",
+    "ESSENTIAL_EXTRACTED/Documentation/strategy/PersonalityLearning_V2_Technical_Specification.md",
+    "ESSENTIAL_EXTRACTED/Documentation/strategy/DIRECTORY_STRUCTURE_UPDATE.md",
+    "ESSENTIAL_EXTRACTED/Documentation/strategy/DEVELOPMENT_PROCESS_RULES.md",
+    "ESSENTIAL_EXTRACTED/Documentation/reports/emergency_data_recovery_report.md",
+    "ESSENTIAL_EXTRACTED/Documentation/reports/Competitive_Advantage_Analysis.md",
+    "ESSENTIAL_EXTRACTED/Documentation/migration/v1_compatibility_report.md",
+    "ESSENTIAL_EXTRACTED/Documentation/guides/SecondBrain_Essential_Concepts_Extract.md",
+    "ESSENTIAL_EXTRACTED/Documentation/guides/PersonalityLearning_Strategic_Philosophy.md",
+    "ESSENTIAL_EXTRACTED/Documentation/guides/MIRRALISM_Core_Philosophy.md",
+    "ESSENTIAL_EXTRACTED/Documentation/guides/CODING_STYLE_GUIDE.md",
+    "ESSENTIAL_EXTRACTED/Documentation/remote_development_setup.md",
+    "ESSENTIAL_EXTRACTED/Documentation/PHASE1_COMPLETION_REPORT.md"
+  ]
+}

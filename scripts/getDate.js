@@ -9,11 +9,7 @@
 function getCurrentTimeInfo() {
     const now = new Date();
     
-    // JST（日本標準時）への変換
-    const jstOffset = 9 * 60; // UTC+9の分数
-    const jstTime = new Date(now.getTime() + (jstOffset * 60 * 1000));
-    
-    // フォーマット関数
+    // フォーマット関数（既にJST環境なのでそのまま使用）
     const formatJapanese = (date) => {
         const year = date.getFullYear();
         const month = date.getMonth() + 1;
@@ -30,10 +26,10 @@ function getCurrentTimeInfo() {
     };
     
     return {
-        current_jst: formatJapanese(jstTime),
-        iso_date: formatISO(jstTime),
-        timestamp: jstTime.toISOString(),
-        day_of_week: ['日', '月', '火', '水', '木', '金', '土'][jstTime.getDay()]
+        current_jst: formatJapanese(now),
+        iso_date: formatISO(now),
+        timestamp: now.toISOString(),
+        day_of_week: ['日', '月', '火', '水', '木', '金', '土'][now.getDay()]
     };
 }
 

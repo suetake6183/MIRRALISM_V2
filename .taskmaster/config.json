@@ -1,23 +1,84 @@
 {
   "models": {
-    "main": "claude-3-5-sonnet-20241022",
-    "fallback": "gpt-4",
-    "research": "claude-3-5-sonnet-20241022"
+    "main": {
+      "0": "c",
+      "1": "l",
+      "2": "a",
+      "3": "u",
+      "4": "d",
+      "5": "e",
+      "6": "-",
+      "7": "3",
+      "8": "-",
+      "9": "5",
+      "10": "-",
+      "11": "s",
+      "12": "o",
+      "13": "n",
+      "14": "n",
+      "15": "e",
+      "16": "t",
+      "17": "-",
+      "18": "2",
+      "19": "0",
+      "20": "2",
+      "21": "4",
+      "22": "1",
+      "23": "0",
+      "24": "2",
+      "25": "2",
+      "provider": "anthropic",
+      "modelId": "claude-sonnet-4-20250514",
+      "maxTokens": 64000,
+      "temperature": 0.2
+    },
+    "research": {
+      "0": "c",
+      "1": "l",
+      "2": "a",
+      "3": "u",
+      "4": "d",
+      "5": "e",
+      "6": "-",
+      "7": "3",
+      "8": "-",
+      "9": "5",
+      "10": "-",
+      "11": "s",
+      "12": "o",
+      "13": "n",
+      "14": "n",
+      "15": "e",
+      "16": "t",
+      "17": "-",
+      "18": "2",
+      "19": "0",
+      "20": "2",
+      "21": "4",
+      "22": "1",
+      "23": "0",
+      "24": "2",
+      "25": "2",
+      "provider": "perplexity",
+      "modelId": "sonar-pro",
+      "maxTokens": 8700,
+      "temperature": 0.1
+    },
+    "fallback": {
+      "provider": "anthropic",
+      "modelId": "claude-3-5-sonnet",
+      "maxTokens": 64000,
+      "temperature": 0.2
+    }
   },
-  "project": {
-    "name": "MIRRALISM_V2",
-    "description": "MIRRALISM V2 - MCP Ecosystem Integrated Release",
-    "version": "2.0.0"
-  },
-  "features": {
-    "mcp_integration": true,
-    "ai_task_generation": true,
-    "complexity_analysis": true,
-    "dependency_management": true
-  },
-  "paths": {
-    "tasks": "tasks/tasks.json",
-    "reports": "reports/",
-    "docs": "docs/"
+  "global": {
+    "logLevel": "info",
+    "debug": false,
+    "defaultSubtasks": 5,
+    "defaultPriority": "medium",
+    "projectName": "Task Master",
+    "ollamaBaseURL": "http://localhost:11434/api",
+    "bedrockBaseURL": "https://bedrock.us-east-1.amazonaws.com",
+    "userId": "1234567890"
   }
 }

@@ -1,0 +1,21 @@
+{
+  "jst": {
+    "datetime": "2025-06-05T15:24:24.507720+09:00",
+    "formatted": "2025年06月05日 15時24分",
+    "unix_timestamp": 1749104664.50772,
+    "timezone": "Asia/Tokyo"
+  },
+  "utc": {
+    "datetime": "2025-06-05T06:24:24.507945+00:00",
+    "formatted": "2025-06-05 06:24:24 UTC",
+    "unix_timestamp": 1749104664.507945,
+    "timezone": "UTC"
+  },
+  "system_info": {
+    "locale": [
+      "ja_JP",
+      "UTF-8"
+    ],
+    "timezone_detected": "Asia/Tokyo"
+  }
+}

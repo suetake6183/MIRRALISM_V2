@@ -1,0 +1,3 @@
+*REDIRECT*
+*redirect*
+*_REDIRECT*

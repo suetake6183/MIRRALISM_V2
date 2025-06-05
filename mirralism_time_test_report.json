@@ -1,0 +1,19 @@
+{
+  "test_datetime": "2025-06-05T15:14:34.662870",
+  "system_locale": [
+    "en_US",
+    "UTF-8"
+  ],
+  "results": {
+    "basic_time": true,
+    "locale_settings": true,
+    "japanese_formatting": true,
+    "calculation_system": false,
+    "personality_learning": false
+  },
+  "summary": {
+    "passed": 3,
+    "total": 5,
+    "success_rate": 60.0
+  }
+}

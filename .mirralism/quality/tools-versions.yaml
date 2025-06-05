@@ -1,0 +1,60 @@
+# MIRRALISM品質ツール統一バージョン定義（SSOT原則）
+# 目的: 全環境（ローカル・CI/CD・本番）での完全一致保証
+# 最終使命: 「身の回りの人々を幸せにする」開発効率向上
+
+quality_tools:
+  black:
+    version: "23.7.0"
+    config_source: ".mirralism/quality/black.toml"
+    description: "末武らしさを反映したコードフォーマット"
+    pip_package: "black==23.7.0"
+
+  isort:
+    version: "5.12.0"
+    config_source: ".mirralism/quality/isort.cfg"
+    description: "import文の個性最適化並び順"
+    pip_package: "isort==5.12.0"
+
+  flake8:
+    version: "6.0.0"
+    config_source: ".mirralism/quality/flake8.ini"
+    description: "末武品質基準によるコード解析"
+    pip_package: "flake8==6.0.0"
+
+  mypy:
+    version: "1.5.1"
+    config_source: ".mirralism/quality/mypy.ini"
+    description: "型安全性の予防的保証"
+    pip_package: "mypy==1.5.1"
+
+  bandit:
+    version: "1.7.5"
+    config_source: ".mirralism/quality/bandit.yaml"
+    description: "セキュリティ最優先の脆弱性検査"
+    pip_package: "bandit==1.7.5"
+
+  radon:
+    version: "6.0.1"
+    config_source: ".mirralism/quality/radon.cfg"
+    description: "複雑性監視（V1複雑性爆発防止）"
+    pip_package: "radon==6.0.1"
+
+# PersonalityLearning統合設定
+personality_integration:
+  learning_precision: "95%" # V2目標精度
+  quality_prediction: true
+  workflow_optimization: true
+  voice_reporting: true # SuperWhisper統合準備
+
+# V1教訓統合
+v1_lessons:
+  complexity_explosion_prevention: true
+  redirect_file_elimination: true
+  database_consolidation: true
+  file_count_limit: 500
+
+# MIRRALISM核心価値
+core_values:
+  mission: "身の回りの人々を幸せにする"
+  development_efficiency_target: "80%"
+  brain_collaboration: "第一の脳（直感）+ 第二の脳（AI分析）"
