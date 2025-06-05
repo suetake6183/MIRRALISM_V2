@@ -60,14 +60,18 @@ class WeeklyQualityAuditor:
                 audit_result["compliant_directories"].append(directory)
                 print("  ✅ {directory}")
             except Exception as e:
-                audit_result["violation_directories"].append({"directory": directory, "error": str(e)})
+                audit_result["violation_directories"].append(
+                    {"directory": directory, "error": str(e)}
+                )
                 audit_result["audit_passed"] = False
                 print("  ❌ {directory} - 設計書違反")
 
         # 準拠率計算
         if audit_result["total_directories"] > 0:
             audit_result["compliance_rate"] = (
-                len(audit_result["compliant_directories"]) / audit_result["total_directories"] * 100
+                len(audit_result["compliant_directories"])
+                / audit_result["total_directories"]
+                * 100
             )
 
         return audit_result
@@ -150,7 +154,9 @@ class WeeklyQualityAuditor:
                 previous = logs[-2]
 
                 rate_change = latest["compliance_rate"] - previous["compliance_rate"]
-                print(f"📈 準拠率推移: {previous['compliance_rate']:.1f}% → {latest['compliance_rate']:.1f}%")
+                print(
+                    f"📈 準拠率推移: {previous['compliance_rate']:.1f}% → {latest['compliance_rate']:.1f}%"
+                )
                 print("📊 改善度: {rate_change:+.1f}%")
 
                 if rate_change >= 0:

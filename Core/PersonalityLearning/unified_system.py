@@ -37,7 +37,9 @@ except ImportError:
     import importlib.util
 
     # database.py
-    db_spec = importlib.util.spec_from_file_location("database", current_dir / "database.py")
+    db_spec = importlib.util.spec_from_file_location(
+        "database", current_dir / "database.py"
+    )
     db_module = importlib.util.module_from_spec(db_spec)
     db_spec.loader.exec_module(db_module)
     PersonalityLearningDatabase = db_module.PersonalityLearningDatabase
@@ -115,7 +117,9 @@ class PersonalityLearningUnified:
             "unified_architecture": True,  # 統合アーキテクチャ強制
         }
 
-        logger.info(f"PersonalityLearningUnified初期化完了 - " f"現在精度: {self.current_accuracy}%")
+        logger.info(
+            f"PersonalityLearningUnified初期化完了 - " f"現在精度: {self.current_accuracy}%"
+        )
 
     def _get_latest_accuracy(self) -> float:
         """統合データベースから最新精度を取得"""
@@ -156,13 +160,17 @@ class PersonalityLearningUnified:
 
         try:
             # 基盤システム分析実行
-            base_result = self.mirralism_system.analyze_entry(content, source_type, voice_data, task_context)
+            base_result = self.mirralism_system.analyze_entry(
+                content, source_type, voice_data, task_context
+            )
 
             if not base_result.get("success", False):
                 return base_result
 
             # 95%精度エンジン適用
-            enhanced_result = self._apply_95_percent_engine(base_result, content, source_type, voice_data, task_context)
+            enhanced_result = self._apply_95_percent_engine(
+                base_result, content, source_type, voice_data, task_context
+            )
 
             # 統合データベース記録
             self._record_unified_analysis(enhanced_result, analysis_id, start_time)
@@ -172,11 +180,16 @@ class PersonalityLearningUnified:
                 **enhanced_result,
                 "unified_analysis_id": analysis_id,
                 "accuracy_engine": "95_percent_unified",
-                "processing_time_unified": (datetime.now() - start_time).total_seconds(),
+                "processing_time_unified": (
+                    datetime.now() - start_time
+                ).total_seconds(),
                 "version": self.version,
             }
 
-            logger.info(f"統合分析完了: {analysis_id}, " f"精度: {enhanced_result['analysis']['suetake_likeness_index']}%")
+            logger.info(
+                f"統合分析完了: {analysis_id}, "
+                f"精度: {enhanced_result['analysis']['suetake_likeness_index']}%"
+            )
 
             return final_result
 
@@ -215,12 +228,24 @@ class PersonalityLearningUnified:
         learning_history_boost = self._calculate_learning_history_boost()
 
         # キーワード重み付け最適化
-        tech_boost = analysis.get("tech_keyword_count", 0) * self.unified_weights["technical_keyword_weight"]
-        integrity_boost = analysis.get("integrity_keyword_count", 0) * self.unified_weights["integrity_keyword_weight"]
+        tech_boost = (
+            analysis.get("tech_keyword_count", 0)
+            * self.unified_weights["technical_keyword_weight"]
+        )
+        integrity_boost = (
+            analysis.get("integrity_keyword_count", 0)
+            * self.unified_weights["integrity_keyword_weight"]
+        )
 
         # 統合スコア計算（95%精度アルゴリズム）
         base_score = analysis["suetake_likeness_index"]
-        unified_boost = value_patterns_boost + voice_boost + learning_history_boost + tech_boost + integrity_boost
+        unified_boost = (
+            value_patterns_boost
+            + voice_boost
+            + learning_history_boost
+            + tech_boost
+            + integrity_boost
+        )
 
         # 95%精度保証（上限制御）
         final_score = min(max(base_score + unified_boost, 85.0), 97.0)
@@ -244,15 +269,22 @@ class PersonalityLearningUnified:
         try:
             with self.database.get_connection() as conn:
                 cursor = conn.cursor()
-                cursor.execute("SELECT category, importance_score, expression_pattern " "FROM value_patterns")
+                cursor.execute(
+                    "SELECT category, importance_score, expression_pattern "
+                    "FROM value_patterns"
+                )
                 patterns = cursor.fetchall()
 
                 boost = 0.0
                 for pattern in patterns:
                     category, importance, expressions = pattern
                     # 表現パターンマッチング
-                    if any(expr.strip('"「」') in content for expr in expressions.split("」「")):
-                        boost += importance * self.unified_weights["value_pattern_boost"]
+                    if any(
+                        expr.strip('"「」') in content for expr in expressions.split("」「")
+                    ):
+                        boost += (
+                            importance * self.unified_weights["value_pattern_boost"]
+                        )
 
                 return boost
 
@@ -264,11 +296,15 @@ class PersonalityLearningUnified:
         """学習履歴要因計算"""
         try:
             accuracy_improvement = self.current_accuracy - 61.0  # V1学習済みからの改善
-            return accuracy_improvement * self.unified_weights["learning_history_factor"]
+            return (
+                accuracy_improvement * self.unified_weights["learning_history_factor"]
+            )
         except Exception:
             return 0.0
 
-    def _record_unified_analysis(self, enhanced_result: Dict, analysis_id: str, start_time: datetime):
+    def _record_unified_analysis(
+        self, enhanced_result: Dict, analysis_id: str, start_time: datetime
+    ):
         """統合分析結果の記録"""
 
         analysis = enhanced_result["analysis"]
@@ -371,7 +407,9 @@ class PersonalityLearningUnified:
                 "v1_failure_prevention": self.v1_failure_prevention,
                 "database_integration": "complete",
                 "superwhisper_integration": "active",
-                "system_health": ("excellent" if self.current_accuracy >= 95.0 else "good"),
+                "system_health": (
+                    "excellent" if self.current_accuracy >= 95.0 else "good"
+                ),
             }
 
             return {
@@ -405,7 +443,9 @@ class PersonalityLearningUnified:
             return False
         return True
 
-    def _record_enhanced_analysis(self, enhanced_result: Dict, analysis_id: str, start_time: datetime) -> bool:
+    def _record_enhanced_analysis(
+        self, enhanced_result: Dict, analysis_id: str, start_time: datetime
+    ) -> bool:
         """拡張分析結果の記録"""
         try:
             analysis = enhanced_result["analysis"]

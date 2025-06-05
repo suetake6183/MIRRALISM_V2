@@ -27,7 +27,9 @@ import numpy as np
 from scipy import stats
 
 # ログ設定
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
 logger = logging.getLogger(__name__)
 
 
@@ -168,7 +170,9 @@ class PluginableMeasurementFramework:
         # 進化段階の評価
         self.evolution_tracker.evaluate_progress(result.accuracy)
 
-        logger.info(f"科学的測定完了: 精度={result.accuracy:.3f}, 信頼区間={result.confidence_interval}")
+        logger.info(
+            f"科学的測定完了: 精度={result.accuracy:.3f}, 信頼区間={result.confidence_interval}"
+        )
 
         return result
 
@@ -251,9 +255,14 @@ class PluginableMeasurementFramework:
             },
             "evolution_status": self.evolution_tracker.get_current_status(),
             "validation_summary": {
-                "validated_measurements": sum(1 for r in history if r.statistical_significance < 0.05),
+                "validated_measurements": sum(
+                    1 for r in history if r.statistical_significance < 0.05
+                ),
                 "total_measurements": len(history),
-                "confidence_rate": sum(1 for r in history if r.statistical_significance < 0.05) / len(history),
+                "confidence_rate": sum(
+                    1 for r in history if r.statistical_significance < 0.05
+                )
+                / len(history),
             },
         }
 
@@ -302,7 +311,9 @@ class StatisticalBaselineMeasurement:
         sample_size = len(accuracies)
 
         # 信頼区間の計算（95%信頼区間）
-        confidence_interval = self._calculate_confidence_interval(mean_accuracy, std_accuracy, sample_size)
+        confidence_interval = self._calculate_confidence_interval(
+            mean_accuracy, std_accuracy, sample_size
+        )
 
         # 統計的有意性（t検定）
         if sample_size > 1:
@@ -379,7 +390,9 @@ class CrossValidationMeasurement:
 
             fold_data = data[start_idx:end_idx]
             fold_accuracies = [
-                entry["suetake_likeness_index"] for entry in fold_data if "suetake_likeness_index" in entry
+                entry["suetake_likeness_index"]
+                for entry in fold_data
+                if "suetake_likeness_index" in entry
             ]
 
             if fold_accuracies:
@@ -491,7 +504,9 @@ class EvolutionTracker:
     def _calculate_progress_percentage(self) -> float:
         """進捗パーセンテージ"""
         total_stages = len(self.stage_thresholds)
-        current_position = list(self.stage_thresholds.keys()).index(self.current_stage) + 1
+        current_position = (
+            list(self.stage_thresholds.keys()).index(self.current_stage) + 1
+        )
         return (current_position / total_stages) * 100
 
 

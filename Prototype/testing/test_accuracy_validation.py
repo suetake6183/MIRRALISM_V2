@@ -52,7 +52,9 @@ class AccuracyValidator:
                 tech_bonus = (tech_count or 0) * 5
                 integrity_bonus = (integrity_count or 0) * 3
 
-                total_score = min(base_score + tech_bonus + integrity_bonus, self.max_accuracy)
+                total_score = min(
+                    base_score + tech_bonus + integrity_bonus, self.max_accuracy
+                )
                 accuracies.append(total_score)
 
             avg_accuracy = sum(accuracies) / len(accuracies)

@@ -91,7 +91,9 @@ class QualityAssuranceFramework:
                 accuracies.append(total_score)
 
             avg_accuracy = sum(accuracies) / len(accuracies)
-            variance = sum((a - avg_accuracy) ** 2 for a in accuracies) / len(accuracies)
+            variance = sum((a - avg_accuracy) ** 2 for a in accuracies) / len(
+                accuracies
+            )
 
             # 品質基準評価
             if variance <= 5.0 and avg_accuracy >= 91.5:
