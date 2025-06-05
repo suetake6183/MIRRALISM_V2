@@ -66,5 +66,56 @@
     },
     "files_organized": 4,
     "errors": 0
+  },
+  {
+    "timestamp": "2025-06-06T08:16:52.106713",
+    "event": "pre_migration_cleanup",
+    "results": {
+      "moved": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "files_organized": 0,
+    "errors": 0
+  },
+  {
+    "timestamp": "2025-06-06T08:16:52.108396",
+    "event": "post_migration_validation",
+    "remaining_files": [],
+    "clean_status": true
+  },
+  {
+    "timestamp": "2025-06-06T08:18:43.368274",
+    "event": "pre_migration_cleanup",
+    "results": {
+      "moved": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "files_organized": 0,
+    "errors": 0
+  },
+  {
+    "timestamp": "2025-06-06T08:18:43.369544",
+    "event": "post_migration_validation",
+    "remaining_files": [],
+    "clean_status": true
+  },
+  {
+    "timestamp": "2025-06-06T08:19:26.255858",
+    "event": "pre_migration_cleanup",
+    "results": {
+      "moved": 21,
+      "errors": 0,
+      "skipped": 0
+    },
+    "files_organized": 21,
+    "errors": 0
+  },
+  {
+    "timestamp": "2025-06-06T08:19:26.256951",
+    "event": "post_migration_validation",
+    "remaining_files": [],
+    "clean_status": true
   }
 ]

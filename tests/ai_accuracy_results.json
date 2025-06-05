@@ -1,0 +1,37 @@
+{
+  "total_tests": 5,
+  "passed_tests": 0,
+  "details": [
+    {
+      "test": 1,
+      "passed": false,
+      "confidence": 0.52,
+      "input": "今日は新しいプロジェクトを開始した。技術的な挑戦が多そうだが、楽しみだ。..."
+    },
+    {
+      "test": 2,
+      "passed": false,
+      "confidence": 0.52,
+      "input": "最近、チームワークの重要性を実感している。一人では達成できないことも多い。..."
+    },
+    {
+      "test": 3,
+      "passed": false,
+      "confidence": 0.52,
+      "input": "効率的な作業プロセスを常に模索している。無駄を省くのが好きだ。..."
+    },
+    {
+      "test": 4,
+      "passed": false,
+      "confidence": 0.52,
+      "input": "人との対話から新しいアイデアが生まれることが多い。..."
+    },
+    {
+      "test": 5,
+      "passed": false,
+      "confidence": 0.52,
+      "input": "失敗から学ぶことの価値を理解している。完璧を求めすぎない。..."
+    }
+  ],
+  "accuracy": 0.0
+}

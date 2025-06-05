@@ -14,14 +14,20 @@
     "analysis": {
       "patterns": [
         "*_analysis_*.txt",
-        "*_analysis_*.md"
+        "*_analysis_*.md",
+        "*_Analysis.md",
+        "*戦略*.md",
+        "*設計思想*.md"
       ],
       "destination": "Data/analytics/"
     },
     "reports": {
       "patterns": [
         "*_report_*.md",
-        "*_test_results.txt"
+        "*_test_results.txt",
+        "bandit-report.json",
+        "*_report.json",
+        "*_results.json"
       ],
       "destination": "Documentation/reports/"
     },
@@ -40,6 +46,33 @@
       ],
       "destination": "Documentation/migration/"
     },
+    "core_engines": {
+      "patterns": [
+        "mirralism_*.py",
+        "emergency_*.py",
+        "test_*.py",
+        "*_script.py"
+      ],
+      "destination": "Core/"
+    },
+    "configs": {
+      "patterns": [
+        "test_*.json",
+        "*_config.json",
+        "*.cfg"
+      ],
+      "destination": "Documentation/technical/"
+    },
+    "guides": {
+      "patterns": [
+        "*使い方*.md",
+        "*向け*.md",
+        "*ガイド*.md",
+        "*統合*.md",
+        "DEVELOPMENT_GUIDE.md"
+      ],
+      "destination": "Documentation/guides/"
+    },
     "temp": {
       "patterns": [
         "temp_*.txt",
@@ -57,6 +90,45 @@
       ],
       "action": "block",
       "reason": "V1失敗パターン検出"
+    }
+  },
+  "auto_run": {
+    "enabled": true,
+    "default_action": "clean_mess",
+    "auto_confirm": true,
+    "auto_mode": "migration",
+    "schedule": {
+      "enabled": false,
+      "interval_hours": 24,
+      "last_run": ""
+    },
+    "safety": {
+      "max_files_per_run": 100,
+      "backup_before_move": false,
+      "dry_run_first": false,
+      "force_confirm_conditions": {
+        "file_count_threshold": 50,
+        "important_files_present": true,
+        "core_system_files": true,
+        "large_file_size_mb": 10
+      },
+      "high_risk_patterns": [
+        "*.py",
+        "*.sh",
+        "*.bat",
+        "*.exe",
+        "CLAUDE.md",
+        "README.md",
+        "package.json",
+        "requirements.txt",
+        "*.sql",
+        "*.db"
+      ],
+      "always_confirm_actions": [
+        "move_core_files",
+        "bulk_delete",
+        "system_config_change"
+      ]
     }
   },
   "today_stats": {

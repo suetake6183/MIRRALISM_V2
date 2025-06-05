@@ -24,3 +24,23 @@ click==8.1.7
 python-dateutil==2.8.2
 joblib==1.3.2
 types-requests==2.32.0.20250602
+
+# GitHub Actions CI/CD必須ツール
+radon==6.0.1
+xenon==0.9.1
+safety==3.2.7
+coverage==7.6.1
+pytest-benchmark==4.0.0
+
+# AI/ML依存関係（CI/CD対応）
+torch==2.1.0
+transformers==4.45.0
+openai==1.51.2
+
+# Docker & コンテナサポート
+docker==7.1.0
+
+# 追加品質ツール
+pylint==3.2.7
+flake8-docstrings==1.7.0
+pydocstyle==6.3.0
