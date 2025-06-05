@@ -97,9 +97,7 @@ class MIRRALISMFinalPerfectionEngine:
                 "active_files": active_redirects,
                 "complete": active_redirects == 0,
                 "status": (
-                    "✅ 完全根絶達成"
-                    if active_redirects == 0
-                    else f"❌ {active_redirects}個残存"
+                    "✅ 完全根絶達成" if active_redirects == 0 else f"❌ {active_redirects}個残存"
                 ),
             },
             "personality_unification": {
@@ -374,9 +372,7 @@ def main():
         ]
 
         print(f"技術的完璧性スコア: {perfection_score:.1f}%")
-        print(
-            f"CTO要求達成状況: {'✅ 完全達成' if requirements_met else '❌ 部分達成'}"
-        )
+        print(f"CTO要求達成状況: {'✅ 完全達成' if requirements_met else '❌ 部分達成'}")
 
         if requirements_met:
             print("\n🎉 100%技術的完璧性達成確認！")

@@ -55,9 +55,7 @@ def setup_pre_commit():
 
     # 初回実行（全ファイル対象）
     print("\n🔍 初回品質チェック実行...")
-    result = run_command(
-        "pre-commit run --all-files", "全ファイル品質チェック", check=False
-    )
+    result = run_command("pre-commit run --all-files", "全ファイル品質チェック", check=False)
 
     if not result:
         print("\n⚠️ ファイルが自動修正されました。これは正常な動作です。")

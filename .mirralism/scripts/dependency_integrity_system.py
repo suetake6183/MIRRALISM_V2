@@ -94,9 +94,7 @@ class DependencyIntegritySystem:
         )
         self.fix_log_path.parent.mkdir(parents=True, exist_ok=True)
 
-        self.logger.info(
-            f"🔍 依存関係整合性システム初期化完了 - プロジェクトルート: {self.project_root}"
-        )
+        self.logger.info(f"🔍 依存関係整合性システム初期化完了 - プロジェクトルート: {self.project_root}")
 
     def _setup_logging(self) -> logging.Logger:
         """ログ設定"""
@@ -172,7 +170,6 @@ class DependencyIntegritySystem:
                         line_stripped.startswith("import ")
                         or line_stripped.startswith("from ")
                     ) and not line_stripped.startswith("#"):
-
                         # V1→V2パス変更による破綻チェック
                         for old_pattern, new_pattern in self.path_migrations.items():
                             if old_pattern in line:
@@ -408,9 +405,7 @@ def main():
     parser = argparse.ArgumentParser(description="MIRRALISM V2 依存関係整合性システム")
     parser.add_argument("--project-root", help="プロジェクトルートパス")
     parser.add_argument("--quick-check", action="store_true", help="高速チェックモード")
-    parser.add_argument(
-        "--pre-commit", action="store_true", help="Pre-commit hook モード"
-    )
+    parser.add_argument("--pre-commit", action="store_true", help="Pre-commit hook モード")
 
     args = parser.parse_args()
 
@@ -440,9 +435,7 @@ def main():
         print("🔍 MIRRALISM V2 依存関係整合性分析結果")
         print("=" * 60)
         print(f"📊 分析時間: {results['analysis_duration']:.2f}秒")
-        print(
-            f"📂 スキャンファイル: {sum(results['scanned_files_summary'].values())}件"
-        )
+        print(f"📂 スキャンファイル: {sum(results['scanned_files_summary'].values())}件")
         print(f"⚠️  検出問題: {results['issues_detected']}件")
 
         if results["automated_fixes"]["fixed_issues"]:

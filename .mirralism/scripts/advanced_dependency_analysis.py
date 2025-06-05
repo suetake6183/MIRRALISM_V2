@@ -34,9 +34,7 @@ class AdvancedDependencyAnalyzer:
         self.dependency_graph = nx.DiGraph()
         self.import_patterns = []
 
-        self.logger.info(
-            f"🔬 高度依存関係分析システム初期化完了 - プロジェクトルート: {self.project_root}"
-        )
+        self.logger.info(f"🔬 高度依存関係分析システム初期化完了 - プロジェクトルート: {self.project_root}")
 
     def _setup_logging(self) -> logging.Logger:
         """ログ設定"""
@@ -97,9 +95,9 @@ class AdvancedDependencyAnalyzer:
                 self.logger.error(f"❌ ファイル分析エラー: {py_file} - {e}")
 
         # 循環依存検出
-        analysis_results["circular_dependencies"] = (
-            self._detect_circular_dependencies_advanced()
-        )
+        analysis_results[
+            "circular_dependencies"
+        ] = self._detect_circular_dependencies_advanced()
 
         # 未使用import検出
         analysis_results["unused_imports"] = self._detect_unused_imports()
@@ -479,32 +477,22 @@ class AdvancedDependencyAnalyzer:
         recommendations = []
 
         if analysis_results["circular_dependencies"]:
-            recommendations.append(
-                "🔄 循環依存を解消してください。リファクタリングや抽象レイヤーの導入を検討。"
-            )
+            recommendations.append("🔄 循環依存を解消してください。リファクタリングや抽象レイヤーの導入を検討。")
 
         if analysis_results["unused_imports"]:
-            recommendations.append(
-                "🧹 未使用importを削除してコードをクリーンに保ってください。"
-            )
+            recommendations.append("🧹 未使用importを削除してコードをクリーンに保ってください。")
 
         graph_stats = analysis_results["dependency_graph_stats"]
         if graph_stats["total_nodes"] > 0:
             complexity_ratio = graph_stats["total_edges"] / graph_stats["total_nodes"]
             if complexity_ratio > 4:
-                recommendations.append(
-                    "📊 依存関係が複雑です。モジュール分割や依存注入の検討をお勧めします。"
-                )
+                recommendations.append("📊 依存関係が複雑です。モジュール分割や依存注入の検討をお勧めします。")
 
         if graph_stats["longest_path"] > 10:
-            recommendations.append(
-                "📏 依存チェーンが長すぎます。より平坦な構造への再設計を検討してください。"
-            )
+            recommendations.append("📏 依存チェーンが長すぎます。より平坦な構造への再設計を検討してください。")
 
         if not recommendations:
-            recommendations.append(
-                "✅ 依存関係は健全な状態です。現在の構造を維持してください。"
-            )
+            recommendations.append("✅ 依存関係は健全な状態です。現在の構造を維持してください。")
 
         return recommendations
 

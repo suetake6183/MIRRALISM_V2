@@ -134,9 +134,9 @@ class MIRRALISMPerfectCompletionEngine:
 
         # 測定値不整合計測
         measurement_inconsistencies = self._count_measurement_inconsistencies()
-        self.completion_metrics["measurement_inconsistencies_initial"] = (
-            measurement_inconsistencies
-        )
+        self.completion_metrics[
+            "measurement_inconsistencies_initial"
+        ] = measurement_inconsistencies
 
         assessment = {
             "redirect_files": len(redirect_files),
@@ -210,9 +210,7 @@ class MIRRALISMPerfectCompletionEngine:
         if len(remaining_redirects) == 0:
             self.logger.info("✅ REDIRECTファイル完全根絶達成 - 0個実現")
         else:
-            self.logger.warning(
-                f"⚠️ REDIRECTファイル根絶未完了 - {len(remaining_redirects)}個残存"
-            )
+            self.logger.warning(f"⚠️ REDIRECTファイル根絶未完了 - {len(remaining_redirects)}個残存")
 
         return completion_result
 
@@ -310,9 +308,9 @@ class MIRRALISMPerfectCompletionEngine:
 
         # 修正確認
         remaining_inconsistencies = self._count_measurement_inconsistencies()
-        self.completion_metrics["measurement_inconsistencies_final"] = (
-            remaining_inconsistencies
-        )
+        self.completion_metrics[
+            "measurement_inconsistencies_final"
+        ] = remaining_inconsistencies
 
         completion_result = {
             "authority_value": authority_value,
@@ -332,9 +330,7 @@ class MIRRALISMPerfectCompletionEngine:
         if remaining_inconsistencies == 0:
             self.logger.info("✅ 測定値不整合完全解決達成 - 単一権威確立")
         else:
-            self.logger.warning(
-                f"⚠️ 測定値不整合未解決 - {remaining_inconsistencies}個残存"
-            )
+            self.logger.warning(f"⚠️ 測定値不整合未解決 - {remaining_inconsistencies}個残存")
 
         return completion_result
 
@@ -459,9 +455,7 @@ class MIRRALISMPerfectCompletionEngine:
                     unified_data.append(data)
 
             except Exception as e:
-                self.logger.error(
-                    f"personality_learningデータ抽出エラー: {file_path} - {e}"
-                )
+                self.logger.error(f"personality_learningデータ抽出エラー: {file_path} - {e}")
 
         return unified_data
 
@@ -527,9 +521,7 @@ class MIRRALISMPerfectCompletionEngine:
                             for pattern in inconsistency_patterns
                             if re.search(pattern, content)
                         ]
-                        if (
-                            len(set(found_patterns)) > 1
-                        ):  # 複数の異なる値が同一ファイルに存在
+                        if len(set(found_patterns)) > 1:  # 複数の異なる値が同一ファイルに存在
                             inconsistent_files += 1
                 except Exception:
                     continue
@@ -708,9 +700,7 @@ def main():
         print("\n" + "=" * 60)
         print("🏆 MIRRALISM完璧性実現結果")
         print("=" * 60)
-        print(
-            f"技術的完璧性スコア: {completion_report['technical_perfection_score']:.1f}%"
-        )
+        print(f"技術的完璧性スコア: {completion_report['technical_perfection_score']:.1f}%")
         print(
             f"エンタープライズ準備度: {'✅ 完了' if completion_report['enterprise_readiness'] else '❌ 未完了'}"
         )

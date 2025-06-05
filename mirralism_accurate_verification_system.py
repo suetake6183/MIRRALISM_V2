@@ -326,7 +326,9 @@ class AccurateVerificationSystem:
                 "quality_level": (
                     "EXCELLENT"
                     if accurate_score >= 95.0
-                    else "GOOD" if accurate_score >= 80.0 else "NEEDS_IMPROVEMENT"
+                    else "GOOD"
+                    if accurate_score >= 80.0
+                    else "NEEDS_IMPROVEMENT"
                 ),
                 "cto_approval_ready": accurate_score >= 95.0,
             },

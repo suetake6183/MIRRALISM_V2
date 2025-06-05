@@ -235,9 +235,7 @@ class MIRRALISMPerfectionValidator:
             else f"❌ {len(inconsistent_files)}個不整合"
         )
         print(f"  測定値権威統一: {status}")
-        print(
-            f"  権威データベース: {'✅ 存在' if authority_db_exists else '❌ 未作成'}"
-        )
+        print(f"  権威データベース: {'✅ 存在' if authority_db_exists else '❌ 未作成'}")
 
         return validation_result
 

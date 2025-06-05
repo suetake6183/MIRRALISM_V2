@@ -66,9 +66,7 @@ class AudioClassifier:
             "idea": ["アイデア", "発想", "創作", "ひらめき"],
             "learning": ["学習", "勉強", "リサーチ", "調査"],
         }
-        self.logger.log_step(
-            "AudioClassifier初期化", f"パターン数: {len(self.v1_patterns)}"
-        )
+        self.logger.log_step("AudioClassifier初期化", f"パターン数: {len(self.v1_patterns)}")
 
     def classify_content(self, audio_content: str) -> Dict[str, Any]:
         """
@@ -133,9 +131,7 @@ class FileManager:
         self, classified_files: List[Dict[str, Any]]
     ) -> List[Dict[str, Any]]:
         """ファイル管理実行"""
-        self.logger.log_step(
-            "ファイル管理開始", f"入力ファイル数: {len(classified_files)}"
-        )
+        self.logger.log_step("ファイル管理開始", f"入力ファイル数: {len(classified_files)}")
 
         kept_files = [f for f in classified_files if self.should_keep_file(f)]
 
@@ -202,9 +198,7 @@ class SearchEngine:
         # 検索時間測定
         search_time = (datetime.now() - start_time).total_seconds()
 
-        self.logger.log_success(
-            f"検索完了: {len(results)}件 (時間: {search_time:.3f}秒)"
-        )
+        self.logger.log_success(f"検索完了: {len(results)}件 (時間: {search_time:.3f}秒)")
         return results
 
 
@@ -226,9 +220,7 @@ class MirralismPrototype:
         if metadata is None:
             metadata = {}
 
-        self.logger.log_step(
-            "音声ファイル処理開始", f"メタデータ: {list(metadata.keys())}"
-        )
+        self.logger.log_step("音声ファイル処理開始", f"メタデータ: {list(metadata.keys())}")
 
         try:
             # Step 1: 音声分類

@@ -735,9 +735,7 @@ if WATCHDOG_AVAILABLE:
                 pattern.replace("*", "") in file_path.name.lower()
                 for pattern in ["redirect"]
             ):
-                self.logger.warning(
-                    f"🚨 制約違反検知: REDIRECTファイル作成試行 - {file_path}"
-                )
+                self.logger.warning(f"🚨 制約違反検知: REDIRECTファイル作成試行 - {file_path}")
                 self._log_violation("redirect_creation", str(file_path), "BLOCKED")
 
                 # ファイル即座削除（物理的制約）

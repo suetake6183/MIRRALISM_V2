@@ -415,12 +415,8 @@ if __name__ == "__main__":
     print("\n" + "=" * 80)
     print("MIRRALISM制約強制エンジン実行完了")
     print("=" * 80)
-    print(
-        f"違反ファイル検出: {results['enforcement_results']['total_violations_found']}個"
-    )
-    print(
-        f"違反ファイル解決: {results['enforcement_results']['total_violations_resolved']}個"
-    )
+    print(f"違反ファイル検出: {results['enforcement_results']['total_violations_found']}個")
+    print(f"違反ファイル解決: {results['enforcement_results']['total_violations_resolved']}個")
     print(
         f"personality_learning除去: {results['enforcement_results']['personality_learning_removed']}個"
     )
