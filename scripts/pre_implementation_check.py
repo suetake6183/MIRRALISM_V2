@@ -80,8 +80,7 @@ class DesignComplianceChecker:
                 f"  1. 事前に設計チームに相談\n"
                 f"  2. 設計書を更新\n"
                 f"  3. 承認後に実装\n"
-                f"📋 承認済みディレクトリ一覧:\n"
-                + "\n".join(f"  - {d}" for d in sorted(self.design_directories))
+                f"📋 承認済みディレクトリ一覧:\n" + "\n".join(f"  - {d}" for d in sorted(self.design_directories))
             )
 
     def test_compliance_check(self):

@@ -37,9 +37,7 @@ except ImportError:
     import importlib.util
 
     # database.py
-    db_spec = importlib.util.spec_from_file_location(
-        "database", current_dir / "database.py"
-    )
+    db_spec = importlib.util.spec_from_file_location("database", current_dir / "database.py")
     db_module = importlib.util.module_from_spec(db_spec)
     db_spec.loader.exec_module(db_module)
     PersonalityLearningDatabase = db_module.PersonalityLearningDatabase
@@ -136,17 +134,13 @@ class MirralismPersonalityLearning:
                 core_result = self.core.process_voice_input(core_voice_data)
             else:
                 # 標準分析
-                core_result = self.core.analyze_journal_entry(
-                    content, source_type, task_context
-                )
+                core_result = self.core.analyze_journal_entry(content, source_type, task_context)
 
             if not core_result["success"]:
                 return core_result
 
             # 分析データ拡張
-            enhanced_analysis = self._enhance_analysis(
-                core_result, source_type, voice_data, task_context
-            )
+            enhanced_analysis = self._enhance_analysis(core_result, source_type, voice_data, task_context)
 
             # データベース記録
             self._record_to_database(enhanced_analysis, analysis_id, start_time)
@@ -163,9 +157,7 @@ class MirralismPersonalityLearning:
                 "processing_time_total": (datetime.now() - start_time).total_seconds(),
             }
 
-            logger.info(
-                f"統合分析完了: {analysis_id}, 精度: {enhanced_analysis['analysis']['suetake_likeness_index']}%"
-            )
+            logger.info(f"統合分析完了: {analysis_id}, 精度: {enhanced_analysis['analysis']['suetake_likeness_index']}%")
 
             return final_result
 
@@ -195,9 +187,7 @@ class MirralismPersonalityLearning:
             "database_version": "v2",
             "integration_level": "full",
             "source_type": source_type,
-            "accuracy_evolution_stage": self._get_evolution_stage(
-                analysis["suetake_likeness_index"]
-            ),
+            "accuracy_evolution_stage": self._get_evolution_stage(analysis["suetake_likeness_index"]),
         }
 
         # SuperWhisper統合情報
@@ -222,9 +212,7 @@ class MirralismPersonalityLearning:
 
         return enhanced
 
-    def _record_to_database(
-        self, analysis_result: Dict, analysis_id: str, start_time: datetime
-    ):
+    def _record_to_database(self, analysis_result: Dict, analysis_id: str, start_time: datetime):
         """統合分析結果のデータベース記録"""
 
         analysis = analysis_result["analysis"]
@@ -286,9 +274,7 @@ class MirralismPersonalityLearning:
         progress_percentage = min((current_score / self.target_accuracy) * 100, 100.0)
 
         # マイルストーン達成判定
-        milestone_achieved = (
-            current_score >= 90.0 and current_score > self.current_accuracy
-        )
+        milestone_achieved = current_score >= 90.0 and current_score > self.current_accuracy
 
         if milestone_achieved:
             logger.info(f"🎉 マイルストーン達成! 精度: {current_score}%")
@@ -331,16 +317,12 @@ class MirralismPersonalityLearning:
         # ``dict_items`` does not guarantee ``reversed`` support on all
         # Python versions.  Sort the thresholds explicitly in descending
         # order so the function behaves consistently on Python 3.9+.
-        for threshold, stage in sorted(
-            evolution_mapping.items(), key=lambda x: x[0], reverse=True
-        ):
+        for threshold, stage in sorted(evolution_mapping.items(), key=lambda x: x[0], reverse=True):
             if accuracy >= threshold:
                 return stage
         return "initial"
 
-    def _calculate_task_learning_correlation(
-        self, accuracy: float, task_context: Dict
-    ) -> float:
+    def _calculate_task_learning_correlation(self, accuracy: float, task_context: Dict) -> float:
         """TaskMaster連携: タスク完了と学習効果の相関計算"""
 
         base_correlation = 0.5

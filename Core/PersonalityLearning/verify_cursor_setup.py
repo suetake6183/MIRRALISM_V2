@@ -87,9 +87,7 @@ def test_openai_connection():
         }
 
         # OpenAI Models APIでテスト
-        response = requests.get(
-            "https://api.openai.com/v1/models", headers=headers, timeout=10
-        )
+        response = requests.get("https://api.openai.com/v1/models", headers=headers, timeout=10)
 
         if response.status_code == 200:
             models = response.json()
@@ -125,10 +123,7 @@ def check_cursor_extensions():
     ai_extensions = [
         ext
         for ext in extensions
-        if any(
-            keyword in ext.name.lower()
-            for keyword in ["openai", "chatgpt", "copilot", "ai"]
-        )
+        if any(keyword in ext.name.lower() for keyword in ["openai", "chatgpt", "copilot", "ai"])
     ]
 
     if ai_extensions:
@@ -190,9 +185,7 @@ def main():
     print("=" * 50)
 
     total_checks = 4
-    passed_checks = sum(
-        [any(env_status.values()), mcp_status, openai_status, ext_status]
-    )
+    passed_checks = sum([any(env_status.values()), mcp_status, openai_status, ext_status])
 
     success_rate = (passed_checks / total_checks) * 100
 

@@ -26,9 +26,7 @@ from typing import Dict
 from typing import Tuple
 
 # ログ設定
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -142,9 +140,7 @@ class FlexibleFileOrganizer:
         if mode in self.config["daily_limits"]:
             self.config["current_mode"] = mode
             self.save_config()
-            logger.info(
-                f"Project mode set to '{mode}': {self.get_current_limit()} files/day"
-            )
+            logger.info(f"Project mode set to '{mode}': {self.get_current_limit()} files/day")
             return True
         return False
 
@@ -229,9 +225,7 @@ class FlexibleFileOrganizer:
 
         try:
             shutil.move(str(source), str(final_destination))
-            logger.info(
-                f"✅ {source.name} → {final_destination.relative_to(self.root_dir)}"
-            )
+            logger.info(f"✅ {source.name} → {final_destination.relative_to(self.root_dir)}")
             return (
                 True,
                 f"✅ 移動完了: {final_destination.relative_to(self.root_dir)}",

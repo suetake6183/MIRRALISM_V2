@@ -47,9 +47,7 @@ class PersonalityLearningCore:
 
         # データベース接続設定
         if db_path is None:
-            db_path = os.path.join(
-                os.path.dirname(__file__), "personality_learning_v2.db"
-            )
+            db_path = os.path.join(os.path.dirname(__file__), "personality_learning_v2.db")
         self.db_path = db_path
 
         # 学習済み精度継承（V1→V2）
@@ -81,9 +79,7 @@ class PersonalityLearningCore:
         # SuperWhisper統合設定
         self.voice_weight_multiplier = 1.5
 
-        self.logger.info(
-            f"MIRRALISM PersonalityLearningCore初期化完了 - 精度: {self.learned_accuracy}%"
-        )
+        self.logger.info(f"MIRRALISM PersonalityLearningCore初期化完了 - 精度: {self.learned_accuracy}%")
 
     def _load_accuracy_from_db(self) -> Optional[float]:
         """データベースから学習済み精度を読み込み"""
@@ -91,9 +87,7 @@ class PersonalityLearningCore:
             if os.path.exists(self.db_path):
                 conn = sqlite3.connect(self.db_path)
                 cursor = conn.cursor()
-                cursor.execute(
-                    "SELECT accuracy_current FROM learning_progress ORDER BY created_at DESC LIMIT 1"
-                )
+                cursor.execute("SELECT accuracy_current FROM learning_progress ORDER BY created_at DESC LIMIT 1")
                 result = cursor.fetchone()
                 conn.close()
                 # データベースは0-1スケール、表示は0-100スケール
@@ -169,9 +163,7 @@ class PersonalityLearningCore:
         try:
             # キーワード重み付け分析（統合アルゴリズム）
             tech_count = sum(1 for word in self.tech_keywords if word in content)
-            integrity_count = sum(
-                1 for word in self.integrity_keywords if word in content
-            )
+            integrity_count = sum(1 for word in self.integrity_keywords if word in content)
 
             # ボーナス計算（最適化された重み付け）
             keyword_bonus = tech_count * 5 + integrity_count * 3
@@ -186,9 +178,7 @@ class PersonalityLearningCore:
             analysis_result = self.analyze_journal(content.strip())
 
             # ログ出力
-            self.logger.info(
-                f"MIRRALISM分析完了: score={final_score}%, tech={tech_count}, integrity={integrity_count}"
-            )
+            self.logger.info(f"MIRRALISM分析完了: score={final_score}%, tech={tech_count}, integrity={integrity_count}")
 
             # MIRRALISM V2統合フォーマット
             return {
@@ -273,9 +263,7 @@ class PersonalityLearningCore:
             # SuperWhisper重み付け処理（1.5倍）
             if result["success"]:
                 original_score = result["analysis"]["suetake_likeness_index"]
-                weighted_score = min(
-                    original_score * self.voice_weight_multiplier, 100.0
-                )
+                weighted_score = min(original_score * self.voice_weight_multiplier, 100.0)
 
                 # 重み付け結果を記録
                 result["analysis"]["original_score"] = original_score
@@ -284,9 +272,7 @@ class PersonalityLearningCore:
                 result["metadata"]["voice_boost_applied"] = True
 
                 # ログ出力
-                self.logger.info(
-                    f"SuperWhisper重み付け: {original_score}% → {weighted_score}%"
-                )
+                self.logger.info(f"SuperWhisper重み付け: {original_score}% → {weighted_score}%")
 
                 # 音声データ特化の追加情報
                 result["voice_analysis"] = {

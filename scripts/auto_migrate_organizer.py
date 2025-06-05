@@ -21,9 +21,7 @@ class MigrationOrganizer:
 
     def __init__(self):
         self.organizer = FlexibleFileOrganizer()
-        self.log_file = (
-            self.organizer.root_dir / "Data" / "analytics" / "migration_log.json"
-        )
+        self.log_file = self.organizer.root_dir / "Data" / "analytics" / "migration_log.json"
 
     def pre_migration_cleanup(self):
         """マイグレーション前クリーンアップ"""

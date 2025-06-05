@@ -64,9 +64,7 @@ class CompleteIntegrationSystem:
         )
         self.logger = logging.getLogger(__name__)
 
-    def process_complete_voice_integration(
-        self, audio_data: Dict[str, Any]
-    ) -> Dict[str, Any]:
+    def process_complete_voice_integration(self, audio_data: Dict[str, Any]) -> Dict[str, Any]:
         """
         音声データの完全統合処理
 
@@ -87,25 +85,17 @@ class CompleteIntegrationSystem:
             workflow_result = process_superwhisper_input(audio_data)
 
             if not workflow_result["success"]:
-                raise Exception(
-                    f"ワークフロー処理失敗: {workflow_result.get('error', 'unknown')}"
-                )
+                raise Exception(f"ワークフロー処理失敗: {workflow_result.get('error', 'unknown')}")
 
             self.integration_stats["workflow_successes"] += 1
 
             # PersonalityLearning高精度チェック
-            confidence = (
-                workflow_result.get("enhanced_analysis", {})
-                .get("analysis_result", {})
-                .get("confidence", 0.0)
-            )
+            confidence = workflow_result.get("enhanced_analysis", {}).get("analysis_result", {}).get("confidence", 0.0)
             if confidence >= 85.0:
                 self.integration_stats["high_confidence_analyses"] += 1
                 self.logger.info(f"🎯 高精度分析検知: {confidence}%")
 
-            if workflow_result.get("enhanced_analysis", {}).get(
-                "personality_learning_updated", False
-            ):
+            if workflow_result.get("enhanced_analysis", {}).get("personality_learning_updated", False):
                 self.integration_stats["personality_learning_updates"] += 1
 
             # Phase 3: TaskMaster統合実行
@@ -143,12 +133,8 @@ class CompleteIntegrationSystem:
                 # Phase 3結果
                 "taskmaster_result": taskmaster_result,
                 "task_automation": {
-                    "action_taken": taskmaster_result.get("execution_result", {}).get(
-                        "action", "none"
-                    ),
-                    "task_created": taskmaster_result.get("execution_result", {}).get(
-                        "success", False
-                    ),
+                    "action_taken": taskmaster_result.get("execution_result", {}).get("action", "none"),
+                    "task_created": taskmaster_result.get("execution_result", {}).get("success", False),
                     "task_title": taskmaster_result.get("execution_result", {})
                     .get("task_data", {})
                     .get("title", "N/A"),
@@ -156,9 +142,7 @@ class CompleteIntegrationSystem:
                 # 統合統計
                 "integration_stats": self.integration_stats,
                 # プロセスサマリー
-                "process_summary": self._generate_process_summary(
-                    workflow_result, taskmaster_result, confidence
-                ),
+                "process_summary": self._generate_process_summary(workflow_result, taskmaster_result, confidence),
             }
 
             # 完全統合ログ保存
@@ -205,19 +189,13 @@ class CompleteIntegrationSystem:
                 "taskmaster_integration",
             ],
             "personality_learning_evolution": f"{confidence}% (目標95%に向けて進化中)",
-            "task_automation_status": taskmaster_result.get("execution_result", {}).get(
-                "action", "none"
-            ),
+            "task_automation_status": taskmaster_result.get("execution_result", {}).get("action", "none"),
             "integration_quality": "高品質" if confidence >= 85.0 else "標準",
-            "migration_readiness": (
-                "SecondBrain削除準備完了" if confidence >= 90.0 else "統合進行中"
-            ),
+            "migration_readiness": ("SecondBrain削除準備完了" if confidence >= 90.0 else "統合進行中"),
             "next_steps": self._determine_next_steps(confidence, taskmaster_result),
         }
 
-    def _determine_next_steps(
-        self, confidence: float, taskmaster_result: Dict[str, Any]
-    ) -> List[str]:
+    def _determine_next_steps(self, confidence: float, taskmaster_result: Dict[str, Any]) -> List[str]:
         """
         次のステップ決定
 
@@ -265,9 +243,7 @@ class CompleteIntegrationSystem:
             log_dir = self.project_root / "Data" / "integration_logs"
             log_dir.mkdir(parents=True, exist_ok=True)
 
-            log_file = (
-                log_dir / f"complete_integration_{complete_result['process_id']}.json"
-            )
+            log_file = log_dir / f"complete_integration_{complete_result['process_id']}.json"
 
             import json
 
@@ -293,16 +269,14 @@ class CompleteIntegrationSystem:
             移行ステータス情報
         """
         session_duration = (
-            datetime.now()
-            - datetime.fromisoformat(self.integration_stats["session_start"])
+            datetime.now() - datetime.fromisoformat(self.integration_stats["session_start"])
         ).total_seconds()
 
         # 成功率計算
         success_rate = 0.0
         if self.integration_stats["total_processed"] > 0:
             success_rate = (
-                self.integration_stats["workflow_successes"]
-                / self.integration_stats["total_processed"]
+                self.integration_stats["workflow_successes"] / self.integration_stats["total_processed"]
             ) * 100
 
         # PersonalityLearning進化率
@@ -319,19 +293,15 @@ class CompleteIntegrationSystem:
             "success_rate_percent": success_rate,
             "personality_learning_evolution_rate": evolution_rate,
             "task_automation_rate": (
-                self.integration_stats["tasks_auto_created"]
-                / max(1, self.integration_stats["taskmaster_integrations"])
+                self.integration_stats["tasks_auto_created"] / max(1, self.integration_stats["taskmaster_integrations"])
             )
             * 100,
             "migration_readiness": {
                 "integration_complete": success_rate >= 90.0,
                 "personality_learning_evolved": evolution_rate >= 80.0,
-                "task_automation_active": self.integration_stats["tasks_auto_created"]
-                > 0,
+                "task_automation_active": self.integration_stats["tasks_auto_created"] > 0,
                 "secondbrain_deletion_ready": (
-                    success_rate >= 90.0
-                    and evolution_rate >= 80.0
-                    and self.integration_stats["tasks_auto_created"] > 0
+                    success_rate >= 90.0 and evolution_rate >= 80.0 and self.integration_stats["tasks_auto_created"] > 0
                 ),
             },
         }
@@ -379,9 +349,7 @@ if __name__ == "__main__":
         task_automation = result["task_automation"]
 
         print("✅ 完全統合成功！")
-        print(
-            f"📊 PersonalityLearning: {personality['evolution_stage']} | 精度: {personality['confidence']}%"
-        )
+        print(f"📊 PersonalityLearning: {personality['evolution_stage']} | 精度: {personality['confidence']}%")
         print("🔧 TaskMaster自動化: {task_automation['action_taken']}")
         print("📈 統合品質: {summary['integration_quality']}")
         print("🎯 移行準備: {summary['migration_readiness']}")

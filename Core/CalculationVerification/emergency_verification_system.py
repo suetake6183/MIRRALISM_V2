@@ -55,9 +55,7 @@ class EmergencyCalculationVerification:
             ]
 
             tech_count = sum(1 for keyword in tech_keywords if keyword in entry_text)
-            integrity_count = sum(
-                1 for keyword in integrity_keywords if keyword in entry_text
-            )
+            integrity_count = sum(1 for keyword in integrity_keywords if keyword in entry_text)
 
             # スコア計算（緊急復旧版）
             tech_score = tech_count * 5

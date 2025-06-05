@@ -78,9 +78,7 @@ class AudioClassifier:
         # V1パターンマッチング改良版
         scores = {}
         for category, patterns in self.v1_patterns.items():
-            score = sum(
-                1 for pattern in patterns if pattern.lower() in audio_content.lower()
-            )
+            score = sum(1 for pattern in patterns if pattern.lower() in audio_content.lower())
             scores[category] = score
 
         # 最高スコアカテゴリを決定
@@ -89,9 +87,7 @@ class AudioClassifier:
             confidence = 0.3
         else:
             category = max(scores.keys(), key=lambda k: scores[k])
-            total_patterns = sum(
-                len(patterns) for patterns in self.v1_patterns.values()
-            )
+            total_patterns = sum(len(patterns) for patterns in self.v1_patterns.values())
             confidence = min(0.95, max(0.6, scores[category] / total_patterns * 4))
 
         result = {
@@ -127,9 +123,7 @@ class FileManager:
         # その他は削減対象
         return False
 
-    def manage_files(
-        self, classified_files: List[Dict[str, Any]]
-    ) -> List[Dict[str, Any]]:
+    def manage_files(self, classified_files: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """ファイル管理実行"""
         self.logger.log_step("ファイル管理開始", f"入力ファイル数: {len(classified_files)}")
 
@@ -137,17 +131,11 @@ class FileManager:
 
         # 500ファイル制限適用
         if len(kept_files) > self.max_files:
-            kept_files = sorted(
-                kept_files, key=lambda x: x.get("confidence", 0), reverse=True
-            )[: self.max_files]
+            kept_files = sorted(kept_files, key=lambda x: x.get("confidence", 0), reverse=True)[: self.max_files]
 
-        reduction_rate = (
-            (len(classified_files) - len(kept_files)) / len(classified_files) * 100
-        )
+        reduction_rate = (len(classified_files) - len(kept_files)) / len(classified_files) * 100
 
-        self.logger.log_success(
-            f"ファイル管理完了: {len(kept_files)}ファイル保持 ({reduction_rate:.1f}%削減)"
-        )
+        self.logger.log_success(f"ファイル管理完了: {len(kept_files)}ファイル保持 ({reduction_rate:.1f}%削減)")
         return kept_files
 
 
@@ -213,9 +201,7 @@ class MirralismPrototype:
 
         self.logger.log_step("MIRRALISMプロトタイプ初期化完了")
 
-    def process_audio_file(
-        self, audio_content: str, metadata: Dict[str, Any] = None
-    ) -> Dict[str, Any]:
+    def process_audio_file(self, audio_content: str, metadata: Dict[str, Any] = None) -> Dict[str, Any]:
         """音声ファイル処理フロー - メインプロセス"""
         if metadata is None:
             metadata = {}
@@ -269,9 +255,7 @@ class MirralismPrototype:
         # Step 1: 全ファイル処理
         processed_files = []
         for audio_data in sample_audio_data:
-            file_result = self.process_audio_file(
-                audio_data["content"], audio_data["metadata"]
-            )
+            file_result = self.process_audio_file(audio_data["content"], audio_data["metadata"])
             processed_files.append(file_result)
 
         # Step 2: ファイル管理
@@ -288,9 +272,7 @@ class MirralismPrototype:
             "total_processed": len(processed_files),
             "files_kept": len(managed_files),
             "search_results": len(search_results),
-            "classification_accuracy": sum(
-                f["classification"]["confidence"] for f in processed_files
-            )
+            "classification_accuracy": sum(f["classification"]["confidence"] for f in processed_files)
             / len(processed_files),
             "v1_improvement": "95% vs 53% (79% improvement)",
             "file_reduction": f"{(len(sample_audio_data) - len(managed_files)) / len(sample_audio_data) * 100:.1f}% reduction",
