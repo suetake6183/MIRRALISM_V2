@@ -55,7 +55,9 @@ class EmergencyCalculationVerification:
             ]
 
             tech_count = sum(1 for keyword in tech_keywords if keyword in entry_text)
-            integrity_count = sum(1 for keyword in integrity_keywords if keyword in entry_text)
+            integrity_count = sum(
+                1 for keyword in integrity_keywords if keyword in entry_text
+            )
 
             # スコア計算（緊急復旧版）
             tech_score = tech_count * 5
@@ -75,7 +77,9 @@ class EmergencyCalculationVerification:
                 "calculated_total": total_score,
                 "final_score": final_score,
                 "capped": total_score > 100.0,
-                "verification_hash": hashlib.md5(entry_text.encode()).hexdigest()[:8],
+                "verification_hash": hashlib.sha256(entry_text.encode()).hexdigest()[
+                    :8
+                ],
             }
 
             self.verification_log.append(verification_result)
@@ -106,9 +110,26 @@ class EmergencyCalculationVerification:
             # レコード数確認
             checks = {}
             for table in tables:
-                cursor.execute(f"SELECT COUNT(*) FROM {table}")
-                count = cursor.fetchone()[0]
-                checks[table] = count
+                # テーブル名のホワイトリスト検証
+                if table.replace("_", "").replace("-", "").isalnum():
+                    # SQLクエリの安全性を確保（既知のテーブル名のみ許可）
+                    valid_tables = [
+                        "learning_progress",
+                        "learning_accuracy",
+                        "keyword_learning",
+                        "value_patterns",
+                        "task_learning_correlation",
+                        "voice_data_metadata",
+                        "analysis_history",
+                    ]
+                    if table in valid_tables:
+                        cursor.execute("SELECT COUNT(*) FROM " + table)
+                        count = cursor.fetchone()[0]
+                        checks[table] = count
+                    else:
+                        checks[table] = "UNKNOWN_TABLE"
+                else:
+                    checks[table] = "INVALID_TABLE_NAME"
 
             conn.close()
 

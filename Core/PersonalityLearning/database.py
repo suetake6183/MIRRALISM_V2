@@ -46,7 +46,9 @@ class PersonalityLearningDatabase:
     def get_connection(self):
         """スレッドセーフなデータベース接続管理"""
         if not hasattr(self._local, "connection"):
-            self._local.connection = sqlite3.connect(self.db_path, check_same_thread=False, timeout=30.0)
+            self._local.connection = sqlite3.connect(
+                self.db_path, check_same_thread=False, timeout=30.0
+            )
             self._local.connection.row_factory = sqlite3.Row
             self._local.connection.execute("PRAGMA foreign_keys = ON")
             self._local.connection.execute("PRAGMA journal_mode = WAL")
@@ -358,11 +360,10 @@ class PersonalityLearningDatabase:
             cursor = conn.execute(
                 """
                 SELECT * FROM learning_progress
-                WHERE progress_date >= date('now', '-{} days')
+                WHERE progress_date >= date('now', '-? days')
                 ORDER BY progress_date DESC
-            """.format(
-                    days
-                )
+            """,
+                (days,),
             )
             return [dict(row) for row in cursor.fetchall()]
 
@@ -455,17 +456,23 @@ class PersonalityLearningDatabase:
 
     def get_keyword_weights(self, category: str = None) -> Dict[str, float]:
         """キーワード重みマップ取得"""
-        where_clause = "WHERE category = ?" if category else ""
-        params = (category,) if category else ()
-
         with self.get_connection() as conn:
-            cursor = conn.execute(
-                f"""
-                SELECT keyword, weight_current FROM keyword_learning {where_clause}
-                ORDER BY weight_current DESC
-            """,
-                params,
-            )
+            if category:
+                cursor = conn.execute(
+                    """
+                    SELECT keyword, weight_current FROM keyword_learning 
+                    WHERE category = ?
+                    ORDER BY weight_current DESC
+                """,
+                    (category,),
+                )
+            else:
+                cursor = conn.execute(
+                    """
+                    SELECT keyword, weight_current FROM keyword_learning
+                    ORDER BY weight_current DESC
+                """
+                )
             return {row["keyword"]: row["weight_current"] for row in cursor.fetchall()}
 
     # ======================
@@ -501,7 +508,9 @@ class PersonalityLearningDatabase:
             )
             return cursor.lastrowid
 
-    def update_task_completion(self, task_id: int, status: str, completion_date: date = None):
+    def update_task_completion(
+        self, task_id: int, status: str, completion_date: date = None
+    ):
         """タスク完了更新"""
         with self.get_connection() as conn:
             conn.execute(
@@ -636,11 +645,10 @@ class PersonalityLearningDatabase:
                 """
                 SELECT measurement_date, overall_accuracy, accuracy_delta
                 FROM learning_accuracy
-                WHERE measurement_date >= date('now', '-{} days')
+                WHERE measurement_date >= date('now', '-? days')
                 ORDER BY measurement_date
-            """.format(
-                    days
-                )
+            """,
+                (days,),
             )
             return [dict(row) for row in cursor.fetchall()]
 
@@ -656,9 +664,15 @@ class PersonalityLearningDatabase:
             ).fetchone()
 
             # 総学習データ数
-            total_patterns = conn.execute("SELECT COUNT(*) as count FROM value_patterns").fetchone()
-            total_keywords = conn.execute("SELECT COUNT(*) as count FROM keyword_learning").fetchone()
-            total_analyses = conn.execute("SELECT COUNT(*) as count FROM analysis_history").fetchone()
+            total_patterns = conn.execute(
+                "SELECT COUNT(*) as count FROM value_patterns"
+            ).fetchone()
+            total_keywords = conn.execute(
+                "SELECT COUNT(*) as count FROM keyword_learning"
+            ).fetchone()
+            total_analyses = conn.execute(
+                "SELECT COUNT(*) as count FROM analysis_history"
+            ).fetchone()
 
             # TaskMaster相関
             task_correlations = conn.execute(
@@ -668,13 +682,21 @@ class PersonalityLearningDatabase:
             ).fetchone()
 
             return {
-                "current_accuracy": (latest_accuracy["overall_accuracy"] if latest_accuracy else 0.0),
+                "current_accuracy": (
+                    latest_accuracy["overall_accuracy"] if latest_accuracy else 0.0
+                ),
                 "total_patterns": total_patterns["count"],
                 "total_keywords": total_keywords["count"],
                 "total_analyses": total_analyses["count"],
-                "avg_task_impact": (task_correlations["avg_impact"] if task_correlations else 0.0),
+                "avg_task_impact": (
+                    task_correlations["avg_impact"] if task_correlations else 0.0
+                ),
                 "target_accuracy": 0.95,
-                "progress_to_target": ((latest_accuracy["overall_accuracy"] / 0.95 * 100) if latest_accuracy else 0.0),
+                "progress_to_target": (
+                    (latest_accuracy["overall_accuracy"] / 0.95 * 100)
+                    if latest_accuracy
+                    else 0.0
+                ),
             }
 
     def close(self):
