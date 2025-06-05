@@ -1,0 +1,68 @@
+{
+  "current_mode": "migration",
+  "daily_limits": {
+    "normal": 50,
+    "analysis": 200,
+    "migration": 500
+  },
+  "warning_levels": {
+    "notification": 50,
+    "confirmation": 100,
+    "detailed_approval": 200
+  },
+  "file_rules": {
+    "analysis": {
+      "patterns": [
+        "*_analysis_*.txt",
+        "*_analysis_*.md"
+      ],
+      "destination": "Data/analytics/"
+    },
+    "reports": {
+      "patterns": [
+        "*_report_*.md",
+        "*_test_results.txt"
+      ],
+      "destination": "Documentation/reports/"
+    },
+    "strategy": {
+      "patterns": [
+        "STRATEGIC_*.md",
+        "*_BRIEFING.md",
+        "*_REQUIRED_*.md"
+      ],
+      "destination": "Documentation/strategy/"
+    },
+    "migration": {
+      "patterns": [
+        "*_compatibility_*.md",
+        "*migration*.md"
+      ],
+      "destination": "Documentation/migration/"
+    },
+    "temp": {
+      "patterns": [
+        "temp_*.txt",
+        "*.tmp",
+        "*.log"
+      ],
+      "destination": "Data/temp/",
+      "retention_days": 7
+    },
+    "forbidden": {
+      "patterns": [
+        "*REDIRECT*",
+        "*_duplicate_*",
+        "*コピー*"
+      ],
+      "action": "block",
+      "reason": "V1失敗パターン検出"
+    }
+  },
+  "today_stats": {
+    "date": "2025-06-05",
+    "files_created": 0,
+    "warnings_issued": 0,
+    "manual_approvals": 0
+  }
+}

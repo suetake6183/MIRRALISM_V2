@@ -1,0 +1,59 @@
+[
+  {
+    "timestamp": "2025-06-03T22:06:13.978193",
+    "event": "pre_migration_cleanup",
+    "results": {
+      "moved": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "files_organized": 0,
+    "errors": 0
+  },
+  {
+    "timestamp": "2025-06-03T22:06:13.979154",
+    "event": "post_migration_validation",
+    "remaining_files": [],
+    "clean_status": true
+  },
+  {
+    "timestamp": "2025-06-03T22:08:05.259583",
+    "event": "pre_migration_cleanup",
+    "results": {
+      "moved": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "files_organized": 0,
+    "errors": 0
+  },
+  {
+    "timestamp": "2025-06-03T22:08:05.260178",
+    "event": "post_migration_validation",
+    "remaining_files": [],
+    "clean_status": true
+  },
+  {
+    "timestamp": "2025-06-03T22:10:14.938415",
+    "event": "pre_migration_cleanup",
+    "results": {
+      "moved": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "files_organized": 0,
+    "errors": 0
+  },
+  {
+    "timestamp": "2025-06-03T22:10:14.938958",
+    "event": "post_migration_validation",
+    "remaining_files": [],
+    "clean_status": true
+  },
+  {
+    "timestamp": "2025-06-03T22:10:39.998140",
+    "event": "post_migration_validation",
+    "remaining_files": [],
+    "clean_status": true
+  }
+]

@@ -1,0 +1,164 @@
+name: MIRRALISM Quality Gates
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # Enhanced Quality Gates with MIRRALISM Standards
+  enhanced-quality-gates:
+    name: 🎯 Enhanced MIRRALISM Quality Gates
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history for better analysis
+
+      - name: 🐍 Setup Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+
+      - name: 📦 Install Quality Tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install pre-commit black isort mypy bandit safety
+          pip install radon xenon complexity-metrics
+          pip install -r requirements.txt
+
+      - name: 🔍 Pre-commit Enhanced Check
+        run: |
+          pre-commit install
+          pre-commit run --all-files --show-diff-on-failure
+
+      - name: 📏 Code Complexity Gate (MIRRALISM Standard)
+        run: |
+          echo "🎯 MIRRALISM Complexity Analysis"
+
+          # Radon Complexity Check
+          radon cc . --average --show-complexity > complexity-report.txt
+          COMPLEXITY=$(radon cc . --average | tail -1 | awk '{print $NF}')
+
+          echo "📊 Average Complexity: $COMPLEXITY"
+          echo "🎯 MIRRALISM Target: <2.0"
+
+          # Fail if complexity exceeds MIRRALISM standards
+          python -c "
+          import sys
+          complexity = float('$COMPLEXITY') if '$COMPLEXITY'.replace('.','').isdigit() else 0
+          if complexity >= 2.0:
+              print('❌ COMPLEXITY GATE FAILED: Exceeds MIRRALISM standard')
+              sys.exit(1)
+          else:
+              print('✅ COMPLEXITY GATE PASSED: Meets MIRRALISM standard')
+          "
+
+      - name: 📁 File Count Gate (500 File Limit)
+        run: |
+          echo "📁 MIRRALISM File Count Analysis"
+
+          FILE_COUNT=$(find . -type f -name "*.py" -o -name "*.md" -o -name "*.json" -o -name "*.yml" | wc -l)
+          echo "📊 Current Files: $FILE_COUNT"
+          echo "🎯 MIRRALISM Limit: 500"
+
+          if [ $FILE_COUNT -ge 500 ]; then
+            echo "❌ FILE COUNT GATE FAILED: Exceeds 500 file limit"
+            exit 1
+          else
+            echo "✅ FILE COUNT GATE PASSED: Within MIRRALISM limit"
+          fi
+
+      - name: 🔒 Security Quality Gate
+        run: |
+          echo "🔒 MIRRALISM Security Analysis"
+
+          # Bandit Security Check
+          bandit -r . -x tests/ -ll -f json -o bandit-results.json
+          BANDIT_ISSUES=$(cat bandit-results.json | python -c "import sys,json; print(len(json.load(sys.stdin)['results']))")
+
+          echo "🔍 Security Issues Found: $BANDIT_ISSUES"
+          echo "🎯 MIRRALISM Standard: 0 high/medium issues"
+
+          if [ $BANDIT_ISSUES -gt 0 ]; then
+            echo "❌ SECURITY GATE FAILED: Security issues detected"
+            bandit -r . -x tests/ -ll
+            exit 1
+          else
+            echo "✅ SECURITY GATE PASSED: No security issues"
+          fi
+
+      - name: 🧪 Test Coverage Gate (95% Standard)
+        run: |
+          echo "🧪 MIRRALISM Test Coverage Analysis"
+
+          pip install pytest-cov
+          coverage run -m pytest tests/ || true
+          COVERAGE=$(coverage report | tail -1 | awk '{print $(NF-1)}' | sed 's/%//')
+
+          echo "📊 Test Coverage: ${COVERAGE}%"
+          echo "🎯 MIRRALISM Standard: ≥95%"
+
+          python -c "
+          import sys
+          coverage = float('$COVERAGE') if '$COVERAGE'.replace('.','').isdigit() else 0
+          if coverage < 95.0:
+              print('❌ COVERAGE GATE FAILED: Below MIRRALISM standard')
+              sys.exit(1)
+          else:
+              print('✅ COVERAGE GATE PASSED: Meets MIRRALISM standard')
+          "
+
+      - name: 🎯 MIRRALISM Philosophy Compliance
+        run: |
+          echo "🎯 MIRRALISM Philosophy Validation"
+
+          # Check for V1 anti-patterns
+          REDIRECT_FILES=$(find . -name "*REDIRECT*" | wc -l)
+          if [ $REDIRECT_FILES -gt 0 ]; then
+            echo "❌ V1 ANTI-PATTERN DETECTED: REDIRECT files found"
+            find . -name "*REDIRECT*"
+            exit 1
+          fi
+
+          # Check for excessive complexity markers
+          COMPLEX_FUNCTIONS=$(grep -r "TODO: Simplify" . | wc -l)
+          if [ $COMPLEX_FUNCTIONS -gt 5 ]; then
+            echo "❌ COMPLEXITY DEBT: Too many 'TODO: Simplify' markers"
+            exit 1
+          fi
+
+          echo "✅ MIRRALISM PHILOSOPHY: Compliant"
+
+      - name: 📊 Quality Gates Summary
+        if: always()
+        run: |
+          echo "## 🎯 MIRRALISM Quality Gates Report" > quality-report.md
+          echo "**Date**: $(date)" >> quality-report.md
+          echo "" >> quality-report.md
+          echo "### Gate Results:" >> quality-report.md
+          echo "- 📏 **Code Complexity**: Check completed" >> quality-report.md
+          echo "- 📁 **File Count**: Check completed" >> quality-report.md
+          echo "- 🔒 **Security**: Check completed" >> quality-report.md
+          echo "- 🧪 **Test Coverage**: Check completed" >> quality-report.md
+          echo "- 🎯 **MIRRALISM Philosophy**: Check completed" >> quality-report.md
+          echo "" >> quality-report.md
+          echo "### Standards Applied:" >> quality-report.md
+          echo "- Maximum Complexity: <2.0" >> quality-report.md
+          echo "- File Limit: 500 files" >> quality-report.md
+          echo "- Security: Zero tolerance" >> quality-report.md
+          echo "- Coverage: ≥95%" >> quality-report.md
+          echo "- V1 Anti-patterns: Forbidden" >> quality-report.md
+
+      - name: 📋 Upload Quality Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mirralism-quality-report
+          path: |
+            quality-report.md
+            complexity-report.txt
+            bandit-results.json

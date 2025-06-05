@@ -1,0 +1,49 @@
+{
+  "test_runs": [
+    {
+      "run_id": 1,
+      "execution_time": 0.0464627742767334,
+      "return_code": 0,
+      "stdout_lines": 45,
+      "stderr_lines": 0,
+      "success": true,
+      "performance_metrics": {
+        "contains_accuracy_info": true,
+        "execution_completed": true
+      }
+    },
+    {
+      "run_id": 2,
+      "execution_time": 0.0401611328125,
+      "return_code": 0,
+      "stdout_lines": 45,
+      "stderr_lines": 0,
+      "success": true,
+      "performance_metrics": {
+        "contains_accuracy_info": true,
+        "execution_completed": true
+      }
+    },
+    {
+      "run_id": 3,
+      "execution_time": 0.03924417495727539,
+      "return_code": 0,
+      "stdout_lines": 45,
+      "stderr_lines": 0,
+      "success": true,
+      "performance_metrics": {
+        "contains_accuracy_info": true,
+        "execution_completed": true
+      }
+    }
+  ],
+  "summary": {
+    "success_rate": 1.0,
+    "avg_execution_time": 0.041956027348836265,
+    "max_execution_time": 0.0464627742767334,
+    "min_execution_time": 0.03924417495727539,
+    "total_runs": 3,
+    "successful_runs": 3
+  },
+  "timestamp": "2025-06-05T04:44:42.354674"
+}

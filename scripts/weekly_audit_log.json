@@ -1,0 +1,140 @@
+[
+  {
+    "audit_date": "2025-06-03T17:18:09.460145",
+    "compliant_directories": [
+      "scripts/",
+      "Documentation/decisions/",
+      "Documentation/guides/",
+      "Documentation/migration/",
+      "Documentation/reports/",
+      "Documentation/strategy/",
+      "Core/Classification/",
+      "Core/Learning/",
+      "Core/Search/",
+      "Core/intake/",
+      "Core/PersonalityLearning/",
+      "Prototype/development/",
+      "Prototype/experiments/",
+      "Prototype/testing/",
+      "API/exports/",
+      "API/integrations/",
+      "API/webhooks/",
+      "API/integrations/superwhisper/",
+      "Data/temp/",
+      "Data/analytics/"
+    ],
+    "violation_directories": [
+      {
+        "directory": "Clients/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Clients/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Contents/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Contents/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Interface/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Interface/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Documentation/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Documentation/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Core/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Core/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Prototype/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Prototype/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "API/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'API/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Data/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Data/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Clients/Database/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Clients/Database/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Clients/ProjectCycle/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Clients/ProjectCycle/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Clients/History/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Clients/History/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Clients/Templates/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Clients/Templates/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Clients/Outputs/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Clients/Outputs/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Contents/Insights/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Contents/Insights/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Contents/Patterns/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Contents/Patterns/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Contents/Archives/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Contents/Archives/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Contents/Templates/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Contents/Templates/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Interface/workflows/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Interface/workflows/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Interface/components/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Interface/components/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Interface/dashboards/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Interface/dashboards/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Documentation/technical/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Documentation/technical/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Core/PersonalityLearning/thoughts/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Core/PersonalityLearning/thoughts/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Data/sync_config/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Data/sync_config/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Data/imports/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Data/imports/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Data/migrated/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Data/migrated/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Data/raw/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Data/raw/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      },
+      {
+        "directory": "Data/raw/PersonalThoughts_20250602_092243/",
+        "error": "🚨 設計書違反検出！\nディレクトリ 'Data/raw/PersonalThoughts_20250602_092243/' は設計書に記載されていません。\n✅ 正しい手順:\n  1. 事前に設計チームに相談\n  2. 設計書を更新\n  3. 承認後に実装\n📋 承認済みディレクトリ一覧:\n  - API/exports/\n  - API/integrations/\n  - API/integrations/superwhisper/\n  - API/webhooks/\n  - Contents/blog/\n  - Contents/newsletter/\n  - Contents/social/\n  - Contents/youtube_scripts/\n  - Core/Classification/\n  - Core/Learning/\n  - Core/PersonalityLearning/\n  - Core/Search/\n  - Core/intake/\n  - Data/analytics/\n  - Data/backup/\n  - Data/export/\n  - Data/temp/\n  - Documentation/decisions/\n  - Documentation/guides/\n  - Documentation/migration/\n  - Documentation/reports/\n  - Documentation/strategy/\n  - Prototype/development/\n  - Prototype/experiments/\n  - Prototype/testing/\n  - scripts/"
+      }
+    ],
+    "total_directories": 47,
+    "compliance_rate": 42.5531914893617,
+    "audit_passed": false
+  }
+]
