@@ -1,0 +1,52 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# MIRRALISM Date/Time Accuracy Rule
+
+**Purpose**: Prevent date and time errors by always checking current time before any operations.
+
+## **Always Execute First**
+
+Before starting any work, analysis, or code generation, **ALWAYS run**:
+
+```bash
+node scripts/getDate.js
+```
+
+This ensures you have the correct current date and time for:
+- File timestamps
+- Documentation dates  
+- Project timelines
+- Task scheduling
+- Report generation
+
+## **Expected Output Format**
+
+The script provides:
+- **Current JST Time**: "2025年6月5日（木）21時30分"
+- **ISO Date**: "2025-06-05" 
+- **Day of Week**: "木曜日"
+
+## **Integration with MIRRALISM Systems**
+
+This rule works together with:
+- [mirralism_unified_time_system.mdc](mdc:.cursor/rules/mirralism_unified_time_system.mdc)
+- TaskMaster scheduling
+- Quality audit timestamps
+
+## **Error Prevention**
+
+This rule prevents:
+- ❌ Using future dates in documents
+- ❌ Incorrect timeline planning
+- ❌ Timestamp mismatches in reports
+- ❌ Schedule calculation errors
+
+## **Implementation Notes**
+
+- **Lightweight**: Fast execution (~50ms)
+- **Reliable**: Pure JavaScript, no external dependencies
+- **Consistent**: Standardized JST output format
+- **Automated**: Runs on every Cursor interaction

@@ -12,7 +12,7 @@ CTOの要求に応じた包括的エビデンス生成：
 
 作成者: MIRRALISM自律技術者
 期限: Phase 1エビデンス完全化（24時間以内）
-評価期限: 6月12日
+評価実施: 段階的検証
 """
 
 import json
@@ -409,7 +409,9 @@ ls -la | grep -E "(flake8|isort|pyproject)"
 
         # V1データ活用レポート生成
         report = self._generate_v1_utilization_report(v1_analysis)
-        with open(self.evidence_dir / "V1データ活用詳細分析.md", "w", encoding="utf-8") as f:
+        with open(
+            self.evidence_dir / "V1データ活用詳細分析.md", "w", encoding="utf-8"
+        ) as f:
             f.write(report)
 
         return v1_analysis
@@ -592,8 +594,12 @@ def main():
         print("\n🎯 エビデンス収集完了:")
         print("=" * 40)
         print("品質スコア: {evidence_package['metadata']['quality_score']:.1f}/100")
-        print("CTO要求達成率: {evidence_package['metadata']['cto_compliance_rate']:.1f}%")
-        print("エビデンスファイル数: {evidence_package['metadata']['total_evidence_files']}")
+        print(
+            "CTO要求達成率: {evidence_package['metadata']['cto_compliance_rate']:.1f}%"
+        )
+        print(
+            "エビデンスファイル数: {evidence_package['metadata']['total_evidence_files']}"
+        )
 
         print("\n📋 生成されたエビデンス:")
         for filename in evidence_package["metadata"]["evidence_file_list"]:
