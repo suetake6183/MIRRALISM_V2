@@ -10,15 +10,17 @@ CTOの指摘を受けて修正:
 - 客観的検証の信頼性確保
 """
 
-import os
-import sys
 import json
+import os
+import re
 import sqlite3
 import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any
-import re
+from typing import Any
+from typing import Dict
+from typing import List
 
 
 class AccurateVerificationSystem:

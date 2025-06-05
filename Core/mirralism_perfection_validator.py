@@ -7,11 +7,12 @@ MIRRALISM Perfection Validator
 CTOの要求する100%技術的完璧性の客観的証明
 """
 
-import os
 import json
+import os
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict
+from typing import List
 
 
 class MIRRALISMPerfectionValidator:

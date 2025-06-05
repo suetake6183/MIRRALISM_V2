@@ -7,17 +7,24 @@ MIRRALISM V2 高度依存関係分析システム
 目的: より厳密な依存関係整合性チェック
 """
 
-import os
 import ast
-import sys
 import json
 import logging
-import networkx as nx  # グラフ分析用
+import os
+import re
+import sys
+from collections import defaultdict
+from collections import deque
 from datetime import datetime
 from pathlib import Path
-from typing import List, Dict, Any, Set, Tuple, Optional
-from collections import defaultdict, deque
-import re
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Set
+from typing import Tuple
+
+import networkx as nx  # グラフ分析用
 
 
 class AdvancedDependencyAnalyzer:

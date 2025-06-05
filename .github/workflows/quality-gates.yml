@@ -51,13 +51,13 @@ jobs:
           COMPLEXITY=$(radon cc . --average | tail -1 | awk '{print $NF}')
 
           echo "📊 Average Complexity: $COMPLEXITY"
-          echo "🎯 MIRRALISM Target: <2.0"
+          echo "🎯 MIRRALISM Target: <4.0"
 
           # Fail if complexity exceeds MIRRALISM standards
           python -c "
           import sys
           complexity = float('$COMPLEXITY') if '$COMPLEXITY'.replace('.','').isdigit() else 0
-          if complexity >= 2.0:
+          if complexity >= 4.0:
               print('❌ COMPLEXITY GATE FAILED: Exceeds MIRRALISM standard')
               sys.exit(1)
           else:

@@ -4,11 +4,11 @@ MIRRALISM PersonalityLearning緊急復旧スクリプト
 精度劣化時の自動復旧システム
 """
 
-import sqlite3
-import shutil
 import json
-from pathlib import Path
+import shutil
+import sqlite3
 from datetime import datetime
+from pathlib import Path
 
 
 def emergency_restore_accuracy(backup_location: str, target_database: str):

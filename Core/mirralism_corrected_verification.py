@@ -6,14 +6,16 @@ MIRRALISM Corrected Verification System
 CTOの指摘を受けて統計バグを完全修正
 """
 
-import os
-import sys
 import json
+import os
+import re
 import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any
-import re
+from typing import Any
+from typing import Dict
+from typing import List
 
 
 def get_accurate_file_statistics(project_root: Path) -> Dict[str, Any]:

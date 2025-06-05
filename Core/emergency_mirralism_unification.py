@@ -7,13 +7,13 @@ CTOの指示に基づく制約ファースト設計の技術実装
 原則: データ損失ゼロ、整合性保証、追跡可能性確保
 """
 
-import sqlite3
-import os
-import shutil
-from datetime import datetime
 import hashlib
 import json
 import logging
+import os
+import shutil
+import sqlite3
+from datetime import datetime
 
 # ログ設定
 logging.basicConfig(

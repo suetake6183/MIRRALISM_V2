@@ -16,19 +16,23 @@ MIRRALISM制約強制エンジン - V1問題の技術的根絶
 - 違反時の即座対応
 """
 
-import os
-import sqlite3
-import shutil
-import time
-import json
 import hashlib
-import threading
+import json
 import logging
-from pathlib import Path
+import os
+import shutil
+import sqlite3
+import threading
+import time
 from datetime import datetime
-from typing import List, Dict, Set, Optional
-from watchdog.observers import Observer
+from pathlib import Path
+from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Set
+
 from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
 
 # ログ設定
 logging.basicConfig(

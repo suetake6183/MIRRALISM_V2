@@ -8,10 +8,10 @@ V1教訓活用版の品質保証テスト
 目的: CTOの品質要求に対応した包括的テスト
 """
 
-import unittest
-import tempfile
 import os
 import sys
+import tempfile
+import unittest
 from pathlib import Path
 
 # テスト対象のインポート

@@ -17,7 +17,10 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Tuple
 
 # プロジェクトルートディレクトリ
 PROJECT_ROOT = Path(__file__).parent.parent

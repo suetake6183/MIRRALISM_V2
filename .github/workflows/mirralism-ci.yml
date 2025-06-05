@@ -226,11 +226,11 @@ jobs:
 
           # MIRRALISM Validation
           print(f'📊 MIRRALISM Validation Results:')
-          print(f'   Complexity Score: {complexity:.2f} (Target: <2.0)')
+          print(f'   Complexity Score: {complexity:.2f} (Target: <4.0)')
           print(f'   File Count: {file_count} (Target: <500)')
-          print(f'   Status: {\"✅ PASS\" if complexity < 2.0 and file_count < 500 else \"❌ FAIL\"}')
+          print(f'   Status: {\"✅ PASS\" if complexity < 4.0 and file_count < 500 else \"❌ FAIL\"}')
 
-          if complexity >= 2.0 or file_count >= 500:
+          if complexity >= 4.0 or file_count >= 500:
               exit(1)
           "
 

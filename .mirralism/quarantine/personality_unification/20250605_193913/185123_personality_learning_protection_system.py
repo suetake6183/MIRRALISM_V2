@@ -8,16 +8,19 @@ V1の53%精度学習資産を完全保護し、V2で95%精度実現
 CTO要求: 48時間以内で基盤品質リスク根絶
 """
 
+import hashlib
+import json
+import logging
 import os
 import shutil
 import sqlite3
-import logging
-import json
+import traceback
 from datetime import datetime
 from pathlib import Path
-from typing import List, Dict, Any, Optional
-import hashlib
-import traceback
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
 
 
 class PersonalityLearningProtectionSystem:

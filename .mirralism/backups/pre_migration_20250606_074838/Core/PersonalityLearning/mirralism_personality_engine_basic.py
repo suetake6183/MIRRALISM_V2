@@ -13,12 +13,15 @@ V1教訓:
 - REDIRECT問題 → 予防的設計
 """
 
-import logging
 import json
+import logging
 import sqlite3
 from datetime import datetime
-from typing import Dict, Any, Optional, List
 from pathlib import Path
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
 
 
 class MirralismPersonalityEngineBasic:

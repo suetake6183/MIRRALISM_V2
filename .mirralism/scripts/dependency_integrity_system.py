@@ -8,20 +8,25 @@ V1→V2継承による依存関係破綻の完全検出・修正
 重要度: Critical - 品質保証の根幹
 """
 
-import os
 import ast
-import re
-import sys
+import hashlib
 import json
-import sqlite3
 import logging
-import subprocess
+import os
+import re
 import shutil
+import sqlite3
+import subprocess
+import sys
+from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import List, Dict, Any, Set, Tuple, Optional
-import hashlib
-from dataclasses import dataclass
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Set
+from typing import Tuple
 
 
 @dataclass

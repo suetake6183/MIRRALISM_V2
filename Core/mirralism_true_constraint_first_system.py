@@ -13,22 +13,25 @@ CTOの厳格指導に基づく設計思想の技術的完全実現:
 設計原則: 制約ファースト + 予防的品質保証 + 客観的検証
 """
 
-import os
-import sys
-import json
-import sqlite3
 import hashlib
+import json
 import logging
-import threading
+import os
+import sqlite3
 import subprocess
+import sys
+import threading
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
 
 # 追加: watchdog がない場合の対応
 try:
-    from watchdog.observers import Observer
     from watchdog.events import FileSystemEventHandler
+    from watchdog.observers import Observer
 
     WATCHDOG_AVAILABLE = True
 except ImportError:

@@ -12,16 +12,19 @@ CTOからの厳格指示:
 MIRRALISMブランド: エンタープライズレベルの技術的権威性確立
 """
 
-import os
+import hashlib
 import json
+import logging
+import os
+import re
 import shutil
 import sqlite3
-import logging
 from datetime import datetime
-from typing import Dict, List, Tuple, Optional
-import hashlib
-import re
 from pathlib import Path
+from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Tuple
 
 
 class MIRRALISMPerfectCompletionEngine:

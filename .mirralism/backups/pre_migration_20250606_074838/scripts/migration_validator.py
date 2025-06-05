@@ -12,7 +12,10 @@ import os
 import subprocess
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Tuple
 
 PROJECT_ROOT = Path(__file__).parent.parent
 
@@ -179,9 +182,9 @@ class MigrationValidator:
 
         # Python 依存関係
         try:
-            import sqlite3
-            import pathlib
             import json
+            import pathlib
+            import sqlite3
         except ImportError as e:
             errors.append(f"Python標準ライブラリインポートエラー: {e}")
 
