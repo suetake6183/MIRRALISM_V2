@@ -1,0 +1,89 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# MIRRALISM AI計算禁止ルール
+
+**Purpose**: AIの計算ミスを防ぎ、100%正確な計算結果を保証する
+
+## **🚫 絶対禁止事項**
+
+AIが直接実行してはいけない計算：
+- ❌ **数値計算**: 加減乗除、パーセンテージ、比率
+- ❌ **日付計算**: 期間計算、日付加算・減算
+- ❌ **財務計算**: ROI、利益率、売上計算
+- ❌ **統計計算**: 平均、合計、分散
+- ❌ **ファイル計算**: サイズ計算、カウント、容量計算
+
+## **✅ 必須実行プロトコル**
+
+計算が必要な場合は**必ず**以下の形式で実行：
+
+```bash
+node scripts/calculations/[計算種別].js [操作] [パラメータ...]
+```
+
+## **📊 利用可能な計算スクリプト**
+
+### **基本数学計算**
+```bash
+node scripts/calculations/basic_math.js add 480 1027        # 加算
+node scripts/calculations/basic_math.js subtract 1027 480   # 減算
+node scripts/calculations/basic_math.js multiply 480 2.14   # 乗算
+node scripts/calculations/basic_math.js divide 1027 480     # 除算
+node scripts/calculations/basic_math.js percentage 1027 480 # パーセンテージ
+```
+
+### **日付・期間計算**
+```bash
+node scripts/calculations/date_calc.js period 2025-06-05 2025-08-05  # 期間計算
+node scripts/calculations/date_calc.js add_days 2025-06-05 30        # 日付加算
+node scripts/calculations/date_calc.js subtract_days 2025-08-05 30   # 日付減算
+node scripts/calculations/date_calc.js business_days 2025-06-05 2025-08-05  # 営業日計算
+```
+
+### **ROI・財務計算**
+```bash
+node scripts/calculations/roi_calc.js roi 480 1027           # ROI計算
+node scripts/calculations/roi_calc.js profit_rate 15 100     # 利益率
+node scripts/calculations/roi_calc.js compound_growth 480 1027 3  # 複利成長率
+```
+
+### **ファイル・統計計算**
+```bash
+node scripts/calculations/file_calc.js size_sum ./data/     # ファイルサイズ合計
+node scripts/calculations/file_calc.js count_files ./data/ # ファイル数カウント
+node scripts/calculations/file_calc.js average 10 20 30    # 平均計算
+```
+
+## **🔧 計算結果の形式**
+
+全ての計算スクリプトは以下の統一形式で出力：
+
+```
+=== [計算種別]計算結果 ===
+入力: [パラメータ]
+結果: [正確な数値]
+計算式: [使用した数式]
+検証: [結果の妥当性]
+==================
+```
+
+## **⚠️ エラー防止**
+
+このルールにより防止される問題：
+- ❌ タイムゾーン計算ミス
+- ❌ 浮動小数点演算誤差
+- ❌ パーセンテージ計算間違い
+- ❌ ROI計算の不正確性
+- ❌ 計算過程の不透明性
+
+## **🎯 MIRRALISM品質保証**
+
+- **100%正確性**: プログラム計算による確実性
+- **透明性**: 計算過程の完全可視化
+- **トレーサビリティ**: 入力・出力・過程の記録
+- **検証可能性**: 計算結果の第三者検証可能
+
+**重要**: この仕組みは「技術的完璧性」の一部として、MIRRALISMの品質基準に不可欠です。
