@@ -170,6 +170,13 @@
   },
   "active": "35cf80e511199955",
   "lastOpenFiles": [
+    "Data/temp/mirralism_constraint_engine.log",
+    "Documentation/strategy/strategic_leader_certification.md",
+    "Data/temp/mirralism_unification.log",
+    "Data/temp/mirralism_prototype.log",
+    "scripts/install_mirralism.sh",
+    "scripts/migration_validator.py",
+    "scripts/migrate_installer.py",
     "Cursor_ClaudeCode統合テスト.md",
     "CursorでClaudeCodeをチャット形式で使う方法.md",
     "中学生向けClaudeCode使い方.md",
@@ -183,13 +190,8 @@
     "scripts/calculations/roi_calc.js",
     "scripts/calculations/date_calc.js",
     "scripts/calculations/basic_math.js",
-    "scripts/calculations",
-    "scripts/getDate.js",
-    "80_scripts/getDate.js",
-    "80_scripts",
     "Clients/Execution/黒澤工務店_戦略的価値創造実証プロジェクト.md",
     "MIRRALISM_Value_Creation_Strategic_Plan.md",
-    "mirralism_corrected_verification.py",
     "ESSENTIAL_EXTRACTED/Documentation/technical/TaskMaster_Architecture_Refactoring.md",
     "ESSENTIAL_EXTRACTED/Documentation/strategy/STRATEGIC_MANAGER_REQUIRED_FILES.md",
     "ESSENTIAL_EXTRACTED/Documentation/strategy/STRATEGIC_MANAGER_OPTIMIZED_FILES.md",
@@ -203,8 +205,6 @@
     "ESSENTIAL_EXTRACTED/Documentation/guides/SecondBrain_Essential_Concepts_Extract.md",
     "ESSENTIAL_EXTRACTED/Documentation/guides/PersonalityLearning_Strategic_Philosophy.md",
     "ESSENTIAL_EXTRACTED/Documentation/guides/MIRRALISM_Core_Philosophy.md",
-    "ESSENTIAL_EXTRACTED/Documentation/guides/CODING_STYLE_GUIDE.md",
-    "ESSENTIAL_EXTRACTED/Documentation/remote_development_setup.md",
-    "ESSENTIAL_EXTRACTED/Documentation/PHASE1_COMPLETION_REPORT.md"
+    "ESSENTIAL_EXTRACTED/Documentation/guides/CODING_STYLE_GUIDE.md"
   ]
 }

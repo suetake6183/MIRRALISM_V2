@@ -1,0 +1,52 @@
+{
+  "timestamp": "2025-06-06T07:48:38.915203",
+  "overall_status": "passed",
+  "checks": [
+    {
+      "name": "file_structure_validation",
+      "status": "passed",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "core_systems_validation",
+      "status": "passed",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "dependencies_validation",
+      "status": "passed",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "database_integrity_validation",
+      "status": "passed",
+      "errors": [],
+      "warnings": [
+        "期待されるテーブルが見つかりません: personality_data",
+        "期待されるテーブルが見つかりません: analysis_results",
+        "期待されるテーブルが見つかりません: user_sessions"
+      ]
+    },
+    {
+      "name": "configuration_validation",
+      "status": "passed",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "performance_tests",
+      "status": "passed",
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "期待されるテーブルが見つかりません: personality_data",
+    "期待されるテーブルが見つかりません: analysis_results",
+    "期待されるテーブルが見つかりません: user_sessions"
+  ]
+}

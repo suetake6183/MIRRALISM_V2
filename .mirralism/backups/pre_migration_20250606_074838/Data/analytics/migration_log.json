@@ -55,16 +55,5 @@
     "event": "post_migration_validation",
     "remaining_files": [],
     "clean_status": true
-  },
-  {
-    "timestamp": "2025-06-06T07:48:38.808000",
-    "event": "pre_migration_cleanup",
-    "results": {
-      "moved": 4,
-      "errors": 0,
-      "skipped": 0
-    },
-    "files_organized": 4,
-    "errors": 0
   }
 ]

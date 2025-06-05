@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "features": {
+    "personality_learning": true,
+    "client_intelligence": true,
+    "strategic_manager": true,
+    "quality_assurance": true
+  },
+  "dependencies": {
+    "python": ">=3.9",
+    "node": ">=18.0.0",
+    "git": ">=2.30"
+  },
+  "migration_phases": [
+    "backup",
+    "dependency_check",
+    "file_organization",
+    "core_migration",
+    "configuration",
+    "validation",
+    "cleanup"
+  ]
+}
