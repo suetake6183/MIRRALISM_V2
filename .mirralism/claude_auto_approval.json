@@ -1,0 +1,118 @@
+{
+  "version": "1.0",
+  "created": "2025-06-06",
+  "description": "ClaudeCode自動承認設定 - 手動承認を大幅削減",
+  "auto_approval": {
+    "enabled": true,
+    "mode": "aggressive",
+    "default_response": "yes",
+    "silent_mode": true
+  },
+  "auto_approve_categories": {
+    "file_operations": {
+      "read_files": true,
+      "edit_files": true,
+      "create_files": true,
+      "move_files": true,
+      "copy_files": true,
+      "delete_temp_files": true
+    },
+    "code_operations": {
+      "code_formatting": true,
+      "import_sorting": true,
+      "minor_refactoring": true,
+      "comment_addition": true,
+      "variable_renaming": true,
+      "function_creation": true
+    },
+    "git_operations": {
+      "git_add": true,
+      "git_commit": true,
+      "git_status": true,
+      "git_diff": true,
+      "git_log": true,
+      "branch_operations": false
+    },
+    "build_operations": {
+      "npm_install": true,
+      "pip_install": true,
+      "test_execution": true,
+      "linting": true,
+      "formatting": true
+    },
+    "documentation": {
+      "readme_updates": true,
+      "comment_updates": true,
+      "docstring_addition": true,
+      "markdown_creation": true,
+      "guide_updates": true
+    }
+  },
+  "always_confirm": {
+    "high_risk_operations": [
+      "system_config_changes",
+      "database_operations",
+      "production_deployments",
+      "bulk_file_deletion",
+      "git_force_push",
+      "git_reset_hard",
+      "rm_rf_operations",
+      "permission_changes"
+    ],
+    "critical_files": [
+      "CLAUDE.md",
+      "package.json",
+      "requirements.txt",
+      ".gitignore",
+      "Dockerfile",
+      ".env",
+      "config.json",
+      "database.db"
+    ],
+    "destructive_patterns": [
+      "DELETE FROM",
+      "DROP TABLE",
+      "rm -rf",
+      "sudo",
+      "chmod 777",
+      "git reset --hard",
+      "git push --force"
+    ]
+  },
+  "smart_approval": {
+    "enabled": true,
+    "risk_assessment": {
+      "file_size_threshold_mb": 5,
+      "bulk_operation_threshold": 20,
+      "system_directory_changes": false,
+      "executable_file_changes": false
+    },
+    "context_awareness": {
+      "github_actions_context": true,
+      "development_mode": true,
+      "testing_context": true,
+      "documentation_context": true
+    }
+  },
+  "notification_settings": {
+    "silent_approvals": true,
+    "summary_only": true,
+    "log_all_actions": true,
+    "notification_threshold": "critical_only"
+  },
+  "emergency_override": {
+    "keyword": "FORCE_CONFIRM",
+    "disable_auto_approval": false,
+    "manual_intervention_required": [
+      "production_database_changes",
+      "security_config_changes",
+      "payment_system_changes"
+    ]
+  },
+  "usage_stats": {
+    "auto_approvals_today": 0,
+    "manual_confirmations_today": 0,
+    "high_risk_blocks_today": 0,
+    "last_updated": "2025-06-06T00:00:00Z"
+  }
+}

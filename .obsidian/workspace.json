@@ -170,6 +170,8 @@
   },
   "active": "35cf80e511199955",
   "lastOpenFiles": [
+    "setup_claude_auto.sh",
+    "scripts/claude_auto_approver.py",
     "tests/performance/test_basic_performance.py",
     "tests/ai_accuracy_results.json",
     "Core/PersonalityLearning/ci_compatibility.py",
@@ -179,8 +181,6 @@
     "tests/unit/__init__.py",
     "tests/performance",
     "tests/integration",
-    "tests/unit",
-    "tests/ai_accuracy_test.py",
     "Data/analytics/test_analysis_file.md",
     "test_analysis_file.md",
     "Documentation/guides/Cursor_ClaudeCode統合テスト.md",

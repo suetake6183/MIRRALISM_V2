@@ -72,3 +72,39 @@ scripts/             # 実行スクリプト
 - AI 計算の使用禁止
 - `.mirralism/` ディレクトリの重要性認識
 - SSOT（Single Source of Truth）原則遵守
+
+# ClaudeCode自動承認設定
+
+## 🤖 自動承認システム
+
+ClaudeCodeの手動承認を大幅削減するため、以下の操作は自動承認されます：
+
+### ✅ 自動承認対象
+- **ファイル操作**: 読み込み、編集、作成、移動
+- **コード操作**: フォーマット、リファクタリング、コメント追加
+- **Git操作**: add, commit, status, diff, log
+- **ビルド操作**: テスト実行、リント、依存関係インストール
+- **ドキュメント**: README更新、ドキュメント作成
+
+### ⚠️ 手動確認が必要
+- システム設定変更
+- データベース操作
+- 本番環境関連
+- 一括ファイル削除
+- セキュリティ設定変更
+
+### 🔧 設定変更
+```bash
+# 自動承認を有効化
+python3 scripts/claude_auto_approver.py --enable
+
+# 自動承認を無効化  
+python3 scripts/claude_auto_approver.py --disable
+
+# 状況確認
+python3 scripts/claude_auto_approver.py --status
+```
+
+### 📊 使用統計
+自動承認の使用統計は `.mirralism/claude_auto_approval.json` で確認できます。
+
