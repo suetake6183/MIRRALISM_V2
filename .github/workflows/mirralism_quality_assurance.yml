@@ -1,13 +1,10 @@
 name: MIRRALISM V2 Quality Assurance
 
 on:
-  # 重複実行防止のため無効化 - 機能はmirralism-ci.ymlに統合済み
-  workflow_dispatch:
-    inputs:
-      force_run:
-        description: 'Force quality assurance execution (emergency only)'
-        required: false
-        default: 'false'
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
 
 env:
   PYTHON_VERSION: 3.9
