@@ -170,6 +170,7 @@
   },
   "active": "35cf80e511199955",
   "lastOpenFiles": [
+    "tests/performance/test_basic_performance.py",
     "tests/ai_accuracy_results.json",
     "Core/PersonalityLearning/ci_compatibility.py",
     "tests/unit/test_basic_functionality.py",
@@ -180,7 +181,6 @@
     "tests/integration",
     "tests/unit",
     "tests/ai_accuracy_test.py",
-    "Core/test_script.py",
     "Data/analytics/test_analysis_file.md",
     "test_analysis_file.md",
     "Documentation/guides/Cursor_ClaudeCode統合テスト.md",
