@@ -3,8 +3,27 @@ name: MIRRALISM CI/CD Pipeline
 on:
   push:
     branches: [main, develop]
+    # 以下のパスのみで実行（無駄な実行を削減）
+    paths:
+      - '**.py'
+      - '**.yml'
+      - '**.yaml'
+      - '**.json'
+      - '**.md'
+      - 'requirements.txt'
+      - 'Dockerfile'
+      - '.github/workflows/**'
   pull_request:
     branches: [main]
+    paths:
+      - '**.py'
+      - '**.yml'
+      - '**.yaml'
+      - '**.json'
+      - '**.md'
+      - 'requirements.txt'
+      - 'Dockerfile'
+      - '.github/workflows/**'
 
 env:
   PYTHON_VERSION: "3.9"
@@ -67,11 +86,13 @@ jobs:
           echo "✅ CI最適化品質チェック完了"
           echo "🚀 メインワークフローに続行"
 
-  # Phase 2: Comprehensive Testing
+  # Phase 2: Comprehensive Testing (条件付き実行)
   test-suite:
     name: 🧪 Test Suite & Performance
     runs-on: ubuntu-latest
     needs: quality-gates
+    # PRまたはメインブランチの重要な変更時のみ実行
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
 
     strategy:
       matrix:
