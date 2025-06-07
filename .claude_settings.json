@@ -1,0 +1,34 @@
+{
+  "auto_confirm": {
+    "file_operations": true,
+    "safe_commands": true,
+    "read_operations": true,
+    "browse_operations": true,
+    "search_operations": true,
+    "date_operations": true,
+    "directory_operations": true,
+    "write_operations": true,
+    "delete_operations": false,
+    "system_operations": true
+  },
+  "confirmation_threshold": {
+    "low_risk": "auto",
+    "medium_risk": "auto",
+    "high_risk": "prompt_once"
+  },
+  "trusted_directories": [
+    "/Users/suetakeshuuhei/MIRRALISM_V2"
+  ],
+  "auto_approve_patterns": [
+    "node scripts/getDate.js",
+    "read file",
+    "list directory",
+    "search files",
+    "browse files",
+    "file operations",
+    "git status",
+    "git diff",
+    "date check",
+    "time verification"
+  ]
+}

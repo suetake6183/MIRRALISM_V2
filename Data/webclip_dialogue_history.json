@@ -1,0 +1,50 @@
+[
+  {
+    "timestamp": "2025-06-06T09:35:40.303311+00:00",
+    "article_title": "Advanced AI Personality Learning Systems Implementation Guide",
+    "dialogue_summary": {
+      "insight": "「technology」に興味を持たれたんですね",
+      "question": "新しい分野への興味からクリップされましたか？",
+      "suggestion": "関連記事や書籍をさらに探す"
+    },
+    "performance": {
+      "total_time": 0.002655029296875,
+      "analysis_time": 0.0025811195373535156,
+      "dialogue_time": 8.821487426757812e-06,
+      "display_time": 1.1205673217773438e-05,
+      "target_achieved": true,
+      "timestamp": "2025-06-06T09:35:40.303283+00:00"
+    },
+    "themes": [
+      "technology",
+      "design",
+      "productivity",
+      "learning"
+    ],
+    "confidence": 1.0
+  },
+  {
+    "timestamp": "2025-06-06T09:35:40.307029+00:00",
+    "article_title": "Leadership Strategies for Technical Teams",
+    "dialogue_summary": {
+      "insight": "最近「technology」への関心が高まっていますね",
+      "question": "この記事をクリップされたのはどのような理由からでしょうか？",
+      "suggestion": "後日じっくり読み返すことをお勧めします"
+    },
+    "performance": {
+      "total_time": 0.00045180320739746094,
+      "analysis_time": 0.0004029273986816406,
+      "dialogue_time": 6.9141387939453125e-06,
+      "display_time": 6.9141387939453125e-06,
+      "target_achieved": true,
+      "timestamp": "2025-06-06T09:35:40.306983+00:00"
+    },
+    "themes": [
+      "technology",
+      "management",
+      "business",
+      "design"
+    ],
+    "confidence": 0.3
+  }
+]

@@ -1,0 +1,271 @@
+{
+  "test_timestamp": "2025-06-06T17:29:32.682022",
+  "sample_count": 4,
+  "results": [
+    {
+      "sample_name": "Type A: YAML構文エラー",
+      "sample_content": "---\nsource: SuperWhisper: Fixed)\ncreated: 2025-05-19T14:18:00\nclassification: 📥 Inbox Raw\nquality_score: 0.80\nnoise_level: 0.00\nnotion_id: 1f8d94d4-29bc-8082-9053-d21006631eac\npersonality_learning_ready: False\ncontent_source: Notionページブロック\n---",
+      "expected_errors": [
+        "不正な括弧",
+        "絵文字によるパース失敗"
+      ],
+      "v1_manual_parsing": {
+        "parsed_metadata": {
+          "source": "SuperWhisper: Fixed)",
+          "created": "2025-05-19T14:18:00",
+          "classification": "📥 Inbox Raw",
+          "quality_score": "0.80",
+          "noise_level": "0.00",
+          "notion_id": "1f8d94d4-29bc-8082-9053-d21006631eac",
+          "personality_learning_ready": "False",
+          "content_source": "Notionページブロック"
+        },
+        "errors": [],
+        "method": "v1_manual_parsing"
+      },
+      "standard_yaml_parsing": {
+        "parsed_data": null,
+        "success": false,
+        "error": "YAML解析エラー: mapping values are not allowed here\n  in \"<unicode string>\", line 2, column 21:\n    source: SuperWhisper: Fixed)\n                        ^",
+        "method": "standard_yaml_parser"
+      },
+      "datetime_processing": [
+        {
+          "original": "2025-05-19T14:18:00",
+          "fixed": "2025-05-19T14:18:00",
+          "errors": [],
+          "warnings": [],
+          "fix_type": "complete_format"
+        }
+      ],
+      "comparison": {
+        "v1_had_errors": false,
+        "standard_had_errors": true,
+        "v1_vs_standard": "標準のみエラー"
+      }
+    },
+    {
+      "sample_name": "Type B: データ型不整合",
+      "sample_content": "---\nsource: SuperWhisper\ncreated: \"not_a_date\"\nclassification: 📥 Inbox Raw\nquality_score: \"not_a_number\"\nnoise_level: null\nnotion_id: 1f8d94d4-29bc-8082-9053-d21006631eac\npersonality_learning_ready: \"not_a_boolean\"\ncontent_source: Notionページブロック\n---",
+      "expected_errors": [
+        "データ型不一致",
+        "不正な値"
+      ],
+      "v1_manual_parsing": {
+        "parsed_metadata": {
+          "source": "SuperWhisper",
+          "created": "\"not_a_date\"",
+          "classification": "📥 Inbox Raw",
+          "quality_score": "\"not_a_number\"",
+          "noise_level": "null",
+          "notion_id": "1f8d94d4-29bc-8082-9053-d21006631eac",
+          "personality_learning_ready": "\"not_a_boolean\"",
+          "content_source": "Notionページブロック"
+        },
+        "errors": [],
+        "method": "v1_manual_parsing"
+      },
+      "standard_yaml_parsing": {
+        "parsed_data": {
+          "source": "SuperWhisper",
+          "created": "not_a_date",
+          "classification": "📥 Inbox Raw",
+          "quality_score": "not_a_number",
+          "noise_level": null,
+          "notion_id": "1f8d94d4-29bc-8082-9053-d21006631eac",
+          "personality_learning_ready": "not_a_boolean",
+          "content_source": "Notionページブロック"
+        },
+        "success": true,
+        "method": "standard_yaml_parser"
+      },
+      "datetime_processing": [
+        {
+          "original": "\"not_a_date\"",
+          "fixed": "2025-06-06T08:29:32.683966+00:00",
+          "errors": [
+            "認識できない時刻フォーマット: \"not_a_date\"",
+            "現在時刻で代替: 2025-06-06T08:29:32.683966+00:00"
+          ],
+          "warnings": [],
+          "fix_type": "fallback_to_current"
+        }
+      ],
+      "comparison": {
+        "v1_had_errors": false,
+        "standard_had_errors": false,
+        "v1_vs_standard": "両方成功"
+      }
+    },
+    {
+      "sample_name": "Type C: フィールド重複・欠落",
+      "sample_content": "---\nsource: SuperWhisper\nsource: SuperWhisper (duplicate)\ncreated: 2025-05-19T14:18:00+00:00\n# missing required fields\nquality_score: 0.80\n# noise_level missing\nnotion_id: 1f8d94d4-29bc-8082-9053-d21006631eac\ndatetime_fix_applied: True\nprocessing_version: v2.1_datetime_fixed\ncontent_source: Notionページブロック\nextra_field: \"should not be here\"\n---",
+      "expected_errors": [
+        "重複フィールド",
+        "必須フィールド欠落",
+        "予期しないフィールド"
+      ],
+      "v1_manual_parsing": {
+        "parsed_metadata": {
+          "source": "SuperWhisper (duplicate)",
+          "created": "2025-05-19T14:18:00+00:00",
+          "quality_score": "0.80",
+          "notion_id": "1f8d94d4-29bc-8082-9053-d21006631eac",
+          "datetime_fix_applied": "True",
+          "processing_version": "v2.1_datetime_fixed",
+          "content_source": "Notionページブロック",
+          "extra_field": "\"should not be here\""
+        },
+        "errors": [
+          "コロン欠如行: # missing required fields",
+          "コロン欠如行: # noise_level missing"
+        ],
+        "method": "v1_manual_parsing"
+      },
+      "standard_yaml_parsing": {
+        "parsed_data": {
+          "source": "SuperWhisper (duplicate)",
+          "created": "2025-05-19 14:18:00+00:00",
+          "quality_score": 0.8,
+          "notion_id": "1f8d94d4-29bc-8082-9053-d21006631eac",
+          "datetime_fix_applied": true,
+          "processing_version": "v2.1_datetime_fixed",
+          "content_source": "Notionページブロック",
+          "extra_field": "should not be here"
+        },
+        "success": true,
+        "method": "standard_yaml_parser"
+      },
+      "datetime_processing": [
+        {
+          "original": "2025-05-19T14:18:00+00:00",
+          "fixed": "2025-05-19T14:18:00+00:00",
+          "errors": [],
+          "warnings": [],
+          "fix_type": "complete_format"
+        }
+      ],
+      "comparison": {
+        "v1_had_errors": true,
+        "standard_had_errors": false,
+        "v1_vs_standard": "V1のみエラー"
+      }
+    },
+    {
+      "sample_name": "Type D: 複雑なYAML構造エラー",
+      "sample_content": "---\nsource: SuperWhisper\ncreated: 2025-05-19T14:18:00+00:00\nclassification: 📥 Inbox Raw\nmetadata:\n  - invalid: yaml: structure:\n  - missing_quotes: this is a problem\n  - nested:\n      level: 2\n      problems: [1, 2, \"3\"]\nquality_score: 0.80\n---",
+      "expected_errors": [
+        "ネスト構造エラー",
+        "リスト構造エラー"
+      ],
+      "v1_manual_parsing": {
+        "parsed_metadata": {
+          "source": "SuperWhisper",
+          "created": "2025-05-19T14:18:00+00:00",
+          "classification": "📥 Inbox Raw",
+          "metadata": "",
+          "- invalid": "yaml: structure:",
+          "- missing_quotes": "this is a problem",
+          "- nested": "",
+          "level": "2",
+          "problems": "[1, 2, \"3\"]",
+          "quality_score": "0.80"
+        },
+        "errors": [],
+        "method": "v1_manual_parsing"
+      },
+      "standard_yaml_parsing": {
+        "parsed_data": null,
+        "success": false,
+        "error": "YAML解析エラー: mapping values are not allowed here\n  in \"<unicode string>\", line 6, column 18:\n      - invalid: yaml: structure:\n                     ^",
+        "method": "standard_yaml_parser"
+      },
+      "datetime_processing": [
+        {
+          "original": "2025-05-19T14:18:00+00:00",
+          "fixed": "2025-05-19T14:18:00+00:00",
+          "errors": [],
+          "warnings": [],
+          "fix_type": "complete_format"
+        }
+      ],
+      "comparison": {
+        "v1_had_errors": false,
+        "standard_had_errors": true,
+        "v1_vs_standard": "標準のみエラー"
+      }
+    }
+  ],
+  "summary": {
+    "v1_manual_parsing_failures": 1,
+    "standard_yaml_parsing_failures": 2,
+    "datetime_processing_issues": 3,
+    "error_rates": {
+      "v1_manual_parsing_error_rate": 0.25,
+      "standard_yaml_parsing_error_rate": 0.5,
+      "improvement_potential": -0.25
+    }
+  },
+  "datetime_edge_cases": [
+    {
+      "original": "",
+      "fixed": "2025-06-06T08:29:32.687424+00:00",
+      "errors": [],
+      "warnings": [
+        "空の時刻データを修正: 2025-06-06T08:29:32.687424+00:00"
+      ],
+      "fix_type": "empty_to_current"
+    },
+    {
+      "original": "2025-05-19",
+      "fixed": "2025-05-19T00:00:00+00:00",
+      "errors": [],
+      "warnings": [
+        "不完全な時刻データを修正: 2025-05-19 → 2025-05-19T00:00:00+00:00"
+      ],
+      "fix_type": "date_only_to_full"
+    },
+    {
+      "original": "2025-05-19T14:18:00",
+      "fixed": "2025-05-19T14:18:00",
+      "errors": [],
+      "warnings": [],
+      "fix_type": "complete_format"
+    },
+    {
+      "original": "2025-05-19T14:18:00Z",
+      "fixed": "2025-05-19T14:18:00+00:00",
+      "errors": [],
+      "warnings": [],
+      "fix_type": "complete_format"
+    },
+    {
+      "original": "2025-05-19T14:18:00+09:00",
+      "fixed": "2025-05-19T14:18:00+09:00",
+      "errors": [],
+      "warnings": [],
+      "fix_type": "complete_format"
+    },
+    {
+      "original": "invalid-date",
+      "fixed": "2025-06-06T08:29:32.687504+00:00",
+      "errors": [
+        "認識できない時刻フォーマット: invalid-date",
+        "現在時刻で代替: 2025-06-06T08:29:32.687504+00:00"
+      ],
+      "warnings": [],
+      "fix_type": "fallback_to_current"
+    },
+    {
+      "original": "2025-13-45T25:70:70",
+      "fixed": "2025-06-06T08:29:32.687522+00:00",
+      "errors": [
+        "完全形式パースエラー: month must be in 1..12",
+        "認識できない時刻フォーマット: 2025-13-45T25:70:70",
+        "現在時刻で代替: 2025-06-06T08:29:32.687522+00:00"
+      ],
+      "warnings": [],
+      "fix_type": "fallback_to_current"
+    }
+  ]
+}

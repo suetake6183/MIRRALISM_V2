@@ -1,3 +1,19 @@
+---
+作成日: 2025年6月2日
+更新日: 2025年6月7日
+目的: MIRRALISM V2システムの概要説明と使用開始ガイド
+戦略的価値: PersonalityLearning精度53%→95%向上の技術基盤とクライアント情報統合システムの中核文書
+tags: [documentation, system_overview, readme, personality_learning, client_system]
+abstraction_memo: |
+  MIRRALISM V2の根本思想と技術アーキテクチャの統合文書。PersonalityLearning 95%精度達成へのロードマップ、V1教訓の技術的昇華、SSOT原則によるクライアント情報統合システムを包含。V1の28,066個重複ファイル問題を完全解決し、企業レベル品質基準（テストカバレッジ95%、複雑性<2.0、セキュリティゼロ許容）を実装。技術的完璧性と段階的品質保証により「身の回りの人々を幸せにする」最終使命を実現する技術基盤文書。
+関連ファイル:
+  - Documentation/ARCHITECTURE.md
+  - Documentation/guides/MIRRALISM_Core_Philosophy.md
+  - MIRRALISM_USER_MANUAL.md
+  - Core/PersonalityLearning/integrated_system.py
+  - Clients/Systems/MIRRALISM_Client_Intelligence_System.md
+---
+
 # MIRRALISM V2 - Second Brain Evolution
 
 ## 🧠 概要

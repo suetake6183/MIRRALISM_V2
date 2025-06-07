@@ -1,0 +1,50 @@
+{
+  "notification_settings": {
+    "enabled": true,
+    "auto_notify": true,
+    "sound_enabled": true,
+    "voice_enabled": false,
+    "visual_enabled": true
+  },
+  "sound_settings": {
+    "success_sound": "Glass",
+    "error_sound": "Basso",
+    "warning_sound": "Ping",
+    "completion_sound": "Hero",
+    "custom_sounds_dir": "/Users/suetakeshuuhei/MIRRALISM_V2/sounds"
+  },
+  "voice_settings": {
+    "voice": "Kyoko",
+    "rate": 200,
+    "volume": 0.8
+  },
+  "auto_detection": {
+    "success_patterns": [
+      "完了",
+      "成功",
+      "✅",
+      "finished",
+      "completed",
+      "success"
+    ],
+    "error_patterns": [
+      "エラー",
+      "失敗",
+      "❌",
+      "error",
+      "failed",
+      "exception"
+    ],
+    "warning_patterns": [
+      "警告",
+      "注意",
+      "⚠️",
+      "warning",
+      "caution"
+    ]
+  },
+  "usage_stats": {
+    "notifications_sent": 7,
+    "last_notification": "2025-06-06T18:01:45.306571"
+  }
+}

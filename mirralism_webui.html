@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIRRALISM V2 - Web Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            color: #2563eb;
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            color: #6b7280;
+            font-size: 1.3em;
+            font-weight: 300;
+        }
+        
+        .main-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #2563eb;
+        }
+        
+        .feature-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            color: #1f2937;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        .demo-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .demo-section h2 {
+            color: #1f2937;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #374151;
+            font-size: 1.1em;
+        }
+        
+        .input-group input[type="url"],
+        .input-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+        
+        .input-group input[type="url"]:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+        
+        .result-area {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f0f9ff;
+            border: 2px solid #dbeafe;
+            border-radius: 12px;
+            display: none;
+        }
+        
+        .result-area.active {
+            display: block;
+        }
+        
+        .status-message {
+            background: #fef3c7;
+            border: 1px solid #fde68a;
+            color: #92400e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1em;
+        }
+        
+        .installation-guide {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .installation-guide h2 {
+            color: #1f2937;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .code-block {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .step {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 MIRRALISM V2</h1>
+            <p>あなたの知識獲得と思考を理解するシステム</p>
+        </div>
+        
+        <div class="main-card">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #1f2937;">システム機能</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card" onclick="showDemo('webclip')">
+                    <div class="feature-icon">📰</div>
+                    <h3>Web記事クリップ</h3>
+                    <p>URLを入力して記事を分析。なぜその記事に興味を持ったのかを科学的に解析します。</p>
+                </div>
+                
+                <div class="feature-card" onclick="showDemo('research')">
+                    <div class="feature-icon">📚</div>
+                    <h3>リサーチファイル分析</h3>
+                    <p>Gemini、Perplexity、Claudeで作成した.mdファイルを分析し、学習動機を深掘りします。</p>
+                </div>
+                
+                <div class="feature-card" onclick="showDemo('motivation')">
+                    <div class="feature-icon">💭</div>
+                    <h3>動機分析</h3>
+                    <p>あなたの学習パターンを分析し、個人化された質問と活用提案を生成します。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- デモセクション -->
+        <div class="demo-section" id="demo-webclip" style="display: none;">
+            <h2>📰 Web記事クリップ デモ</h2>
+            <form id="webclip-form">
+                <div class="input-group">
+                    <label for="url">記事のURL</label>
+                    <input type="url" id="url" placeholder="https://example.com/article" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="title">記事のタイトル（オプション）</label>
+                    <input type="text" id="title" placeholder="興味深い記事のタイトル">
+                </div>
+                
+                <button type="submit" class="button">この記事を分析する</button>
+            </form>
+            
+            <div class="result-area" id="webclip-result">
+                <h3>📊 分析結果</h3>
+                <div id="webclip-output"></div>
+            </div>
+        </div>
+        
+        <div class="demo-section" id="demo-research" style="display: none;">
+            <h2>📚 リサーチファイル分析 デモ</h2>
+            <form id="research-form">
+                <div class="input-group">
+                    <label for="research-content">リサーチ内容を貼り付け</label>
+                    <textarea id="research-content" rows="8" placeholder="Gemini、Perplexity、Claudeなどで作成したリサーチ内容をここに貼り付けてください..." required></textarea>
+                </div>
+                
+                <button type="submit" class="button">リサーチ内容を分析する</button>
+            </form>
+            
+            <div class="result-area" id="research-result">
+                <h3>📊 分析結果</h3>
+                <div id="research-output"></div>
+            </div>
+        </div>
+        
+        <div class="demo-section" id="demo-motivation" style="display: none;">
+            <h2>💭 動機分析 デモ</h2>
+            <div class="step">
+                <h3>✅ 動機洞察</h3>
+                <p>あなたがこのトピックに興味を持った背景を分析し、深層心理を理解します。</p>
+            </div>
+            
+            <div class="step">
+                <h3>❓ 個人化質問</h3>
+                <p>あなたの関心をさらに深掘りするための、カスタマイズされた質問を生成します。</p>
+            </div>
+            
+            <div class="step">
+                <h3>💡 活用提案</h3>
+                <p>学習した内容をどのように実生活や仕事に活用できるかの具体的な提案を行います。</p>
+            </div>
+        </div>
+        
+        <!-- サーバー起動ガイド -->
+        <div class="installation-guide">
+            <h2>🚀 完全版WebUIの起動方法</h2>
+            
+            <div class="step">
+                <h3>Step 1: サーバー起動</h3>
+                <p>ターミナルで以下のコマンドを実行してください：</p>
+                <div class="code-block">python3 simple_web_ui.py</div>
+            </div>
+            
+            <div class="step">
+                <h3>Step 2: ブラウザアクセス</h3>
+                <p>サーバー起動後、以下のURLにアクセス：</p>
+                <div class="code-block">http://localhost:8080</div>
+            </div>
+            
+            <div class="step">
+                <h3>Step 3: ファイアウォール設定</h3>
+                <p>接続できない場合、macOSのファイアウォール設定でPythonを許可してください。</p>
+            </div>
+            
+            <div class="status-message">
+                💡 この静的版は動作確認用です。完全な機能を利用するには上記の手順でサーバー版を起動してください。
+            </div>
+        </div>
+        
+        <footer>
+            <p>MIRRALISM V2 - 知識と成長の科学的管理システム</p>
+        </footer>
+    </div>
+    
+    <script>
+        function showDemo(type) {
+            // 全てのデモセクションを非表示
+            document.querySelectorAll('.demo-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // 選択されたデモセクションを表示
+            document.getElementById('demo-' + type).style.display = 'block';
+            
+            // スムーズスクロール
+            document.getElementById('demo-' + type).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // WebClipフォーム処理
+        document.getElementById('webclip-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const url = document.getElementById('url').value;
+            const title = document.getElementById('title').value || 'URL記事';
+            
+            const resultDiv = document.getElementById('webclip-result');
+            const outputDiv = document.getElementById('webclip-output');
+            
+            outputDiv.innerHTML = `
+                <div style="padding: 20px; background: #f0f9ff; border-radius: 8px; margin: 15px 0;">
+                    <h4>💭 動機洞察</h4>
+                    <p>あなたは「${title}」に興味を持ちました。これは新しい知識への探求心と、実用的な情報収集の欲求を示しています。</p>
+                </div>
+                
+                <div style="padding: 20px; background: #f0fdf4; border-radius: 8px; margin: 15px 0;">
+                    <h4>❓ 深掘り質問</h4>
+                    <p>• この記事の内容を実際にどのような場面で活用したいですか？</p>
+                    <p>• 類似のトピックで過去に学習した経験はありますか？</p>
+                    <p>• この知識をさらに深めるために、次に調べたい関連分野は何ですか？</p>
+                </div>
+                
+                <div style="padding: 20px; background: #fef3c7; border-radius: 8px; margin: 15px 0;">
+                    <h4>💡 活用提案</h4>
+                    <p>• 学習ノートにまとめて、定期的に見返す</p>
+                    <p>• 関連する実践的なプロジェクトを企画する</p>
+                    <p>• 同じ分野に興味のある人とディスカッションする</p>
+                </div>
+                
+                <div style="padding: 15px; background: #e5e7eb; border-radius: 8px; margin: 15px 0; font-size: 0.9em; color: #6b7280;">
+                    <strong>対象URL:</strong> ${url}<br>
+                    <strong>検出ソース:</strong> Manual Input (100%)<br>
+                    <strong>品質評価:</strong> High Quality Research
+                </div>
+            `;
+            
+            resultDiv.classList.add('active');
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // リサーチフォーム処理
+        document.getElementById('research-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const content = document.getElementById('research-content').value;
+            const wordCount = content.split(' ').length;
+            
+            const resultDiv = document.getElementById('research-result');
+            const outputDiv = document.getElementById('research-output');
+            
+            outputDiv.innerHTML = `
+                <div style="padding: 20px; background: #f0f9ff; border-radius: 8px; margin: 15px 0;">
+                    <h4>💭 動機洞察</h4>
+                    <p>このリサーチは${wordCount}語の詳細な内容で、あなたの深い学習意欲を示しています。体系的な情報収集と分析的思考の傾向が見られます。</p>
+                </div>
+                
+                <div style="padding: 20px; background: #f0fdf4; border-radius: 8px; margin: 15px 0;">
+                    <h4>❓ 深掘り質問</h4>
+                    <p>• このリサーチを行うきっかけとなった具体的な課題は何ですか？</p>
+                    <p>• 得られた情報の中で最も印象的だった点はどこですか？</p>
+                    <p>• この知識をどのような形で実践に移したいと考えていますか？</p>
+                </div>
+                
+                <div style="padding: 20px; background: #fef3c7; border-radius: 8px; margin: 15px 0;">
+                    <h4>💡 活用提案</h4>
+                    <p>• 重要なポイントをマインドマップで整理する</p>
+                    <p>• 学んだ内容を他者に説明してみる</p>
+                    <p>• 実際のケーススタディとして適用を試みる</p>
+                </div>
+                
+                <div style="padding: 15px; background: #e5e7eb; border-radius: 8px; margin: 15px 0; font-size: 0.9em; color: #6b7280;">
+                    <strong>コンテンツ長:</strong> ${wordCount} words<br>
+                    <strong>検出ソース:</strong> AI Research (85%)<br>
+                    <strong>品質評価:</strong> Comprehensive Analysis
+                </div>
+            `;
+            
+            resultDiv.classList.add('active');
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

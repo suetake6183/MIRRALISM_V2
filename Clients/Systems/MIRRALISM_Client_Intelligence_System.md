@@ -1,3 +1,19 @@
+---
+作成日: 2025年6月4日
+更新日: 2025年6月7日
+目的: PersonalityLearning技術をクライアント深層理解に応用した統合インテリジェンスシステムの設計
+戦略的価値: PersonalityLearning 95%精度技術を活用し「身の回りの人々を幸せにする」使命を科学的・体系的に実現するクライアント理解システム
+tags: [client_intelligence, personality_learning, deep_analysis, commercial_application, ai_prediction]
+abstraction_memo: |
+  MIRRALISM使命実現の商業化システム設計書。PersonalityLearning V2の95%精度技術をクライアント深層理解に応用し、科学的価値創造を実現。4層アーキテクチャ（データ収集→分析理解→インテリジェンス予測→アクション支援）による統合システム。マルチソース情報収集、感情・ストレス・価値観分析、90%精度行動予測、リアルタイムコミュニケーション支援を統合。黒澤工務店パイロット実装により商用化実証を目指す戦略的システム設計文書。
+関連ファイル:
+  - Core/PersonalityLearning/integrated_system.py
+  - Documentation/guides/MIRRALISM_Core_Philosophy.md
+  - Clients/Outputs/黒澤工務店/active/meetings/2025-05-21_黒澤社長ヒアリング.md
+  - Clients/Database/client_profiles.json
+  - Core/PersonalityLearning/scientific_measurement_framework.py
+---
+
 # 🧠 MIRRALISM 統合クライアント・インテリジェンス・システム
 
 ## **🎯 システム目的・思想**

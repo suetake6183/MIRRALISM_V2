@@ -1,0 +1,78 @@
+{
+  "integration_metadata": {
+    "processing_date": "2025-06-06T07:56:40.595634+00:00",
+    "phase": "phase1_concept",
+    "processor_version": "v2.0_basic",
+    "total_clients": 1,
+    "successful_integrations": 1,
+    "failed_integrations": 0
+  },
+  "processing_stats": {
+    "clients_processed": 1,
+    "integration_success": 1,
+    "integration_failures": 0,
+    "session_start": "2025-06-06T07:56:40.594679+00:00"
+  },
+  "integration_results": [
+    {
+      "success": true,
+      "client_name": "黒澤工務店",
+      "analysis_result": {
+        "suetake_likeness_index": 86.65989743589742,
+        "content_analysis": {
+          "pattern_analysis": {
+            "positive_indicators": {
+              "matches": 4,
+              "total_patterns": 16,
+              "match_ratio": 0.25
+            },
+            "leadership_indicators": {
+              "matches": 8,
+              "total_patterns": 15,
+              "match_ratio": 0.5333333333333333
+            },
+            "relationship_indicators": {
+              "matches": 4,
+              "total_patterns": 12,
+              "match_ratio": 0.3333333333333333
+            },
+            "challenge_indicators": {
+              "matches": 2,
+              "total_patterns": 13,
+              "match_ratio": 0.15384615384615385
+            }
+          },
+          "total_pattern_matches": 18,
+          "content_characteristics": {
+            "length": 336,
+            "word_count": 21,
+            "has_business_context": true,
+            "has_relationship_context": true,
+            "has_improvement_context": true
+          },
+          "client_specific": {
+            "industry_relevance": 0.6666666666666666,
+            "importance_multiplier": 1.2,
+            "client_focus_score": 0.2,
+            "business_context_strength": 0.5
+          },
+          "analysis_quality": "high"
+        },
+        "source_type": "client_data",
+        "metadata": {
+          "client_name": "黒澤工務店",
+          "industry": "建設業・住宅建築",
+          "importance": "high",
+          "data_source": "client_profiles_database"
+        },
+        "analysis_timestamp": "2025-06-06T07:56:40.595287+00:00"
+      },
+      "confidence": 86.65989743589742,
+      "integration_metadata": {
+        "processed_at": "2025-06-06T07:56:40.595336+00:00",
+        "data_source": "client_profiles",
+        "processing_version": "phase1_concept"
+      }
+    }
+  ]
+}

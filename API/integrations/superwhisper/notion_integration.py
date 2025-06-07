@@ -9,7 +9,7 @@ SuperWhisper-Notion統合システム（時刻バグ修正統合版）
 CTO戦略指示:
 - Notion→インボックス配置戦略の実装
 - 💭 Personal_Thoughts/ 優先配置
-- 📥 Inbox_Raw/ 補完配置
+- 📥 Raw_Archive/ 生データアーカイブ
 - PersonalityLearning統合準備
 
 🔧 重要な修正（v2.1）:
@@ -51,14 +51,13 @@ class SuperWhisperNotionIntegration:
         Args:
             config_path: 設定ファイルパス
         """
-        self.base_dir = Path(__file__).parent.parent.parent  # SecondBrain/
-        self.inbox_dir = self.base_dir / "00_Inbox"
-        self.personal_thoughts_dir = self.inbox_dir / "💭 Personal_Thoughts"
-        self.inbox_raw_dir = self.inbox_dir / "📥 Inbox_Raw"
+        self.base_dir = Path(__file__).parent.parent.parent.parent
+        self.personal_thoughts_dir = self.base_dir / "Core" / "PersonalityLearning" / "thoughts"
+        self.raw_archive_dir = self.base_dir / "Data" / "raw" / f"PersonalThoughts_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 
         # ディレクトリ確認・作成
         self.personal_thoughts_dir.mkdir(parents=True, exist_ok=True)
-        self.inbox_raw_dir.mkdir(parents=True, exist_ok=True)
+        self.raw_archive_dir.mkdir(parents=True, exist_ok=True)
 
         # ログ設定
         self.logger = self._setup_logger()
@@ -113,8 +112,8 @@ class SuperWhisperNotionIntegration:
         if config_path is None:
             config_path = (
                 self.base_dir
-                / "30_Resources"
-                / "Configuration"
+                / "Documentation"
+                / "technical"
                 / "superwhisper_config.json"
             )
 
@@ -360,7 +359,7 @@ class SuperWhisperNotionIntegration:
             classification = self._classify_entry(entry_data)
 
             # ファイル保存
-            file_path = self._save_entry_to_inbox(entry_data, classification)
+            file_path = self._save_superwhisper_entry(entry_data, classification)
 
             if file_path:
                 # 処理済み記録
@@ -719,20 +718,20 @@ class SuperWhisperNotionIntegration:
         ):
             return "personal_thoughts"
 
-        # 📥 Inbox_Raw/ 配置条件
-        return "inbox_raw"
+        # 📥 Raw_Archive/ 配置条件
+        return "raw_archive"
 
-    def _save_entry_to_inbox(
+    def _save_superwhisper_entry(
         self, entry_data: Dict[str, Any], classification: str
     ) -> Optional[str]:
-        """インボックスへのファイル保存"""
+        """SuperWhisper統合データの保存（V1設計思想準拠）"""
         try:
             # 保存先ディレクトリ決定
             if classification == "personal_thoughts":
                 save_dir = self.personal_thoughts_dir
                 prefix = "superwhisper"
             else:
-                save_dir = self.inbox_raw_dir
+                save_dir = self.raw_archive_dir
                 prefix = "superwhisper_raw"
 
             # ファイル名生成
@@ -787,7 +786,7 @@ class SuperWhisperNotionIntegration:
         classification_label = (
             "💭 Personal Thoughts"
             if classification == "personal_thoughts"
-            else "📥 Inbox Raw"
+            else "📥 Raw Archive"
         )
 
         # 修正情報の追加（デバッグ用・修正適用時のみ）

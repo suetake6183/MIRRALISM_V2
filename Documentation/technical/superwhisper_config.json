@@ -1,0 +1,8 @@
+{
+  "notion_token": "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",
+  "notion_database_id": "1efd94d4-29bc-8012-b2a8-ec66bdce6916",
+  "monitor_interval": 300,
+  "quality_threshold": 0.9,
+  "min_text_length": 20,
+  "max_noise_level": 0.3
+}

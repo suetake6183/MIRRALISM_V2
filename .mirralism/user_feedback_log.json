@@ -1,0 +1,72 @@
+{
+  "reviews": [
+    {
+      "file_name": "superwhisper_20250530_074000.md",
+      "decision": "REJECTED",
+      "reason": "ただのテスト用のエントリーだからいりません",
+      "timestamp": "2025-06-06T14:50:00Z",
+      "user_feedback": "NOです。これはただのテスト用のエントリーだからいりません。",
+      "data_characteristics": {
+        "content_type": "system_test",
+        "repetitive_text": true,
+        "personal_content": false,
+        "keywords": ["テスト", "実証", "システム", "API接続", "動作確認"]
+      }
+    },
+    {
+      "file_name": "superwhisper_20250531_000000.md",
+      "decision": "APPROVED",
+      "reason": "個人的な振り返り内容で実際の感情や考えが含まれている",
+      "timestamp": "2025-06-06T14:52:00Z",
+      "user_feedback": "yes",
+      "data_characteristics": {
+        "content_type": "personal_reflection",
+        "structured_format": true,
+        "personal_content": true,
+        "emotional_content": true,
+        "keywords": ["良かったこと", "課題", "改善点", "感謝", "学び", "感じていること"]
+      }
+    },
+    {
+      "file_name": "superwhisper_20250531_115400.md",
+      "decision": "REJECTED",
+      "reason": "これはただのテスト",
+      "timestamp": "2025-06-06T14:55:00Z",
+      "user_feedback": "no これはただのテストです",
+      "data_characteristics": {
+        "content_type": "test_with_personal_elements",
+        "test_indicators": ["SuperWhisper完全統合テスト", "システムの検証", "テストの検証"],
+        "personal_content": true,
+        "mixed_content": true,
+        "keywords": ["テスト", "統合テスト", "検証", "システム"]
+      }
+    }
+  ],
+  "learned_rules": {
+    "rejection_patterns": [
+      {
+        "rule_name": "test_data_exclusion",
+        "keywords": ["テスト", "実証テスト", "動作確認", "API接続", "統合テスト", "検証", "システムの検証"],
+        "patterns": ["同じ文章の繰り返し", "システム関連用語", "テスト目的の明記", "個人的要素が混在していてもテスト目的が明確"],
+        "confidence": 1.0,
+        "source": "user_feedback_1_3"
+      }
+    ],
+    "approval_patterns": [
+      {
+        "rule_name": "personal_reflection_inclusion",
+        "keywords": ["良かったこと", "課題", "改善点", "感謝", "学び", "感じていること"],
+        "patterns": ["構造化された振り返り", "個人的な感情", "実際の体験"],
+        "confidence": 1.0,
+        "source": "user_feedback_2"
+      }
+    ],
+    "stats": {
+      "total_reviewed": 3,
+      "approved": 1,
+      "rejected": 2,
+      "approval_rate": 33.3,
+      "rejection_rate": 66.7
+    }
+  }
+}

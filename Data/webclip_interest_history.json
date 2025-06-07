@@ -1,0 +1,499 @@
+[
+  {
+    "timestamp": 1749202540.302538,
+    "themes": [
+      "technology",
+      "design",
+      "productivity",
+      "learning"
+    ],
+    "analysis": {
+      "current_themes": [
+        "technology",
+        "design",
+        "productivity",
+        "learning"
+      ],
+      "theme_frequency": {
+        "frequencies": {
+          "technology": 0,
+          "design": 0,
+          "productivity": 0,
+          "learning": 0
+        },
+        "max_frequency": 0,
+        "total_clips": 0
+      },
+      "interest_trend": {
+        "trending_up": false,
+        "consistent": false,
+        "recent_themes": []
+      },
+      "novelty_score": 1.0,
+      "interest_intensity": 0.0,
+      "related_past_clips": []
+    }
+  },
+  {
+    "timestamp": 1749202540.306696,
+    "themes": [
+      "technology",
+      "management",
+      "business",
+      "design"
+    ],
+    "analysis": {
+      "current_themes": [
+        "technology",
+        "management",
+        "business",
+        "design"
+      ],
+      "theme_frequency": {
+        "frequencies": {
+          "technology": 1,
+          "management": 0,
+          "business": 0,
+          "design": 1
+        },
+        "max_frequency": 1,
+        "total_clips": 1
+      },
+      "interest_trend": {
+        "trending_up": true,
+        "consistent": false,
+        "recent_themes": [
+          "technology",
+          "design",
+          "productivity",
+          "learning"
+        ]
+      },
+      "novelty_score": 0.5,
+      "interest_intensity": 1.0,
+      "related_past_clips": [
+        {
+          "timestamp": 1749202540.302538,
+          "themes": [
+            "technology",
+            "design",
+            "productivity",
+            "learning"
+          ],
+          "title": "",
+          "similarity": 0.3333333333333333
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": 1749210862.353412,
+    "themes": [
+      "technology",
+      "design",
+      "productivity",
+      "learning"
+    ],
+    "analysis": {
+      "current_themes": [
+        "technology",
+        "design",
+        "productivity",
+        "learning"
+      ],
+      "theme_frequency": {
+        "frequencies": {
+          "technology": 2,
+          "design": 2,
+          "productivity": 1,
+          "learning": 1
+        },
+        "max_frequency": 2,
+        "total_clips": 2
+      },
+      "interest_trend": {
+        "trending_up": true,
+        "consistent": false,
+        "recent_themes": [
+          "technology",
+          "design",
+          "productivity",
+          "learning",
+          "technology",
+          "management",
+          "business",
+          "design"
+        ]
+      },
+      "novelty_score": 0.0,
+      "interest_intensity": 1.0,
+      "related_past_clips": [
+        {
+          "timestamp": 1749202540.302538,
+          "themes": [
+            "technology",
+            "design",
+            "productivity",
+            "learning"
+          ],
+          "title": "",
+          "similarity": 1.0
+        },
+        {
+          "timestamp": 1749202540.306696,
+          "themes": [
+            "technology",
+            "management",
+            "business",
+            "design"
+          ],
+          "title": "",
+          "similarity": 0.3333333333333333
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": 1749216805.631083,
+    "themes": [
+      "technology"
+    ],
+    "analysis": {
+      "current_themes": [
+        "technology"
+      ],
+      "theme_frequency": {
+        "frequencies": {
+          "technology": 3
+        },
+        "max_frequency": 3,
+        "total_clips": 3
+      },
+      "interest_trend": {
+        "trending_up": true,
+        "consistent": true,
+        "recent_themes": [
+          "technology",
+          "design",
+          "productivity",
+          "learning",
+          "technology",
+          "management",
+          "business",
+          "design",
+          "technology",
+          "design",
+          "productivity",
+          "learning"
+        ]
+      },
+      "novelty_score": 0.0,
+      "interest_intensity": 1.0,
+      "related_past_clips": [
+        {
+          "timestamp": 1749202540.302538,
+          "themes": [
+            "technology",
+            "design",
+            "productivity",
+            "learning"
+          ],
+          "title": "",
+          "similarity": 0.25
+        },
+        {
+          "timestamp": 1749202540.306696,
+          "themes": [
+            "technology",
+            "management",
+            "business",
+            "design"
+          ],
+          "title": "",
+          "similarity": 0.25
+        },
+        {
+          "timestamp": 1749210862.353412,
+          "themes": [
+            "technology",
+            "design",
+            "productivity",
+            "learning"
+          ],
+          "title": "",
+          "similarity": 0.25
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": 1749216868.394092,
+    "themes": [
+      "technology"
+    ],
+    "analysis": {
+      "current_themes": [
+        "technology"
+      ],
+      "theme_frequency": {
+        "frequencies": {
+          "technology": 4
+        },
+        "max_frequency": 4,
+        "total_clips": 4
+      },
+      "interest_trend": {
+        "trending_up": true,
+        "consistent": true,
+        "recent_themes": [
+          "technology",
+          "design",
+          "productivity",
+          "learning",
+          "technology",
+          "management",
+          "business",
+          "design",
+          "technology",
+          "design",
+          "productivity",
+          "learning",
+          "technology"
+        ]
+      },
+      "novelty_score": 0.0,
+      "interest_intensity": 1.0,
+      "related_past_clips": [
+        {
+          "timestamp": 1749216805.631083,
+          "themes": [
+            "technology"
+          ],
+          "title": "",
+          "similarity": 1.0
+        },
+        {
+          "timestamp": 1749202540.302538,
+          "themes": [
+            "technology",
+            "design",
+            "productivity",
+            "learning"
+          ],
+          "title": "",
+          "similarity": 0.25
+        },
+        {
+          "timestamp": 1749202540.306696,
+          "themes": [
+            "technology",
+            "management",
+            "business",
+            "design"
+          ],
+          "title": "",
+          "similarity": 0.25
+        },
+        {
+          "timestamp": 1749210862.353412,
+          "themes": [
+            "technology",
+            "design",
+            "productivity",
+            "learning"
+          ],
+          "title": "",
+          "similarity": 0.25
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": 1749217170.365411,
+    "themes": [
+      "technology",
+      "learning"
+    ],
+    "analysis": {
+      "current_themes": [
+        "technology",
+        "learning"
+      ],
+      "theme_frequency": {
+        "frequencies": {
+          "technology": 5,
+          "learning": 2
+        },
+        "max_frequency": 5,
+        "total_clips": 5
+      },
+      "interest_trend": {
+        "trending_up": true,
+        "consistent": true,
+        "recent_themes": [
+          "technology",
+          "design",
+          "productivity",
+          "learning",
+          "technology",
+          "management",
+          "business",
+          "design",
+          "technology",
+          "design",
+          "productivity",
+          "learning",
+          "technology",
+          "technology"
+        ]
+      },
+      "novelty_score": 0.0,
+      "interest_intensity": 1.0,
+      "related_past_clips": [
+        {
+          "timestamp": 1749202540.302538,
+          "themes": [
+            "technology",
+            "design",
+            "productivity",
+            "learning"
+          ],
+          "title": "",
+          "similarity": 0.5
+        },
+        {
+          "timestamp": 1749210862.353412,
+          "themes": [
+            "technology",
+            "design",
+            "productivity",
+            "learning"
+          ],
+          "title": "",
+          "similarity": 0.5
+        },
+        {
+          "timestamp": 1749216805.631083,
+          "themes": [
+            "technology"
+          ],
+          "title": "",
+          "similarity": 0.5
+        },
+        {
+          "timestamp": 1749216868.394092,
+          "themes": [
+            "technology"
+          ],
+          "title": "",
+          "similarity": 0.5
+        },
+        {
+          "timestamp": 1749202540.306696,
+          "themes": [
+            "technology",
+            "management",
+            "business",
+            "design"
+          ],
+          "title": "",
+          "similarity": 0.2
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": 1749217254.885358,
+    "themes": [
+      "technology",
+      "learning"
+    ],
+    "analysis": {
+      "current_themes": [
+        "technology",
+        "learning"
+      ],
+      "theme_frequency": {
+        "frequencies": {
+          "technology": 6,
+          "learning": 3
+        },
+        "max_frequency": 6,
+        "total_clips": 6
+      },
+      "interest_trend": {
+        "trending_up": true,
+        "consistent": true,
+        "recent_themes": [
+          "technology",
+          "design",
+          "productivity",
+          "learning",
+          "technology",
+          "management",
+          "business",
+          "design",
+          "technology",
+          "design",
+          "productivity",
+          "learning",
+          "technology",
+          "technology",
+          "technology",
+          "learning"
+        ]
+      },
+      "novelty_score": 0.0,
+      "interest_intensity": 1.0,
+      "related_past_clips": [
+        {
+          "timestamp": 1749217170.365411,
+          "themes": [
+            "technology",
+            "learning"
+          ],
+          "title": "",
+          "similarity": 1.0
+        },
+        {
+          "timestamp": 1749202540.302538,
+          "themes": [
+            "technology",
+            "design",
+            "productivity",
+            "learning"
+          ],
+          "title": "",
+          "similarity": 0.5
+        },
+        {
+          "timestamp": 1749210862.353412,
+          "themes": [
+            "technology",
+            "design",
+            "productivity",
+            "learning"
+          ],
+          "title": "",
+          "similarity": 0.5
+        },
+        {
+          "timestamp": 1749216805.631083,
+          "themes": [
+            "technology"
+          ],
+          "title": "",
+          "similarity": 0.5
+        },
+        {
+          "timestamp": 1749216868.394092,
+          "themes": [
+            "technology"
+          ],
+          "title": "",
+          "similarity": 0.5
+        }
+      ]
+    }
+  }
+]
