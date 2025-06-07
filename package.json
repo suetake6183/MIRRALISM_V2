@@ -11,5 +11,8 @@
     "date:check": "node scripts/date_accuracy_tool.js",
     "date:verify": "npm run date:check",
     "quality:date": "npm run date:check && echo '✅ 日付正確性保証完了'"
+  },
+  "devDependencies": {
+    "dotenv": "^16.5.0"
   }
 }

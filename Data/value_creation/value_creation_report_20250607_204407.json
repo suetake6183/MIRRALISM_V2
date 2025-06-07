@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-06-07T20:44:07.057603",
+  "client_name": "黒澤工務店",
+  "current_status": {
+    "precision_levels": {
+      "client_understanding": 0.87,
+      "proposal_accuracy": 0.85,
+      "behavior_prediction": 0.83,
+      "overall_precision": 0.87
+    },
+    "overall_maturity": 0.855,
+    "target_achievement": {
+      "client_understanding": 0.9157894736842106,
+      "proposal_accuracy": 0.8947368421052632,
+      "behavior_prediction": 0.8736842105263158
+    }
+  },
+  "value_creation_potential": {
+    "client_understanding": {
+      "current_value": 0.87,
+      "target_value": 0.95,
+      "improvement_rate": 0.0919540229885057,
+      "business_impact": 

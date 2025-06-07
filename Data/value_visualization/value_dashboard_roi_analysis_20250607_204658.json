@@ -1,0 +1,93 @@
+{
+  "timestamp": "2025-06-07T20:46:58.032530",
+  "client_name": "黒澤工務店",
+  "dashboard_type": "roi_analysis",
+  "investment_overview": {
+    "initial_investment": 480.0,
+    "ongoing_costs": 120.0,
+    "total_investment": 600.0
+  },
+  "value_returns": {
+    "efficiency_gains": 108.0,
+    "quality_improvements": 126.0,
+    "risk_mitigation_value": 225.0,
+    "strategic_value": 180.0
+  },
+  "roi_metrics": {
+    "roi_percentage": 6.5,
+    "return_multiple": 1.065,
+    "net_present_value": 39.0,
+    "profitability_index": 1.065
+  },
+  "cost_benefit_analysis": {
+    "cost_categories": {
+      "development": 480.0,
+      "implementation": 120.0,
+      "training": 80.0,
+      "maintenance": 120.0
+    },
+    "benefit_categories": {
+      "efficiency_gains": 108.0,
+      "quality_improvements": 126.0,
+      "risk_mitigation": 225.0,
+      "strategic_value": 180.0
+    },
+    "net_benefit": -161.0,
+    "benefit_cost_ratio": 0.79875
+  },
+  "payback_period": {
+    "payback_period_months": 18.5,
+    "break_even_point": "2026年12月",
+    "cumulative_cash_flow": [
+      {
+        "period": "6ヶ月",
+        "cash_flow": -600.0
+      },
+      {
+        "period": "12ヶ月",
+        "cash_flow": -300.0
+      },
+      {
+        "period": "18ヶ月",
+        "cash_flow": 0.0
+      },
+      {
+        "period": "24ヶ月",
+        "cash_flow": 200.0
+      },
+      {
+        "period": "36ヶ月",
+        "cash_flow": 500.0
+      }
+    ]
+  },
+  "future_value_projection": [
+    {
+      "year": 1,
+      "projected_value": 213.0,
+      "confidence": 0.85,
+      "key_drivers": [
+        "効率性向上",
+        "品質改善"
+      ]
+    },
+    {
+      "year": 2,
+      "projected_value": 450.0,
+      "confidence": 0.8,
+      "key_drivers": [
+        "戦略的価値",
+        "リスク軽減"
+      ]
+    },
+    {
+      "year": 3,
+      "projected_value": 720.0,
+      "confidence": 0.75,
+      "key_drivers": [
+        "競争優位性",
+        "スケール効果"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "watch_interval": 2,
+  "min_text_length": 20,
+  "auto_categorize": true,
+  "personality_learning_integration": true,
+  "file_naming": {
+    "prefix": "thought_",
+    "timestamp_format": "%Y%m%d_%H%M%S",
+    "extension": ".md"
+  },
+  "categories": {
+    "技術": [
+      "API",
+      "プログラミング",
+      "システム",
+      "開発",
+      "コード"
+    ],
+    "事業": [
+      "戦略",
+      "ROI",
+      "KPI",
+      "マーケティング",
+      "売上"
+    ],
+    "個人": [
+      "感情",
+      "価値観",
+      "経験",
+      "学び",
+      "気づき"
+    ],
+    "学習": [
+      "勉強",
+      "理解",
+      "知識",
+      "スキル",
+      "成長"
+    ]
+  },
+  "notion_token": "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",
+  "notion_database_id": "1efd94d4-29bc-8012-b2a8-ec66bdce6916",
+  "monitor_interval": 300,
+  "quality_threshold": 0.9,
+  "max_noise_level": 0.3,
+  "setup_instructions": {
+    "step_1": "Notion APIトークンを取得",
+    "step_2": "SuperWhisper専用データベースを作成",
+    "step_3": "上記のトークンとデータベースIDを設定",
+    "step_4": "システム再起動"
+  },
+  "api_documentation": "https://developers.notion.com/docs/getting-started",
+  "database_properties": {
+    "Content": "rich_text",
+    "Created": "date",
+    "Quality": "number",
+    "Source": "select"
+  }
+}

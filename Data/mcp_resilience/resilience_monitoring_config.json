@@ -1,0 +1,23 @@
+{
+  "monitoring_interval_seconds": 30,
+  "health_check_timeout_seconds": 5,
+  "alert_thresholds": {
+    "response_time_ms": 2000,
+    "success_rate_percent": 95,
+    "consecutive_failures": 3
+  },
+  "recovery_strategies": {
+    "immediate_retry": {
+      "max_attempts": 3,
+      "delay_ms": 1000
+    },
+    "exponential_backoff": {
+      "base_delay_ms": 1000,
+      "max_delay_ms": 30000
+    },
+    "circuit_breaker": {
+      "failure_threshold": 5,
+      "recovery_timeout_ms": 60000
+    }
+  }
+}

@@ -3,7 +3,18 @@
     "allow": [
       "Bash(python3:*)",
       "Bash(rmdir:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(claude config list)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "mcp__ide__executeCode",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(npm install:*)",
+      "Bash(chmod:*)",
+      "Bash(python:*)",
+      "Bash(pip3 install:*)"
     ],
     "deny": []
   }

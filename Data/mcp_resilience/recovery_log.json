@@ -1,0 +1,56 @@
+{
+  "timestamp": "2025-06-07T20:31:06.794497",
+  "recovery_history": [
+    {
+      "timestamp": "2025-06-07T20:31:06.611301",
+      "action": "health_check",
+      "target_service": null,
+      "success": true,
+      "duration_ms": 0.1010894775390625,
+      "message": "Health check completed for all services",
+      "details": {
+        "timestamp": "2025-06-07T20:31:06.611295",
+        "monitoring_active": false,
+        "services": {
+          "task-master-ai": {
+            "status": "unhealthy",
+            "last_check": null
+          },
+          "filesystem": {
+            "status": "unhealthy",
+            "last_check": null
+          },
+          "notion": {
+            "status": "unhealthy",
+            "last_check": null
+          }
+        },
+        "overall_health": "unknown",
+        "metrics_count": 0,
+        "retry_count": 0
+      }
+    },
+    {
+      "timestamp": "2025-06-07T20:31:06.794476",
+      "action": "system_diagnostics",
+      "target_service": null,
+      "success": true,
+      "duration_ms": 182.9240322113037,
+      "message": "System diagnostics completed",
+      "details": {
+        "node_version": "v23.11.0",
+        "npm_version": "10.9.2",
+        "project_directory": {
+          "exists": true,
+          "readable": true,
+          "path": "/Users/suetakeshuuhei/MIRRALISM_V2"
+        },
+        "mcp_config": {
+          "exists": true,
+          "readable": true,
+          "path": "/Users/suetakeshuuhei/MIRRALISM_V2/.cursor/mcp.json"
+        }
+      }
+    }
+  ]
+}

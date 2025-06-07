@@ -1,0 +1,28 @@
+{
+  "evaluations": [
+    {
+      "evaluation_number": 1,
+      "timestamp": "2025-06-07T10:00:30.593464+00:00",
+      "suetake_feedback": "4点の評価",
+      "ai_self_score": 4,
+      "ai_reasoning": "会社の基本方針は理解できている",
+      "question": "黒澤工務店について教えて"
+    },
+    {
+      "evaluation_number": 2,
+      "timestamp": "2025-06-07T10:00:30.594264+00:00",
+      "suetake_feedback": "総務部長・祖父の影響・コーチングセッション既存情報など重要詳細で誤り。情報活用不足",
+      "ai_self_score": 3,
+      "ai_reasoning": "基本理解あるが重要な詳細情報で複数誤り。既存データ活用不足",
+      "question": "黒澤工務店について教えて"
+    },
+    {
+      "evaluation_number": 3,
+      "timestamp": "2025-06-07T10:03:29.573226+00:00",
+      "suetake_feedback": "OKです",
+      "ai_self_score": 4,
+      "ai_reasoning": "前回の誤りを修正し基本情報の正確性向上。簡潔で要点整理できた。ただし深い洞察や付加価値はまだ限定的",
+      "question": "黒澤工務店について教えて"
+    }
+  ]
+}

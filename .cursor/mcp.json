@@ -1,4 +1,8 @@
 {
+    "_security_notice": "MIRRALISM Secure Configuration - API keys must be loaded from environment",
+    "_warning": "Never put actual API keys in this file",
+    "_instruction": "Use 'npm run mcp:secure' to load with environment variables",
+    
     "mcpServers": {
         "task-master-ai": {
             "command": "node",
@@ -7,28 +11,25 @@
             ],
             "env": {
                 "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}",
-                "PERPLEXITY_API_KEY": "${PERPLEXITY_API_KEY}",
-                "OPENAI_API_KEY": "${OPENAI_API_KEY}",
-                "GOOGLE_API_KEY": "${GOOGLE_API_KEY}",
-                "XAI_API_KEY": "${XAI_API_KEY}",
-                "OPENROUTER_API_KEY": "${OPENROUTER_API_KEY}",
-                "MISTRAL_API_KEY": "${MISTRAL_API_KEY}",
-                "AZURE_OPENAI_API_KEY": "${AZURE_OPENAI_API_KEY}",
-                "OLLAMA_API_KEY": "${OLLAMA_API_KEY}"
+                "_comment": "API keys are loaded from .env.local at runtime"
             }
         },
-        "claude-code-mirralism": {
-            "command": "claude",
-            "args": ["mcp", "serve"],
-            "env": {
-                "CLAUDE_PROJECT_NAME": "MIRRALISM_V2",
-                "CLAUDE_PROJECT_ROOT": "/Users/suetakeshuuhei/MIRRALISM_V2"
-            }
+        
+        "filesystem": {
+            "command": "npx",
+            "args": [
+                "@modelcontextprotocol/server-filesystem",
+                "/Users/suetakeshuuhei/MIRRALISM_V2",
+                "/Users/suetakeshuuhei/Downloads",
+                "/Users/suetakeshuuhei/Desktop"
+            ]
         },
-        "mirralism-calculations": {
-            "command": "node",
-            "args": ["scripts/calculations/basic_math.js"],
-            "env": {}
+        
+        "notion": {
+            "command": "npx",
+            "args": [
+                "@notionhq/notion-mcp-server"
+            ]
         }
     }
 }
