@@ -1,0 +1,20 @@
+{
+  "scan_timestamp": "2025-06-07T20:02:24.959067+09:00",
+  "total_files_scanned": 6,
+  "total_dates_checked": 9,
+  "validation_summary": {
+    "valid_dates": 9,
+    "invalid_dates": 0,
+    "by_severity": {
+      "CRITICAL": 0,
+      "HIGH": 0,
+      "MEDIUM": 1,
+      "LOW": 0,
+      "NORMAL": 8,
+      "WARNING": 0
+    }
+  },
+  "critical_issues": [],
+  "high_priority_issues": [],
+  "recommendations": []
+}

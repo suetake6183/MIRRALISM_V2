@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-06-07T09:43:58.603548+00:00",
+    "precision_definitions": {
+      "client_understanding": {
+        "description": "クライアントの価値観・課題・ニーズの理解精度",
+        "measurement_method": "末武さんによる評価（1-5スケール）",
+        "target_accuracy": 0.95,
+        "minimum_samples": 30,
+        "evaluation_criteria": [
+          "価値観の正確な把握",
+          "課題の本質的理解",
+          "ニーズの具体化精度",
+          "提案適合度"
+        ]
+      },
+      "proposal_accuracy": {
+        "description": "提案内容がクライアント要求に適合する精度",
+        "measurement_method": "クライアント満足度 + 末武さん評価",
+        "target_accuracy": 0.95,
+        "minimum_samples": 20,
+        "evaluation_criteria": [
+          "要求仕様との適合度",
+          "価値提供の具体性",
+          "実現可能性",
+          "コストパフォーマンス"
+        ]
+      },
+      "behavior_prediction": {
+        "description": "クライアントの反応・行動予測精度",
+        "measurement_method": "予測vs実際の結果比較",
+        "target_accuracy": 0.95,
+        "minimum_samples": 50,
+        "evaluation_criteria": [
+          "意思決定パターン予測",
+          "反応タイミング予測",
+          "優先順位予測",
+          "懸念事項予測"
+        ]
+      }
+    }
+  },
+  "measurements": [
+    {
+      "measurement_id": "client_understanding_20250607_164038",
+      "timestamp": "2025-06-07T07:40:38.985624+00:00",
+      "precision_type": "client_understanding",
+      "measured_value": 0.87,
+      "sample_count": 25,
+      "evaluator": "suetake",
+      "confidence_interval": [
+        0.7381690537089262,
+        1.0
+      ],
+      "statistical_significance": false,
+      "measurement_context": {
+        "client": "黒澤工務店",
+        "measurement_date": "2025-06-10",
+        "notes": "初期測定テスト"
+      }
+    },
+    {
+      "measurement_id": "client_understanding_20250607_184325",
+      "timestamp": "2025-06-07T09:43:25.337097+00:00",
+      "precision_type": "client_understanding",
+      "measured_value": 0.87,
+      "sample_count": 25,
+      "evaluator": "suetake",
+      "confidence_interval": [
+        0.7381690537089262,
+        1.0
+      ],
+      "statistical_significance": false,
+      "measurement_context": {
+        "client": "黒澤工務店",
+        "measurement_date": "2025-06-10",
+        "notes": "初期測定テスト"
+      }
+    },
+    {
+      "measurement_id": "client_understanding_20250607_184358",
+      "timestamp": "2025-06-07T09:43:58.603403+00:00",
+      "precision_type": "client_understanding",
+      "measured_value": 0.87,
+      "sample_count": 25,
+      "evaluator": "suetake",
+      "confidence_interval": [
+        0.7381690537089262,
+        1.0
+      ],
+      "statistical_significance": false,
+      "measurement_context": {
+        "client": "黒澤工務店",
+        "measurement_date": "2025-06-10",
+        "notes": "初期測定テスト"
+      }
+    }
+  ]
+}

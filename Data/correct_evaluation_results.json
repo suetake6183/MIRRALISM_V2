@@ -1,0 +1,25 @@
+{
+  "evaluations": [
+    {
+      "evaluation_number": 1,
+      "timestamp": "2025-06-07T09:53:30.218268+00:00",
+      "score": 4,
+      "comment": null,
+      "question": "黒澤工務店について教えて"
+    },
+    {
+      "evaluation_number": 2,
+      "timestamp": "2025-06-07T09:59:09.278395+00:00",
+      "score": 3,
+      "comment": "基本理解あり。ただし総務部長・祖父の影響・コーチングセッション既存情報など重要詳細で誤り。情報活用不足",
+      "question": "黒澤工務店について教えて"
+    },
+    {
+      "evaluation_number": 3,
+      "timestamp": "2025-06-07T15:00:02.451369+00:00",
+      "score": 5,
+      "comment": "統合プロファイル・データセット完全活用。事実ベース多角的分析（経営哲学・組織・事業・個人特性）。PersonalityLearning深層理解による価値提供最適化。Session 4-5課題完全克服。",
+      "question": "黒澤工務店について教えて"
+    }
+  ]
+}
